@@ -59,11 +59,6 @@ cv2.waitKey(0)
 
 
 
-
-
-
-
-
 '''
 import numpy as np
 from matplotlib import pyplot as plt
