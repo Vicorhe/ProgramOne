@@ -20,12 +20,12 @@ def get_image_set():
 def plot_image_set(image_set):
     set_size = len(image_set)
     for i, (image, name) in enumerate(image_set):
-        rgb = cv.cvtColor(image, cv.COLOR_BGR2RGB)
+        rgb = cv.cvtColor(image, cv.COLOR_LAB2RGB)
 
         plt.subplot(set_size, 2, 2*i+1), plt.imshow(rgb)
         plt.title(name), plt.xticks([]), plt.yticks([])
 
-        plt.subplot(set_size, 2, 2*i+2), plot_lab_histogram(rgb)
+        plt.subplot(set_size, 2, 2*i+2), plot_lab_histogram(image)
         plt.title('hist_' + str(i + 1)), plt.xticks([]), plt.yticks([])
 
     plt.show()
