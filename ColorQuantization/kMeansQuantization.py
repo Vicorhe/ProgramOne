@@ -2,7 +2,6 @@ import numpy as np
 import scipy.misc
 from sklearn import cluster
 from sklearn.metrics import pairwise_distances_argmin
-from sklearn.utils import shuffle
 from skimage import color
 from matplotlib import pyplot as plt
 
@@ -24,20 +23,37 @@ def quantize(raster, n_colors):
     print("kmeans training done in %0.3fs." % (time() - t_1))
 
     t_2 = time()
-    labels = model.predict(reshaped_raster)
-    print("predict mapping done in %0.3fs." % (time() - t_2))
-
-    palette = model.cluster_centers_
+    model_m = cluster.MiniBatchKMeans(n_clusters=n_colors)
+    model_m.fit(reshaped_raster)
+    print("mini batch kmeans training done in %0.3fs." % (time() - t_2))
 
     t_3 = time()
+    labels = model.predict(reshaped_raster)
+    print("kmeans predict mapping done in %0.3fs." % (time() - t_3))
+
+    t_4 = time()
+    labels_m = model_m.predict(reshaped_raster)
+    print("mini batch kmeans predict mapping done in %0.3fs." % (time() - t_4))
+
+    palette = model.cluster_centers_
+    palette_m = model_m.cluster_centers_
+
+    t_5 = time()
     labels_ = pairwise_distances_argmin(reshaped_raster, palette)
-    print("pairwise mapping done in %0.3fs." % (time() - t_3))
+    print("pairwise kmeans mapping done in %0.3fs." % (time() - t_5))
+
+    t_6 = time()
+    labels_m_ = pairwise_distances_argmin(reshaped_raster, palette_m)
+    print("pairwise mini batch kmeans mapping done in %0.3fs." % (time() - t_6))
 
     print(all(labels_ == labels))
+    print(all(labels_m == labels_m_))
 
+    t_7 = time()
     quantized_raster = np.reshape(palette[labels], (width, height, palette.shape[1]))
-
-    print("done in %0.3fs." % (time() - t_1))
+    quantized_raster = np.reshape(palette_m[labels_m], (width, height, palette_m.shape[1]))
+    print("done in %0.3fs." % (time() - t_7))
+    
     return quantized_raster
 
 
