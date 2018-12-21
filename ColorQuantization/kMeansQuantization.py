@@ -53,7 +53,7 @@ def quantize(raster, n_colors):
     quantized_raster = np.reshape(palette[labels], (width, height, palette.shape[1]))
     quantized_raster = np.reshape(palette_m[labels_m], (width, height, palette_m.shape[1]))
     print("done in %0.3fs." % (time() - t_7))
-    
+
     return quantized_raster
 
 
