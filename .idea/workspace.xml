@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6a4730d4-e023-4f16-87e3-5e051ef2fb1b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ColorQuantization/kMeansQuantization.py" beforeDir="false" afterPath="$PROJECT_DIR$/ColorQuantization/kMeansQuantization.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -81,13 +81,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="33" />
-          <entry key="py" value="7511" />
+          <entry key="py" value="7520" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="33" />
-          <entry key="Python" value="7511" />
+          <entry key="Python" value="7520" />
         </counts>
       </usages-collector>
     </session>
@@ -109,19 +109,19 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ColorQuantization/kMeansQuantization.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="67">
-              <caret line="64" column="35" selection-start-line="64" selection-start-column="35" selection-end-line="64" selection-end-column="35" />
+            <state relative-caret-position="334">
+              <caret line="56" selection-start-line="56" selection-end-line="56" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
                 <element signature="e#924#996#0" />
                 <element signature="e#1022#1460#0" />
                 <element signature="e#1647#1823#0" />
                 <element signature="e#305#1771#0" />
-                <marker date="1545837348043" expanded="true" signature="948:1027" ph="..." />
-                <marker date="1545837348043" expanded="true" signature="1627:1805" ph="..." />
-                <marker date="1545837348043" expanded="true" signature="1831:1957" ph="..." />
-                <marker date="1545837348043" expanded="true" signature="3444:3480" ph="..." />
-                <marker date="1545837348043" expanded="true" signature="3444:3482" ph="..." />
+                <marker date="1545837740289" expanded="true" signature="948:1027" ph="..." />
+                <marker date="1545837740289" expanded="true" signature="1627:1805" ph="..." />
+                <marker date="1545837740289" expanded="true" signature="1836:1958" ph="..." />
+                <marker date="1545837740289" expanded="true" signature="3445:3481" ph="..." />
+                <marker date="1545837740289" expanded="true" signature="3445:3483" ph="..." />
               </folding>
             </state>
           </provider>
@@ -217,6 +217,12 @@
               <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
               <item name="ColorQuantization" type="462c0819:PsiDirectoryNode" />
               <item name="ColorSpaceComparisons" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
+              <item name="ColorQuantization" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
@@ -562,19 +568,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ColorQuantization/kMeansQuantization.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="64" column="35" selection-start-line="64" selection-start-column="35" selection-end-line="64" selection-end-column="35" />
+        <state relative-caret-position="334">
+          <caret line="56" selection-start-line="56" selection-end-line="56" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
             <element signature="e#924#996#0" />
             <element signature="e#1022#1460#0" />
             <element signature="e#1647#1823#0" />
             <element signature="e#305#1771#0" />
-            <marker date="1545837348043" expanded="true" signature="948:1027" ph="..." />
-            <marker date="1545837348043" expanded="true" signature="1627:1805" ph="..." />
-            <marker date="1545837348043" expanded="true" signature="1831:1957" ph="..." />
-            <marker date="1545837348043" expanded="true" signature="3444:3480" ph="..." />
-            <marker date="1545837348043" expanded="true" signature="3444:3482" ph="..." />
+            <marker date="1545837740289" expanded="true" signature="948:1027" ph="..." />
+            <marker date="1545837740289" expanded="true" signature="1627:1805" ph="..." />
+            <marker date="1545837740289" expanded="true" signature="1836:1958" ph="..." />
+            <marker date="1545837740289" expanded="true" signature="3445:3481" ph="..." />
+            <marker date="1545837740289" expanded="true" signature="3445:3483" ph="..." />
           </folding>
         </state>
       </provider>
