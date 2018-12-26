@@ -9,13 +9,16 @@ from matplotlib import pyplot as plt
 from sklearn.externals import joblib
 from time import time
 import os.path
+import cv2 as cv
+
 
 ap = argparse.ArgumentParser()
 ap.add_argument('-set', required=True, help='set of images being evaluated')
-ap.add_argument('-num', required=True, help="size of color palette")
+ap.add_argument('-num', required=True, type=int, help="size of color palette")
 ap.add_argument('--mini-batch', dest='use_mini_batch', action='store_true', help='use mini batch kmeans')
 ap.add_argument('--train', dest='train_new_model', action='store_true', help='train a new a model')
 args = vars(ap.parse_args())
+
 
 model_pkg_name = 'models/%s_%s_%s_model.pkl' % \
                  (args['set'], args['num'], 'mini_batch' if args['use_mini_batch'] else 'kmeans')
@@ -28,18 +31,25 @@ def model_does_not_exists(model_path):
 def train_model():
     training_image_name = '/Users/victorhe/Pictures/colorQuantization/%s/%s_training_image.jpeg' % (
         args['set'], args['set'])
-    print(training_image_name)
+
+    print('training with image: %s' % training_image_name)
 
     raster = scipy.misc.imread(training_image_name)
-
     lab_raster = color.rgb2lab(raster)
+    w, h, d = lab_raster.shape
+    reshaped_raster = np.reshape(lab_raster, (w * h, d))
 
-    if args['use_mini_batch']:
-        model = MiniBatchKMeans(n_clusters=args['num'])
-    else:
-        model = KMeans(n_clusters=args['num'])
+    model = MiniBatchKMeans(n_clusters=args['num']) \
+        if args['use_mini_batch'] else KMeans(n_clusters=args['num'])
+
+    model.fit(reshaped_raster)
 
     return model
+
+
+def get_evaluation_set():
+    image_set = glob('/Users/victorhe/Pictures/colorQuantization/%s/*.jpeg' % args['set'])
+    return sorted(list(filter(lambda x: x.find('training_image') == -1, image_set)))
 
 
 # get model
@@ -48,8 +58,21 @@ if args['train_new_model'] or model_does_not_exists(model_pkg_name):
 else:
     model = joblib.load(model_pkg_name)
 
-#evaluate model on image set
-#dump model
+image_set = get_evaluation_set()
+
+for img in image_set:
+    raster = scipy.misc.imread(img)
+    lab_raster = color.rgb2lab(raster)
+    w, h, d = lab_raster.shape
+    reshaped_raster = np.reshape(lab_raster, (w * h, d))
+    labels = model.predict(reshaped_raster)
+    print(labels)
+    
+
+
+# evaluate model on image set
+# dump model
+
 
 
 def quantize(raster, n_colors):
