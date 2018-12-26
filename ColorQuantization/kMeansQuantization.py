@@ -32,7 +32,7 @@ def train_model():
     training_image_name = '/Users/victorhe/Pictures/colorQuantization/%s/%s_training_image.jpeg' % (
         args['set'], args['set'])
 
-    print('training with image: %s' % training_image_name)
+    #  print('training with image: %s' % training_image_name)
 
     raster = scipy.misc.imread(training_image_name)
     lab_raster = color.rgb2lab(raster)
@@ -52,6 +52,12 @@ def get_evaluation_set():
     return sorted(list(filter(lambda x: x.find('training_image') == -1, image_set)))
 
 
+def plot_histogram(labels):
+    hist = cv.calcHist([labels], [0], None, [100], [0, 100])
+    plt.plot(hist)
+    plt.xlim([0, 100])
+
+
 # get model
 if args['train_new_model'] or model_does_not_exists(model_pkg_name):
     model = train_model()
@@ -59,24 +65,37 @@ else:
     model = joblib.load(model_pkg_name)
 
 image_set = get_evaluation_set()
+set_size = len(image_set)
 
-for img in image_set:
-    raster = scipy.misc.imread(img)
+for i, img_path in enumerate(image_set):
+    raster = scipy.misc.imread(img_path)
+
+    img = img_path.split('/')[-1]
+
     #  cv.imshow(img, cv.cvtColor(raster, cv.COLOR_RGB2BGR))
+
     lab_raster = color.rgb2lab(raster)
     w, h, d = lab_raster.shape
     reshaped_raster = np.reshape(lab_raster, (w * h, d))
     labels = model.predict(reshaped_raster)
 
-    #  palette = model.cluster_centers_
-    #  quantized_raster = np.reshape(palette[labels], (w, h, palette.shape[1]))
-    #  q_rgb = (color.lab2rgb(quantized_raster) * 255).astype('uint8')
-    #  cv.imshow('QQQ' + img, cv.cvtColor(q_rgb, cv.COLOR_RGB2BGR))
+    palette = model.cluster_centers_
+    quantized_raster = np.reshape(palette[labels], (w, h, palette.shape[1]))
+    quantized_rgb = (color.lab2rgb(quantized_raster) * 255).astype('uint8')
 
+    #  cv.imshow('quantized_' + img, cv.cvtColor(quantized_rgb, cv.COLOR_RGB2BGR))
+    reshaped_labels = np.reshape(labels, (w, h, 1))
+
+    plt.subplot(set_size, 2, 2*i+1), plt.imshow(quantized_rgb)
+    plt.title('quantized_' + img), plt.xticks([]), plt.yticks([])
+
+    plt.subplot(set_size, 2, 2*i+2), plot_histogram(reshaped_labels)
+    plt.title('hist_' + img), plt.xticks([]), plt.yticks([])
 
 
 # evaluate model on image set
 # dump model
+plt.show()
 
 
 
