@@ -52,8 +52,8 @@ def get_evaluation_set():
     return sorted(list(filter(lambda x: x.find('training_image') == -1, image_set)))
 
 
-def plot_histogram(labels):
-    hist = cv.calcHist([labels], [0], None, [100], [0, 100])
+def plot_histogram(img):
+    hist = cv.calcHist([img], [0], None, [100], [0, 100])
     plt.plot(hist)
     plt.xlim([0, 100])
 
@@ -80,11 +80,12 @@ for i, img_path in enumerate(image_set):
     labels = model.predict(reshaped_raster)
 
     palette = model.cluster_centers_
+
     quantized_raster = np.reshape(palette[labels], (w, h, palette.shape[1]))
     quantized_rgb = (color.lab2rgb(quantized_raster) * 255).astype('uint8')
 
     #  cv.imshow('quantized_' + img, cv.cvtColor(quantized_rgb, cv.COLOR_RGB2BGR))
-    reshaped_labels = np.reshape(labels, (w, h, 1))
+    reshaped_labels = np.reshape(labels, (w, h)).astype('uint8')
 
     plt.subplot(set_size, 2, 2*i+1), plt.imshow(quantized_rgb)
     plt.title('quantized_' + img), plt.xticks([]), plt.yticks([])
