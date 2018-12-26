@@ -62,12 +62,17 @@ image_set = get_evaluation_set()
 
 for img in image_set:
     raster = scipy.misc.imread(img)
+    #  cv.imshow(img, cv.cvtColor(raster, cv.COLOR_RGB2BGR))
     lab_raster = color.rgb2lab(raster)
     w, h, d = lab_raster.shape
     reshaped_raster = np.reshape(lab_raster, (w * h, d))
     labels = model.predict(reshaped_raster)
-    print(labels)
-    
+
+    #  palette = model.cluster_centers_
+    #  quantized_raster = np.reshape(palette[labels], (w, h, palette.shape[1]))
+    #  q_rgb = (color.lab2rgb(quantized_raster) * 255).astype('uint8')
+    #  cv.imshow('QQQ' + img, cv.cvtColor(q_rgb, cv.COLOR_RGB2BGR))
+
 
 
 # evaluate model on image set
@@ -131,3 +136,5 @@ def quantize(raster, n_colors):
 #plt.imshow(q_lab_as_rgb)
 #plt.draw()
 #plt.show()
+cv.waitKey(0)
+cv.destroyAllWindows()
