@@ -15,6 +15,6 @@ for path in sorted(glob('/Users/victorhe/Pictures/colorQuantization/%s/*.jpeg' %
 
 result_image = np.concatenate(image_set)
 
-filename = '/Users/victorhe/Pictures/colorQuantization/%s/%s_color_space.jpeg' % (args['set'], args['set'])
+filename = '/Users/victorhe/Pictures/colorQuantization/%s/%s_training_image.jpeg' % (args['set'], args['set'])
 
 cv.imwrite(filename, result_image)
