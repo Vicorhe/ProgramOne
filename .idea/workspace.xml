@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6a4730d4-e023-4f16-87e3-5e051ef2fb1b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utilities/concatenation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Utilities/concatenation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ColorQuantization/kMeansQuantization.py" beforeDir="false" afterPath="$PROJECT_DIR$/ColorQuantization/kMeansQuantization.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,53 +54,74 @@
     <session id="599159679">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="18" />
+          <entry key="project.closed" value="20" />
           <entry key="project.open.time.0" value="3" />
-          <entry key="project.open.time.1" value="2" />
+          <entry key="project.open.time.1" value="3" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.open.time.5" value="4" />
+          <entry key="project.open.time.5" value="5" />
           <entry key="project.open.time.6" value="4" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="19" />
+          <entry key="project.opened" value="21" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="28" />
+          <entry key="py" value="44" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="28" />
+          <entry key="Python" value="44" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="21" />
-          <entry key="py" value="3460" />
+          <entry key="dummy" value="33" />
+          <entry key="py" value="7511" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="21" />
-          <entry key="Python" value="3460" />
+          <entry key="PLAIN_TEXT" value="33" />
+          <entry key="Python" value="7511" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Utilities/concatenation.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ColorQuantization/TMPLoadingKmeansModels.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+            <state relative-caret-position="167">
+              <caret line="24" column="21" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ColorQuantization/kMeansQuantization.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="67">
+              <caret line="64" column="35" selection-start-line="64" selection-start-column="35" selection-end-line="64" selection-end-column="35" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
+                <element signature="e#924#996#0" />
+                <element signature="e#1022#1460#0" />
+                <element signature="e#1647#1823#0" />
+                <element signature="e#305#1771#0" />
+                <marker date="1545837348043" expanded="true" signature="948:1027" ph="..." />
+                <marker date="1545837348043" expanded="true" signature="1627:1805" ph="..." />
+                <marker date="1545837348043" expanded="true" signature="1831:1957" ph="..." />
+                <marker date="1545837348043" expanded="true" signature="3444:3480" ph="..." />
+                <marker date="1545837348043" expanded="true" signature="3444:3482" ph="..." />
               </folding>
             </state>
           </provider>
@@ -157,15 +178,18 @@
         <option value="$PROJECT_DIR$/ColorQuantization/ycrcbHistogram.py" />
         <option value="$PROJECT_DIR$/ColorQuantization/randomPalleteQuantization.py" />
         <option value="$PROJECT_DIR$/ColorQuantization/randomPaletteQuantization.py" />
-        <option value="$PROJECT_DIR$/ColorQuantization/kMeansQuantization.py" />
         <option value="$PROJECT_DIR$/ColorQuantization/rgbKMeansQuantization.py" />
         <option value="$PROJECT_DIR$/utils/utils.py" />
+        <option value="$PROJECT_DIR$/ColorQuantization/kMeansQuantizatio.py" />
+        <option value="$PROJECT_DIR$/ColorQuantization/TMPLoadingKmeansModels.py" />
         <option value="$PROJECT_DIR$/Utilities/concatenation.py" />
+        <option value="$PROJECT_DIR$/ColorQuantization/ColorSpaceComparisons/grayscaleHistogram.py" />
+        <option value="$PROJECT_DIR$/ColorQuantization/kMeansQuantization.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1280" />
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+    <option name="width" value="634" />
     <option name="height" value="800" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -176,7 +200,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -191,12 +214,24 @@
             </path>
             <path>
               <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
+              <item name="ColorQuantization" type="462c0819:PsiDirectoryNode" />
+              <item name="ColorSpaceComparisons" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
+              <item name="Utilities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -205,11 +240,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ColorQuantization/ColorSpaceComparisons" />
       <recent name="$PROJECT_DIR$/Experimental/Compression" />
       <recent name="$PROJECT_DIR$/Experimental" />
       <recent name="$PROJECT_DIR$/FeatureExtraction" />
       <recent name="$PROJECT_DIR$/Experimental/BackgroundSubtraction" />
-      <recent name="$PROJECT_DIR$/Experimental/Tracking" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -224,8 +259,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.rgbKMeansQuantization">
-    <configuration name="grayscaleHistogram" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.grayscaleHistogram">
+    <configuration name="TMPLoadingKmeansModels" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ProgramOne" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -237,28 +272,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ColorQuantization/grayscaleHistogram.py" />
-      <option name="PARAMETERS" value="-s set_1" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="hsvHistogram" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="ProgramOne" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ColorQuantization" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ColorQuantization/hsvHistogram.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ColorQuantization/TMPLoadingKmeansModels.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -267,7 +281,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="kMeansQuantization" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="grayscaleHistogram" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ProgramOne" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ColorQuantization/ColorSpaceComparisons" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ColorQuantization/ColorSpaceComparisons/grayscaleHistogram.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="kMeansQuantization (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ProgramOne" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -288,7 +323,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="randomPaletteQuantization" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="kMeansQuantization" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ProgramOne" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -300,7 +335,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ColorQuantization/randomPaletteQuantization.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ColorQuantization/kMeansQuantizationComparison.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -331,19 +366,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.grayscaleHistogram" />
-      <item itemvalue="Python.hsvHistogram" />
       <item itemvalue="Python.rgbKMeansQuantization" />
-      <item itemvalue="Python.randomPaletteQuantization" />
       <item itemvalue="Python.kMeansQuantization" />
+      <item itemvalue="Python.TMPLoadingKmeansModels" />
+      <item itemvalue="Python.kMeansQuantization (1)" />
+      <item itemvalue="Python.grayscaleHistogram" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.grayscaleHistogram" />
+        <item itemvalue="Python.kMeansQuantization (1)" />
+        <item itemvalue="Python.TMPLoadingKmeansModels" />
         <item itemvalue="Python.rgbKMeansQuantization" />
         <item itemvalue="Python.kMeansQuantization" />
-        <item itemvalue="Python.randomPaletteQuantization" />
-        <item itemvalue="Python.hsvHistogram" />
-        <item itemvalue="Python.grayscaleHistogram" />
       </list>
     </recent_temporary>
   </component>
@@ -361,7 +396,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18745036" />
@@ -376,7 +411,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32876712" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50119144" side_tool="true" visible="true" weight="0.28767124" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50119144" side_tool="true" weight="0.28767124" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32876712" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -412,7 +447,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ColorQuantization/colorFeaturesHSVQuantization.py" />
-    <entry file="file://$PROJECT_DIR$/ColorQuantization/hsvUniformQuantization.py">
+    <entry file="file://$PROJECT_DIR$/ColorQuantization/uniformQuantization.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-121" />
       </provider>
@@ -441,45 +476,24 @@
         <state relative-caret-position="-217" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ColorQuantization/grayscaleHistogram.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ColorQuantization/rgbHistogram.py">
+    <entry file="file://$PROJECT_DIR$/ColorQuantization/ColorSpaceComparisons/rgbHistogram.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="13" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ColorQuantization/labHistogram.py">
+    <entry file="file://$PROJECT_DIR$/ColorQuantization/ColorSpaceComparisons/labHistogram.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="27" lean-forward="true" selection-end-line="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ColorQuantization/ycrcbHistogram.py">
+    <entry file="file://$PROJECT_DIR$/ColorQuantization/ColorSpaceComparisons/ycrcbHistogram.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="265">
           <caret line="20" column="29" lean-forward="true" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ColorQuantization/randomPaletteQuantization.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="18" column="33" selection-start-line="18" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ColorQuantization/kMeansQuantization.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
         </state>
       </provider>
     </entry>
@@ -492,19 +506,75 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/utils/__init__.py" />
     <entry file="file://$PROJECT_DIR$/utils/utils.py" />
-    <entry file="file://$PROJECT_DIR$/ColorQuantization/hsvHistogram.py">
+    <entry file="file://$PROJECT_DIR$/ColorQuantization/kMeansQuantizationComparison.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-157">
-          <caret line="6" selection-start-line="6" selection-end-line="16" selection-end-column="20" />
+        <state relative-caret-position="387">
+          <caret line="26" column="32" lean-forward="true" selection-end-line="71" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ColorQuantization/randomPaletteQuantization.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="18" column="33" selection-start-line="18" selection-end-line="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Utilities/concatenation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="255">
+          <caret line="17" column="80" lean-forward="true" selection-start-line="17" selection-start-column="58" selection-end-line="17" selection-end-column="80" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ColorQuantization/ColorSpaceComparisons/hsvHistogram.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="12" column="95" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="95" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ColorQuantization/ColorSpaceComparisons/grayscaleHistogram.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="19" column="49" lean-forward="true" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ColorQuantization/TMPLoadingKmeansModels.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="24" column="21" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ColorQuantization/kMeansQuantization.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67">
+          <caret line="64" column="35" selection-start-line="64" selection-start-column="35" selection-end-line="64" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#924#996#0" />
+            <element signature="e#1022#1460#0" />
+            <element signature="e#1647#1823#0" />
+            <element signature="e#305#1771#0" />
+            <marker date="1545837348043" expanded="true" signature="948:1027" ph="..." />
+            <marker date="1545837348043" expanded="true" signature="1627:1805" ph="..." />
+            <marker date="1545837348043" expanded="true" signature="1831:1957" ph="..." />
+            <marker date="1545837348043" expanded="true" signature="3444:3480" ph="..." />
+            <marker date="1545837348043" expanded="true" signature="3444:3482" ph="..." />
           </folding>
         </state>
       </provider>

@@ -53,15 +53,16 @@ def get_evaluation_set():
 
 
 def plot_histogram(img):
-    hist = cv.calcHist([img], [0], None, [100], [0, 100])
+    hist = cv.calcHist([img], [0], None, [args['num']], [0, args['num']])
     plt.plot(hist)
-    plt.xlim([0, 100])
+    plt.xlim([0, args['num']])
 
 
 # get model
 if args['train_new_model'] or model_does_not_exists(model_pkg_name):
     model = train_model()
 else:
+    print('model was loaded instead')
     model = joblib.load(model_pkg_name)
 
 image_set = get_evaluation_set()
@@ -93,11 +94,16 @@ for i, img_path in enumerate(image_set):
     plt.subplot(set_size, 2, 2*i+2), plot_histogram(reshaped_labels)
     plt.title('hist_' + img), plt.xticks([]), plt.yticks([])
 
+    #   hist = cv.calcHist([reshaped_labels], [0], None, [args['num']], [0, args['num']])
+    #   plt.plot(hist, label=img)
 
-# evaluate model on image set
-# dump model
+
+#   plt.xlim([0, args['num']])
+#   plt.legend(bbox_to_anchor=(0., 1.02, 1., .202), loc=3, ncol=2, mode="expand", borderaxespad=0.)
 plt.show()
 
+# dump model
+joblib.dump(model, model_pkg_name)
 
 
 def quantize(raster, n_colors):
