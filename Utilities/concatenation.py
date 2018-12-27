@@ -9,9 +9,11 @@ ap.add_argument('-s', '--set', required=True, help='set of images being evaluate
 args = vars(ap.parse_args())
 image_set = list()
 
-for path in sorted(glob('/Users/victorhe/Pictures/colorQuantization/%s/*.jpeg' % args['set'])):
+for path in sorted(glob('/Users/victorhe/Pictures/colorQuantization/%s/*_.jpeg' % args['set'])):
     img = cv.imread(path)
     image_set.append(img)
+
+print('concatenating %d images' % len(image_set))
 
 result_image = np.concatenate(image_set)
 
