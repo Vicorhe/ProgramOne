@@ -10,7 +10,7 @@ def get_image_set():
     args = vars(ap.parse_args())
     set_param = args['set']
     image_set = list()
-    for path in sorted(glob('/Users/victorhe/Pictures/colorQuantization/%s/*.jpeg' % set_param)):
+    for path in sorted(glob('/Users/victorhe/Pictures/colorQuantization/%s/*' % set_param)):
         img = cv.imread(path)
         hsv = cv.cvtColor(img, cv.COLOR_BGR2HSV)
         image_set.append((hsv, path.split('/')[-1]))
@@ -32,10 +32,10 @@ def plot_image_set(image_set):
 def plot_hsv_histogram(image):
     hist_hue = cv.calcHist([image], [0], None, [180], [0, 180])
     hist_saturation = cv.calcHist([image], [1], None, [256], [0, 256])
-    hist_hue_value = cv.calcHist([image], [2], None, [256], [0, 256])
+    hist_value = cv.calcHist([image], [2], None, [256], [0, 256])
     plt.plot(hist_hue, color='y')
     plt.plot(hist_saturation, color='b')
-    plt.plot(hist_hue_value, color='g')
+    plt.plot(hist_value, color='g')
     plt.xlim([0, 256])
 
 
