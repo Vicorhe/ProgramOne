@@ -36,7 +36,7 @@ def get_lab_raster(image_path):
 
 
 def train_model():
-    training_image_path = '/Users/victorhe/Pictures/colorQuantization/%s/%s_training_image.jpeg' % (
+    training_image_path = '/Users/victorhe/Pictures/colorQuantization/%s/%s_training_image.BMP' % (
         args['set'], args['set'])
 
     reshaped_raster, _, _, _ = get_lab_raster(training_image_path)
@@ -54,7 +54,7 @@ def get_file_name_from_path(file_path):
 
 
 def get_evaluation_set():
-    image_set = glob('/Users/victorhe/Pictures/colorQuantization/%s/*.jpeg' % args['set'])
+    image_set = glob('/Users/victorhe/Pictures/colorQuantization/%s/*.BMP' % args['set'])
     return sorted(list(filter(lambda x: x.find('training_image') == -1, image_set)))
 
 
