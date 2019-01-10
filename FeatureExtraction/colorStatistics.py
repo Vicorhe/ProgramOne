@@ -1,23 +1,21 @@
 import argparse
 from glob import glob
 import cv2 as cv
-from matplotlib import pyplot as plt
+import numpy as np
 
-options = {'rgb': (cv.COLOR_BGR2RGB, ('red', 'green', 'blue')),
-           'hsv': (cv.COLOR_BGR2HSV, ('hue', 'saturation', 'value')),
-           'lab': (cv.COLOR_BGR2LAB, ('luminance', 'a component', 'b component')),
-           'ycrcb': (cv.COLOR_BGR2YCR_CB, ('y component', 'Cr', 'Cb')),
-           'gray': (cv.COLOR_BGR2GRAY, ('value'))}
+options = {'rgb': (cv.COLOR_BGR2RGB, ('R', 'G', 'B')),
+           'hsv': (cv.COLOR_BGR2HSV, ('H', 'S', 'V')),
+           'lab': (cv.COLOR_BGR2LAB, ('L', 'A', 'B')),
+           'ycrcb': (cv.COLOR_BGR2YCR_CB, ('Y', 'Cr', 'Cb')),
+           'gray': (cv.COLOR_BGR2GRAY, ('V'))}
 
 ap = argparse.ArgumentParser()
-ap.add_argument('-o', '--option', required=True, help='color space option to evaluate, choices: rgb, hsv, lab, ycrcb, gray')
+ap.add_argument('-o', '--option', required=True, help='color space option to evaluate', choices=['rgb', 'hsv', 'lab', 'ycrcb', 'gray'])
 ap.add_argument('-s', '--set', required=True, help='set of images being evaluated')
 args = vars(ap.parse_args())
 
 set_param = args['set']
-color_space, dimensions = options[args['option']]
-
-print(color_space)
+color_space, channels = options[args['option']]
 
 image_set = list()
 
@@ -27,14 +25,18 @@ for path in sorted(glob('/Users/victorhe/Pictures/colorQuantization/%s/*' % set_
     image = cv.cvtColor(cv.imread(path), color_space)
     image_set.append((image, image_label))
 
-print(image_set)
 
-#def get_statistics(hist):
-#    return
+def get_statistics(image):
+    stats = list()
+    for i, channel in enumerate(channels):
+        current_channel = image[:, :, i]
+        stats.append('%s mean: %f' % (channel, np.mean(current_channel)))
+        stats.append('%s vari: %f' % (channel, np.var(current_channel)))
 
-def plot_histogram(image):
-    hist = cv.calcHist([image], [0], None, [256], [0, 256])
-    plt.plot(hist)
-    plt.xlim([0, 256])
+    return stats
+
+
+for image, label in image_set:
+    print(label, *get_statistics(image))
 
 
