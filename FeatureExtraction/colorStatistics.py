@@ -2,9 +2,7 @@ import argparse
 from glob import glob
 import cv2 as cv
 import numpy as np
-from matplotlib.colors import ListedColormap
 from sklearn import svm
-from matplotlib import pyplot as plt
 
 options = {'rgb': (cv.COLOR_BGR2RGB, ('R', 'G', 'B')),
            'hsv': (cv.COLOR_BGR2HSV, ('H', 'S', 'V')),
@@ -32,30 +30,33 @@ def get_statistics(image):
     stats = list()
     for i, channel in enumerate(channels):
         current_channel = image[:, :, i]
+
+        print('%s mean: %f' % (channel, np.mean(current_channel)), end=' ')
+        print('%s vari: %f' % (channel, np.var(current_channel)), end=' ')
+
         stats.append(np.mean(current_channel))
         stats.append(np.var(current_channel))
+    print()
     return np.array(stats)
 
 
 print('Feature Set: means and variance of the separate %s channels' % args['option'].upper())
 
-
 X = np.vstack([get_statistics(img) for img, _ in image_set])
-
-y = np.array([0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1])
+y = np.array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
 
 
 def SVM_SVC(X, y, c):
     for k in ['linear', 'poly','rbf', 'sigmoid']:
-        clf = svm.SVC(kernel=k, C=c)
+        clf = svm.SVC(kernel=k, C=c, gamma='scale')
         clf.fit(X, y)
-        print(clf.predict(X))
-        # print(clf.score(X, y))
+        # print(clf.predict(X))
+        print(clf.score(X, y))
     return
 
 
-for c in [0.1, 1, 10]:
-    SVM_SVC(X, y, c)
+#for c in [0.1, 1, 10]:
+    #SVM_SVC(X, y, c)
 
 
 
