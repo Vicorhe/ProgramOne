@@ -3,12 +3,19 @@ from glob import glob
 import cv2 as cv
 import numpy as np
 from sklearn import svm
+from Utilities.utils import unison_shuffled_copies
+
 from sklearn.model_selection import train_test_split
+
+
+training_set_path = '/Users/victorhe/Pictures/colorQuantization/%s/*.BMP'
+testing_set_path = '/Users/victorhe/Pictures/colorQuantization/%s/test/*.BMP'
 
 options = {'rgb': (cv.COLOR_BGR2RGB, ('R', 'G', 'B')),
            'hsv': (cv.COLOR_BGR2HSV, ('H', 'S', 'V')),
            'lab': (cv.COLOR_BGR2LAB, ('L', 'A', 'B')),
            'ycrcb': (cv.COLOR_BGR2YCR_CB, ('Y', 'Cr', 'Cb'))}
+
 
 ap = argparse.ArgumentParser()
 ap.add_argument('-o', '--option', required=True, help='color space option to evaluate', choices=['rgb', 'hsv', 'lab', 'ycrcb'])
@@ -18,20 +25,21 @@ args = vars(ap.parse_args())
 set_param = args['set']
 color_space, channels = options[args['option']]
 
+
 training_set = list()
 testing_set = list()
 
-# get all color space converted images and their corresponding labels
-for path in sorted(glob('/Users/victorhe/Pictures/colorQuantization/%s/*.BMP' % set_param)):
+# get all color converted training images
+for path in sorted(glob(training_set_path % set_param)):
     image_label = path.split('/')[-1].split('.')[0]
-    image = cv.cvtColor(cv.imread(path), color_space)
-    training_set.append((image, image_label))
+    converted_image = cv.cvtColor(cv.imread(path), color_space)
+    training_set.append((converted_image, image_label))
 
-# get all color space converted images and their corresponding labels
-for path in sorted(glob('/Users/victorhe/Pictures/colorQuantization/%s/test/*.BMP' % set_param)):
+# get all color converted testing images
+for path in sorted(glob(testing_set_path % set_param)):
     image_label = path.split('/')[-1].split('.')[0]
-    image = cv.cvtColor(cv.imread(path), color_space)
-    testing_set.append((image, image_label))
+    converted_image = cv.cvtColor(cv.imread(path), color_space)
+    testing_set.append((converted_image, image_label))
 
 
 def get_statistics(image):
@@ -47,8 +55,6 @@ def get_statistics(image):
     # print()
     return np.array(stats)
 
-
-print('Feature Set: means and variance of the separate %s channels' % args['option'].upper())
 
 X_train = np.vstack([get_statistics(img) for img, _ in training_set])
 
@@ -73,11 +79,6 @@ y_test = np.array(y_test)
 print(*X_train)
 print(*y_train)
 
-def unison_shuffled_copies(a, b):
-    assert len(a) == len(b)
-    p = np.random.permutation(len(a))
-    return a[p], b[p]
-
 X_train, y_train = unison_shuffled_copies(X_train, y_train)
 
 print(*X_train)
@@ -85,8 +86,9 @@ print(*y_train)
 
 # X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=0.8, test_size=0.2, random_state=5, shuffle=True, stratify=y)
 
+
 def SVM_SVC(X, y, c):
-    for k in ['linear', 'poly','rbf', 'sigmoid']:
+    for k in ['linear', 'poly', 'rbf', 'sigmoid']:
         clf = svm.SVC(kernel=k, C=c, gamma='scale')
         clf.fit(X_train, y_train)
         print('training set score:', clf.score(X_train, y_train))
