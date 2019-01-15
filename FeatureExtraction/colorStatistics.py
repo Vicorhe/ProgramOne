@@ -3,10 +3,6 @@ from glob import glob
 import cv2 as cv
 import numpy as np
 from sklearn import svm
-from Utilities.utils import unison_shuffled_copies
-
-from sklearn.model_selection import train_test_split
-
 
 training_set_path = '/Users/victorhe/Pictures/colorQuantization/%s/*.BMP'
 testing_set_path = '/Users/victorhe/Pictures/colorQuantization/%s/test/*.BMP'
@@ -79,6 +75,13 @@ y_test = np.array(y_test)
 print(*X_train)
 print(*y_train)
 
+
+def unison_shuffled_copies(a, b):
+    assert len(a) == len(b)
+    p = np.random.permutation(len(a))
+    return a[p], b[p]
+
+
 X_train, y_train = unison_shuffled_copies(X_train, y_train)
 
 print(*X_train)
@@ -87,8 +90,9 @@ print(*y_train)
 # X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=0.8, test_size=0.2, random_state=5, shuffle=True, stratify=y)
 
 
-def SVM_SVC(X, y, c):
+def SVM_SVC(c):
     for k in ['linear', 'poly', 'rbf', 'sigmoid']:
+        print('params', k, c)
         clf = svm.SVC(kernel=k, C=c, gamma='scale')
         clf.fit(X_train, y_train)
         print('training set score:', clf.score(X_train, y_train))
@@ -98,7 +102,7 @@ def SVM_SVC(X, y, c):
 
 
 for c in [0.1, 1, 10]:
-    SVM_SVC(X_test, y_test, c)
+    SVM_SVC(c)
 
 
 
