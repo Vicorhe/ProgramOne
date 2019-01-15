@@ -3,6 +3,7 @@ from glob import glob
 import cv2 as cv
 import numpy as np
 from sklearn import svm
+from sklearn.model_selection import train_test_split
 
 options = {'rgb': (cv.COLOR_BGR2RGB, ('R', 'G', 'B')),
            'hsv': (cv.COLOR_BGR2HSV, ('H', 'S', 'V')),
@@ -17,13 +18,20 @@ args = vars(ap.parse_args())
 set_param = args['set']
 color_space, channels = options[args['option']]
 
-image_set = list()
+training_set = list()
+testing_set = list()
 
 # get all color space converted images and their corresponding labels
-for path in sorted(glob('/Users/victorhe/Pictures/colorQuantization/%s/*' % set_param)):
+for path in sorted(glob('/Users/victorhe/Pictures/colorQuantization/%s/*.BMP' % set_param)):
     image_label = path.split('/')[-1].split('.')[0]
     image = cv.cvtColor(cv.imread(path), color_space)
-    image_set.append((image, image_label))
+    training_set.append((image, image_label))
+
+# get all color space converted images and their corresponding labels
+for path in sorted(glob('/Users/victorhe/Pictures/colorQuantization/%s/test/*.BMP' % set_param)):
+    image_label = path.split('/')[-1].split('.')[0]
+    image = cv.cvtColor(cv.imread(path), color_space)
+    testing_set.append((image, image_label))
 
 
 def get_statistics(image):
@@ -31,32 +39,64 @@ def get_statistics(image):
     for i, channel in enumerate(channels):
         current_channel = image[:, :, i]
 
-        print('%s mean: %f' % (channel, np.mean(current_channel)), end=' ')
-        print('%s vari: %f' % (channel, np.var(current_channel)), end=' ')
+        # print('%s mean: %f' % (channel, np.mean(current_channel)), end=' ')
+        # print('%s vari: %f' % (channel, np.var(current_channel)), end=' ')
 
         stats.append(np.mean(current_channel))
         stats.append(np.var(current_channel))
-    print()
+    # print()
     return np.array(stats)
 
 
 print('Feature Set: means and variance of the separate %s channels' % args['option'].upper())
 
-X = np.vstack([get_statistics(img) for img, _ in image_set])
-y = np.array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+X_train = np.vstack([get_statistics(img) for img, _ in training_set])
 
+X_test = np.vstack([get_statistics(img) for img, _ in testing_set])
+
+y_train = list()
+
+y_test = list()
+
+with open('/Users/victorhe/Pictures/colorQuantization/%s/labels.txt' % set_param) as f:
+    for line in f:
+        y_train = line.split()
+
+with open('/Users/victorhe/Pictures/colorQuantization/%s/test/labels.txt' % set_param) as f:
+    for line in f:
+        y_test = line.split()
+
+y_train = np.array(y_train)
+
+y_test = np.array(y_test)
+
+print(*X_train)
+print(*y_train)
+
+def unison_shuffled_copies(a, b):
+    assert len(a) == len(b)
+    p = np.random.permutation(len(a))
+    return a[p], b[p]
+
+X_train, y_train = unison_shuffled_copies(X_train, y_train)
+
+print(*X_train)
+print(*y_train)
+
+# X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=0.8, test_size=0.2, random_state=5, shuffle=True, stratify=y)
 
 def SVM_SVC(X, y, c):
     for k in ['linear', 'poly','rbf', 'sigmoid']:
         clf = svm.SVC(kernel=k, C=c, gamma='scale')
-        clf.fit(X, y)
-        # print(clf.predict(X))
-        print(clf.score(X, y))
+        clf.fit(X_train, y_train)
+        print('training set score:', clf.score(X_train, y_train))
+        print('testing set score:', clf.score(X_test, y_test))
+        print()
     return
 
 
-#for c in [0.1, 1, 10]:
-    #SVM_SVC(X, y, c)
+for c in [0.1, 1, 10]:
+    SVM_SVC(X_test, y_test, c)
 
 
 

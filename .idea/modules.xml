@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/ProgramOne.iml" filepath="$PROJECT_DIR$/.idea/ProgramOne.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/tileColorSorting.iml" filepath="$PROJECT_DIR$/.idea/tileColorSorting.iml" />
     </modules>
   </component>
 </project>
