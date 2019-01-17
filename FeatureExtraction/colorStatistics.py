@@ -83,7 +83,7 @@ X_train, y_train = unison_shuffled_copies(X_train, y_train)
 
 
 def SVM_SVC(c):
-    for k in ['linear', 'poly', 'rbf', 'sigmoid']:
+    for k in ['linear', 'poly', 'rbf']: # 'sigmoid'
         print('params:', k, c)
         clf = svm.SVC(kernel=k, C=c, gamma='scale')
         clf.fit(X_train, y_train)
