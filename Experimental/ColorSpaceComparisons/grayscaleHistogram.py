@@ -10,7 +10,7 @@ def get_image_set():
     args = vars(ap.parse_args())
     set_param = args['set']
     image_set = list()
-    for path in sorted(glob('/Users/victorhe/Pictures/colorQuantization/%s/*' % set_param)):
+    for path in sorted(glob('/Users/victorhe/Pictures/colorQuantization/%s/*.BMP' % set_param)):
         image_set.append((cv.imread(path, 0), path.split('/')[-1]))
     return image_set
 
