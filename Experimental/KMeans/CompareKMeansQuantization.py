@@ -59,13 +59,13 @@ def quantize(raster, n_colors):
 
 raster = scipy.misc.imread(image_filename)
 
-lab_raster = color.rgb2lab(raster)
+hsv_raster = color.rgb2hsv(raster)
 
 # q_rgb = quantize(raster, n)
-q_lab = quantize(lab_raster, n)
+q_hsv = quantize(hsv_raster, n)
 
-q_lab_as_rgb = (color.lab2rgb(q_lab) * 255).astype('uint8')
+q_hsv_as_rgb = color.hsv2rgb(q_hsv)# * 255).astype('uint8')
 
-plt.imshow(q_lab_as_rgb)
+plt.imshow(q_hsv_as_rgb)
 plt.draw()
 plt.show()
