@@ -43,13 +43,16 @@ def get_statistics(image):
     for i, channel in enumerate(channels):
         current_channel = image[:, :, i]
 
-        # print('%s mean: %f' % (channel, np.mean(current_channel)), end=' ')
-        # print('%s vari: %f' % (channel, np.var(current_channel)), end=' ')
+        print('%s mean: %f' % (channel, np.mean(current_channel)), end=' ')
+        print('%s vari: %f' % (channel, np.var(current_channel)), end=' ')
+        print('%s stan: %f' % (channel, np.std(current_channel)), end=' ')
 
         stats.append(np.mean(current_channel))
         stats.append(np.var(current_channel))
-    # print()
+        stats.append(np.std(current_channel))
+    print()
     return np.array(stats)
+
 
 
 X_train = np.vstack([get_statistics(img) for img, _ in training_set])
@@ -95,7 +98,4 @@ def SVM_SVC(c):
 
 for c in [0.1, 1, 10]:
     SVM_SVC(c)
-
-
-
 

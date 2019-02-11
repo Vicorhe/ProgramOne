@@ -43,12 +43,12 @@ def get_statistics(image):
     for i, channel in enumerate(channels):
         current_channel = image[:, :, i]
 
-        # print('%s mean: %f' % (channel, np.mean(current_channel)), end=' ')
-        # print('%s vari: %f' % (channel, np.var(current_channel)), end=' ')
+        print('%s mean: %f' % (channel, np.mean(current_channel)), end=' ')
+        print('%s vari: %f' % (channel, np.var(current_channel)), end=' ')
 
         stats.append(np.mean(current_channel))
         stats.append(np.var(current_channel))
-    # print()
+    print()
     return np.array(stats)
 
 
