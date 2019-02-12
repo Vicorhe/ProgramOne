@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6a4730d4-e023-4f16-87e3-5e051ef2fb1b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Classification/linearSVM.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Boileraplate/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Miscellaneous/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Miscellaneous/imageAcquisition.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ProgramOne.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProgramOne.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Classification/linearSVM.py" beforeDir="false" afterPath="$PROJECT_DIR$/linearSVM.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FeatureExtraction/meanVar.py" beforeDir="false" afterPath="$PROJECT_DIR$/FeatureExtraction/meanVar.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,36 +19,21 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FeatureExtraction/meanVarMedianMode.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="48" column="30" selection-start-line="48" selection-start-column="30" selection-end-line="48" selection-end-column="30" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FeatureExtraction/meanVar.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1245">
-              <caret line="83" selection-start-line="83" selection-end-line="83" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="300">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Classification/linearSVM.py">
+        <entry file="file://$PROJECT_DIR$/linearSVM.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="17" lean-forward="true" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+            <state relative-caret-position="330">
+              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
               <folding>
-                <element signature="e#0#18#0" expanded="true" />
+                <element signature="e#0#6#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -78,9 +68,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/lktrack.py" />
-        <option value="$PROJECT_DIR$/testLKTracker.py" />
-        <option value="$PROJECT_DIR$/dinosaur.py" />
         <option value="$PROJECT_DIR$/tileDetectionAndTracking/camshift.py" />
         <option value="$PROJECT_DIR$/squareDetection/opencvOFCExample.py" />
         <option value="$PROJECT_DIR$/squareDetection/pyimagesearchshapedetector.py" />
@@ -124,11 +111,14 @@
         <option value="$PROJECT_DIR$/Experimental/KMeans/CompareKMeansQuantization.py" />
         <option value="$PROJECT_DIR$/FeatureExtraction/meanStd.py" />
         <option value="$PROJECT_DIR$/FeatureExtraction/meanVarStd.py" />
-        <option value="$PROJECT_DIR$/FeatureExtraction/meanVar.py" />
         <option value="$PROJECT_DIR$/FeatureExtraction/meanVarStdMode.py" />
         <option value="$PROJECT_DIR$/FeatureExtraction/meanVarMode.py" />
         <option value="$PROJECT_DIR$/FeatureExtraction/meanVarMedianMode.py" />
+        <option value="$PROJECT_DIR$/Boileraplate/imageAcquisition.py" />
         <option value="$PROJECT_DIR$/Classification/linearSVM.py" />
+        <option value="$PROJECT_DIR$/Miscellaneous/imageAcquisition.py" />
+        <option value="$PROJECT_DIR$/FeatureExtraction/meanVar.py" />
+        <option value="$PROJECT_DIR$/linearSVM.py" />
       </list>
     </option>
   </component>
@@ -151,6 +141,26 @@
               <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
               <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
+              <item name="Boileraplate" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
+              <item name="FeatureExtraction" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
+              <item name="Miscellaneous" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
+              <item name="Utilities" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -160,18 +170,18 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/FeatureExtraction" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/Miscellaneous" />
       <recent name="$PROJECT_DIR$/Utilities" />
       <recent name="$PROJECT_DIR$/Util" />
-      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/Experimental" />
-      <recent name="$PROJECT_DIR$/Experimental/KMeans" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/FeatureExtraction" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -186,7 +196,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.kMeansQuantization">
+  <component name="RunManager" selected="Python.linearSVM">
     <configuration name="TMPLoadingKmeansModels" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ProgramOne" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -271,7 +281,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="rgbKMeansQuantization" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="linearSVM" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ProgramOne" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -279,11 +289,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ColorQuantization" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Classification" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Experimental/Compression/KMeansCompression.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/linearSVM.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -293,19 +303,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.rgbKMeansQuantization" />
       <item itemvalue="Python.kMeansQuantization" />
       <item itemvalue="Python.TMPLoadingKmeansModels" />
       <item itemvalue="Python.kMeansQuantization (1)" />
       <item itemvalue="Python.grayscaleHistogram" />
+      <item itemvalue="Python.linearSVM" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.linearSVM" />
         <item itemvalue="Python.kMeansQuantization" />
         <item itemvalue="Python.grayscaleHistogram" />
         <item itemvalue="Python.kMeansQuantization (1)" />
         <item itemvalue="Python.TMPLoadingKmeansModels" />
-        <item itemvalue="Python.rgbKMeansQuantization" />
       </list>
     </recent_temporary>
   </component>
@@ -436,8 +446,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="print statistics in color statistics file" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tileDetectionAndTracking/p.jpg" />
-    <entry file="file://$PROJECT_DIR$/tileDetectionAndTracking/ÿ.jpg" />
     <entry file="file://$PROJECT_DIR$/squareDetection/pyimagesearchshapedetector.py" />
     <entry file="file://$PROJECT_DIR$/squareDetection/pyimagesearch/shape_detector.py" />
     <entry file="file://$PROJECT_DIR$/squareDetection/pyimagesearch/detect_shapes.py" />
@@ -458,13 +466,6 @@
     <entry file="file://$PROJECT_DIR$/utils/__init__.py" />
     <entry file="file://$PROJECT_DIR$/utils/utils.py" />
     <entry file="file://$PROJECT_DIR$/ColorQuantization/TMPLoadingKmeansModels.py" />
-    <entry file="file://$PROJECT_DIR$/Boileraplate/argparse_image_sets.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/virtual_envs/program_one/lib/python3.6/site-packages/matplotlib/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2119">
@@ -669,13 +670,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Utilities/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="6" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FeatureExtraction/meanStd.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
@@ -723,22 +717,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FeatureExtraction/meanVar.py">
+    <entry file="file://$PROJECT_DIR$/Boileraplate/argparse_image_sets.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1245">
-          <caret line="83" selection-start-line="83" selection-end-line="83" />
+        <state relative-caret-position="270">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Boileraplate/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Utilities/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Miscellaneous/imageAcquisition.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="53" column="75" selection-start-line="53" selection-start-column="75" selection-end-line="53" selection-end-column="75" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classification/linearSVM.py">
+    <entry file="file://$PROJECT_DIR$/FeatureExtraction/meanVar.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="17" lean-forward="true" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+        <state relative-caret-position="300">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/linearSVM.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#0#6#0" expanded="true" />
           </folding>
         </state>
       </provider>
