@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6a4730d4-e023-4f16-87e3-5e051ef2fb1b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Boileraplate/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Miscellaneous/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utilities/split_4.py" beforeDir="false" afterPath="$PROJECT_DIR$/Utilities/split_4.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/polynomialSVM.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rbfSVM.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linearSVM.py" beforeDir="false" afterPath="$PROJECT_DIR$/linearSVM.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,56 +14,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Boileraplate/argparse_image_sets.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="6" selection-start-line="3" selection-end-line="3" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Utilities/concatenation.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Utilities/croping.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Utilities/split_4.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Utilities/utils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -91,8 +43,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/squareDetection/detect_shapes.py" />
-        <option value="$PROJECT_DIR$/squareDetection/pyimagesearch/shape_detector.py" />
         <option value="$PROJECT_DIR$/squareDetection/pyimagesearch/detect_shapes.py" />
         <option value="$PROJECT_DIR$/squareDetection/mehmetExample.py" />
         <option value="$PROJECT_DIR$/squareDetection/quoraDrawContours.py" />
@@ -139,9 +89,11 @@
         <option value="$PROJECT_DIR$/FeatureExtraction/meanVarMedianMode.py" />
         <option value="$PROJECT_DIR$/FeatureExtraction/rgbColorStatistics.py" />
         <option value="$PROJECT_DIR$/FeatureExtraction/meanVarSkew.py" />
-        <option value="$PROJECT_DIR$/linearSVM.py" />
         <option value="$PROJECT_DIR$/FeatureExtraction/moments.py" />
         <option value="$PROJECT_DIR$/Utilities/split_4.py" />
+        <option value="$PROJECT_DIR$/linearSVM.py" />
+        <option value="$PROJECT_DIR$/PolynomialSVM.py" />
+        <option value="$PROJECT_DIR$/rbfSVM.py" />
       </list>
     </option>
   </component>
@@ -165,31 +117,6 @@
               <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
               <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
-              <item name="Boileraplate" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
-              <item name="Experimental" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
-              <item name="FeatureExtraction" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
-              <item name="Miscellaneous" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
-              <item name="Utilities" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -201,15 +128,16 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/FeatureExtraction" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/Miscellaneous" />
       <recent name="$PROJECT_DIR$/Utilities" />
       <recent name="$PROJECT_DIR$/Util" />
       <recent name="$PROJECT_DIR$/Experimental" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/FeatureExtraction" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -473,8 +401,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="print statistics in color statistics file" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/squareDetection/pyimagesearchshapedetector.py" />
-    <entry file="file://$PROJECT_DIR$/squareDetection/pyimagesearch/shape_detector.py" />
     <entry file="file://$PROJECT_DIR$/squareDetection/pyimagesearch/detect_shapes.py" />
     <entry file="file://$PROJECT_DIR$/squareDetection/mehmetExample.py" />
     <entry file="file://$PROJECT_DIR$/squareDetection/opencvOFCExample.py" />
@@ -684,16 +610,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/linearSVM.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="48" lean-forward="true" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FeatureExtraction/meanVarSkew.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -777,6 +693,33 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/linearSVM.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rbfSVM.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/polynomialSVM.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="32" lean-forward="true" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -23,12 +23,11 @@ X_test = np.vstack([get_statistics(img, channels) for img, _ in testing_images])
 X_train, y_train = unison_shuffled_copies(X_train, y_train)
 
 # linear SVM Classification
-svm_clf = Pipeline([
+poly_kernel_svm_clf = Pipeline([
     ('scaler', StandardScaler()),
-    ('linear_svc', SVC(kernel='linear', C=0.1, gamma='scale'))
+    ('svm_clf', SVC(kernel='poly', degree=3, coef0=1, C=5))
 ])
-#    ('linear_svc', LinearSVC(C=0.1, loss="hinge"))
 
-svm_clf.fit(X_train, y_train)
+poly_kernel_svm_clf.fit(X_train, y_train)
 
-print(svm_clf.score(X_test, y_test))
+print(poly_kernel_svm_clf.score(X_test, y_test))
