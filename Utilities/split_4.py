@@ -2,6 +2,7 @@ import argparse
 from glob import glob
 import cv2 as cv
 
+
 source_path = '/Users/victorhe/Pictures/studioSourceTiles/%s/*'
 destination_path = '/Users/victorhe/Pictures/studioSourceTiles/GROUP_%d/%s_%d.BMP'
 
