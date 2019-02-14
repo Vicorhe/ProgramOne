@@ -3,7 +3,14 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.svm import LinearSVC, SVC
 from Miscellaneous.imageAcquisition import get_data_set
-from FeatureExtraction.meanVar import get_statistics
+from FeatureExtraction.moments import get_statistics
+# from FeatureExtraction.meanVarSkew import get_statistics
+# from FeatureExtraction.meanVarMedianMode import get_statistics
+# from FeatureExtraction.meanVarMode import get_statistics
+# from FeatureExtraction.meanVarStd import get_statistics
+# from FeatureExtraction.meanVarMedian import get_statistics
+# from FeatureExtraction.meanVar import get_statistics
+# from FeatureExtraction.meanStd import get_statistics
 from Utilities.utils import unison_shuffled_copies
 
 
