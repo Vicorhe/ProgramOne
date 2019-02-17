@@ -1,16 +1,10 @@
 import numpy as np
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler, Normalizer
 from sklearn.svm import LinearSVC, SVC
 from Miscellaneous.imageAcquisition import get_data_set
-from FeatureExtraction.moments import get_statistics
-# from FeatureExtraction.meanVarSkew import get_statistics
-# from FeatureExtraction.meanVarMedianMode import get_statistics
-# from FeatureExtraction.meanVarMode import get_statistics
-# from FeatureExtraction.meanVarStd import get_statistics
-# from FeatureExtraction.meanVarMedian import get_statistics
-# from FeatureExtraction.meanVar import get_statistics
-# from FeatureExtraction.meanStd import get_statistics
+from FeatureExtraction.feature_set_b import get_statistics
+#from FeatureExtraction.meanVar import get_statistics
 from Utilities.utils import unison_shuffled_copies
 
 
@@ -24,11 +18,11 @@ X_train, y_train = unison_shuffled_copies(X_train, y_train)
 
 # linear SVM Classification
 svm_clf = Pipeline([
-    ('scaler', StandardScaler()),
     ('linear_svc', SVC(kernel='linear', C=0.1, gamma='scale'))
 ])
-#    ('linear_svc', LinearSVC(C=0.1, loss="hinge"))
-
+#   ('linear_svc', LinearSVC(C=0.1, loss="hinge"))
+#   ('scaler', StandardScaler()),
 svm_clf.fit(X_train, y_train)
 
-print(svm_clf.score(X_test, y_test))
+print("training score: %f" % (svm_clf.score(X_train, y_train)))
+print("testing score: %f" % (svm_clf.score(X_test, y_test)))
