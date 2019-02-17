@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6a4730d4-e023-4f16-87e3-5e051ef2fb1b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/FeatureExtraction/meanStd.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FeatureExtraction/meanVarMedian.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FeatureExtraction/meanVarMedianMode.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FeatureExtraction/meanVarMode.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FeatureExtraction/meanVarSkew.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FeatureExtraction/meanVarStd.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FeatureExtraction/feature_set_b.py" beforeDir="false" afterPath="$PROJECT_DIR$/FeatureExtraction/feature_set_b.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Miscellaneous/imageAcquisition.py" beforeDir="false" afterPath="$PROJECT_DIR$/Miscellaneous/imageAcquisition.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linearSVM.py" beforeDir="false" afterPath="$PROJECT_DIR$/linearSVM.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,19 +16,13 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FeatureExtraction/moments.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="705">
-              <caret line="47" selection-start-line="47" selection-end-line="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FeatureExtraction/feature_set_b.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-71">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            <state relative-caret-position="180">
+              <caret line="14" column="45" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -38,8 +30,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/linearSVM.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+            <state relative-caret-position="375">
+              <caret line="25" column="31" lean-forward="true" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -73,7 +68,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/squareDetection/mehmetExample.py" />
         <option value="$PROJECT_DIR$/squareDetection/quoraDrawContours.py" />
         <option value="$PROJECT_DIR$/ColorQuantization/backgroundSubtraction.py" />
         <option value="$PROJECT_DIR$/ColorQuantization/hsvQuantization.py" />
@@ -109,7 +103,6 @@
         <option value="$PROJECT_DIR$/FeatureExtraction/meanVarStdMode.py" />
         <option value="$PROJECT_DIR$/Boileraplate/imageAcquisition.py" />
         <option value="$PROJECT_DIR$/Classification/linearSVM.py" />
-        <option value="$PROJECT_DIR$/Miscellaneous/imageAcquisition.py" />
         <option value="$PROJECT_DIR$/FeatureExtraction/meanVar.py" />
         <option value="$PROJECT_DIR$/FeatureExtraction/meanStd.py" />
         <option value="$PROJECT_DIR$/FeatureExtraction/meanVarMedian.py" />
@@ -123,6 +116,8 @@
         <option value="$PROJECT_DIR$/PolynomialSVM.py" />
         <option value="$PROJECT_DIR$/rbfSVM.py" />
         <option value="$PROJECT_DIR$/FeatureExtraction/featureExtraction.py" />
+        <option value="$PROJECT_DIR$/Miscellaneous/imageAcquisition.py" />
+        <option value="$PROJECT_DIR$/FeatureExtraction/feature_set_b.py" />
         <option value="$PROJECT_DIR$/linearSVM.py" />
       </list>
     </option>
@@ -151,6 +146,11 @@
               <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
               <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
               <item name="FeatureExtraction" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
+              <item name="Miscellaneous" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -342,6 +342,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18745036" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -617,16 +618,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Miscellaneous/imageAcquisition.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="53" column="75" selection-start-line="53" selection-start-column="75" selection-end-line="53" selection-end-column="75" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FeatureExtraction/feature_set_a.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -635,44 +626,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Boileraplate/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/FeatureExtraction/meanStd.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="16" lean-forward="true" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FeatureExtraction/meanVarMode.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FeatureExtraction/meanVarMedianMode.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FeatureExtraction/meanVarMedian.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="21" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FeatureExtraction/meanVarStd.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/FeatureExtraction/meanStd.py" />
+    <entry file="file://$PROJECT_DIR$/FeatureExtraction/meanVarMode.py" />
+    <entry file="file://$PROJECT_DIR$/FeatureExtraction/meanVarMedianMode.py" />
+    <entry file="file://$PROJECT_DIR$/FeatureExtraction/meanVarMedian.py" />
+    <entry file="file://$PROJECT_DIR$/FeatureExtraction/meanVarStd.py" />
     <entry file="file://$PROJECT_DIR$/Boileraplate/argparse_image_sets.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -731,31 +689,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/FeatureExtraction/meanVarSkew.py" />
     <entry file="file://$PROJECT_DIR$/FeatureExtraction/moments.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
+        <state relative-caret-position="320">
           <caret line="47" selection-start-line="47" selection-end-line="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Miscellaneous/imageAcquisition.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="77" lean-forward="true" selection-start-line="7" selection-start-column="77" selection-end-line="7" selection-end-column="77" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/FeatureExtraction/feature_set_b.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-71">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FeatureExtraction/meanVarSkew.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="28" />
+        <state relative-caret-position="180">
+          <caret line="14" column="45" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/linearSVM.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+        <state relative-caret-position="375">
+          <caret line="25" column="31" lean-forward="true" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

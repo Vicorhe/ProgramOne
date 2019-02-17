@@ -18,7 +18,7 @@ def get_data_set():
     ap = argparse.ArgumentParser()
     ap.add_argument('-o',
                     '--option',
-                    required=True,
+                    default='hsv',
                     help='color space option to evaluate',
                     choices=['rgb', 'hsv', 'lab', 'ycrcb'])
     ap.add_argument('-s',
