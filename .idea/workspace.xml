@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6a4730d4-e023-4f16-87e3-5e051ef2fb1b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/radiusNeighbors.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SVC.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linearSVM.py" beforeDir="false" afterPath="$PROJECT_DIR$/linearSVC.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,10 +15,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/radiusNeighbors.py">
+        <entry file="file://$PROJECT_DIR$/linearSVC.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
+            <state relative-caret-position="330">
+              <caret line="22" column="11" lean-forward="true" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -54,8 +55,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ColorQuantization/grayscaleHistogram.py" />
-        <option value="$PROJECT_DIR$/ColorQuantization/hsvHistogram.py" />
         <option value="$PROJECT_DIR$/ColorQuantization/rgbHistogram.py" />
         <option value="$PROJECT_DIR$/ColorQuantization/labHistogram.py" />
         <option value="$PROJECT_DIR$/ColorQuantization/ycrcbHistogram.py" />
@@ -105,6 +104,8 @@
         <option value="$PROJECT_DIR$/KNeighbors.py" />
         <option value="$PROJECT_DIR$/KCentroids.py" />
         <option value="$PROJECT_DIR$/radiusNeighbors.py" />
+        <option value="$PROJECT_DIR$/SVC.py" />
+        <option value="$PROJECT_DIR$/linearSVC.py" />
       </list>
     </option>
   </component>
@@ -120,7 +121,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -132,6 +132,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -139,16 +140,16 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/FeatureExtraction" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/Miscellaneous" />
       <recent name="$PROJECT_DIR$/Utilities" />
       <recent name="$PROJECT_DIR$/Util" />
       <recent name="$PROJECT_DIR$/Experimental" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/FeatureExtraction" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -260,7 +261,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/linearSVM.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/linearSVC.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -413,7 +414,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="print statistics in color statistics file" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lucasKanadeTracker/testLKTracker.py" />
     <entry file="file://$PROJECT_DIR$/SignalProcessing/__init__.py" />
     <entry file="file://$PROJECT_DIR$/ColorQuantization/colorFeaturesHSVQuantization.py" />
     <entry file="file://$PROJECT_DIR$/Experimental/SquareDetection/quoraDrawContours.py">
@@ -694,11 +694,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/kNeighbors.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="2" lean-forward="true" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="90">
+          <caret line="6" column="58" selection-start-line="6" selection-start-column="58" selection-end-line="6" selection-end-column="58" />
         </state>
       </provider>
     </entry>
@@ -712,20 +709,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/linearSVM.py">
+    <entry file="file://$PROJECT_DIR$/radiusNeighbors.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="50" lean-forward="true" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
+        <state relative-caret-position="300">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/radiusNeighbors.py">
+    <entry file="file://$PROJECT_DIR$/SVC.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="330">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/linearSVC.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="11" lean-forward="true" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
