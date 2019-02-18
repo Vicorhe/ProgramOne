@@ -1,7 +1,7 @@
 import numpy as np
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler, Normalizer
-from sklearn.neighbors import KNeighborsClassifier
+from sklearn.neighbors import NearestCentroid
 from Miscellaneous.imageAcquisition import get_data_set
 # from FeatureExtraction.feature_set_b import get_statistics
 from FeatureExtraction.feature_set_a import get_statistics
@@ -16,17 +16,13 @@ X_train = np.vstack([get_statistics(img, channels) for img, _ in training_images
 X_test = np.vstack([get_statistics(img, channels) for img, _ in testing_images])
 X_train, y_train = unison_shuffled_copies(X_train, y_train)
 
-# k nearest neighbors classifier
-
-n_neighbors = 3
-
-svm_clf = Pipeline([
-    ('k_neighbors', KNeighborsClassifier(n_neighbors=n_neighbors, weights='uniform'))
+# nearest centroids classifier
+nc_clf = Pipeline([
+    ('k_centroids', NearestCentroid())
 ])
-#   n_neighbors: 3, 5, 7, 9, 11
-#   weights: 'uniform', 'distance'
+#   shrink_threshold: 0.2
 
-svm_clf.fit(X_train, y_train)
+nc_clf.fit(X_train, y_train)
 
-print("training score: %f" % (svm_clf.score(X_train, y_train)))
-print("testing score: %f" % (svm_clf.score(X_test, y_test)))
+print("training score: %f" % (nc_clf.score(X_train, y_train)))
+print("testing score: %f" % (nc_clf.score(X_test, y_test)))

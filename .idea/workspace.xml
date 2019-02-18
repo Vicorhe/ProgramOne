@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6a4730d4-e023-4f16-87e3-5e051ef2fb1b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/KNeighbors.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/KCentroids.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KNeighbors.py" beforeDir="false" afterPath="$PROJECT_DIR$/KNeighbors.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,10 +26,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/KNeighbors.py">
+        <entry file="file://$PROJECT_DIR$/KCentroids.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="15" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="15" />
+            <state relative-caret-position="330">
+              <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -65,7 +66,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ColorQuantization/backgroundSubtraction.py" />
         <option value="$PROJECT_DIR$/ColorQuantization/hsvQuantization.py" />
         <option value="$PROJECT_DIR$/ColorQuantization/grayscaleHistogram.py" />
         <option value="$PROJECT_DIR$/ColorQuantization/hsvHistogram.py" />
@@ -116,6 +116,7 @@
         <option value="$PROJECT_DIR$/FeatureExtraction/feature_set_b.py" />
         <option value="$PROJECT_DIR$/linearSVM.py" />
         <option value="$PROJECT_DIR$/KNeighbors.py" />
+        <option value="$PROJECT_DIR$/KCentroids.py" />
       </list>
     </option>
   </component>
@@ -434,7 +435,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="print statistics in color statistics file" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/squareDetection/quoraDrawContours.py" />
     <entry file="file://$PROJECT_DIR$/lucasKanadeTracker/lktrack.py" />
     <entry file="file://$PROJECT_DIR$/lucasKanadeTracker/testLKTracker.py" />
     <entry file="file://$PROJECT_DIR$/SignalProcessing/__init__.py" />
@@ -715,6 +715,16 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/KNeighbors.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="2" lean-forward="true" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/linearSVM.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -725,10 +735,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/KNeighbors.py">
+    <entry file="file://$PROJECT_DIR$/KCentroids.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="15" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="15" />
+        <state relative-caret-position="330">
+          <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
