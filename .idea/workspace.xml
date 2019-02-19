@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6a4730d4-e023-4f16-87e3-5e051ef2fb1b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/polynomialKernelSVC.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rbfKernelSVC.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,11 +24,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/polynomialKernelSVC.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
+            <state relative-caret-position="510">
               <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/rbfKernelSVC.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="35" column="36" selection-start-line="35" selection-start-column="36" selection-end-line="35" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -62,7 +71,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ColorQuantization/rgbKMeansQuantization.py" />
         <option value="$PROJECT_DIR$/utils/utils.py" />
         <option value="$PROJECT_DIR$/ColorQuantization/kMeansQuantizatio.py" />
         <option value="$PROJECT_DIR$/ColorQuantization/TMPLoadingKmeansModels.py" />
@@ -113,6 +121,7 @@
         <option value="$PROJECT_DIR$/polynomialSVM.py" />
         <option value="$PROJECT_DIR$/linearKernelSVC.py" />
         <option value="$PROJECT_DIR$/polynomialKernelSVC.py" />
+        <option value="$PROJECT_DIR$/rbfKernelSVC.py" />
       </list>
     </option>
   </component>
@@ -421,7 +430,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="print statistics in color statistics file" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ColorQuantization/colorFeaturesHSVQuantization.py" />
     <entry file="file://$PROJECT_DIR$/Experimental/SquareDetection/quoraDrawContours.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
@@ -747,8 +755,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/polynomialKernelSVC.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
+        <state relative-caret-position="510">
           <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rbfKernelSVC.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="35" column="36" selection-start-line="35" selection-start-column="36" selection-end-line="35" selection-end-column="36" />
         </state>
       </provider>
     </entry>
