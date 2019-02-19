@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6a4730d4-e023-4f16-87e3-5e051ef2fb1b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/linearKernelSVC.py" beforeDir="false" afterPath="$PROJECT_DIR$/linearKernelSVC.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/polynomialKernelSVC.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,14 +12,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/linearKernelSVC.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+            <state relative-caret-position="335">
+              <caret line="29" column="10" lean-forward="true" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/polynomialKernelSVC.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="481">
+              <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
             </state>
           </provider>
         </entry>
@@ -53,7 +62,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ColorQuantization/randomPaletteQuantization.py" />
         <option value="$PROJECT_DIR$/ColorQuantization/rgbKMeansQuantization.py" />
         <option value="$PROJECT_DIR$/utils/utils.py" />
         <option value="$PROJECT_DIR$/ColorQuantization/kMeansQuantizatio.py" />
@@ -104,6 +112,7 @@
         <option value="$PROJECT_DIR$/radiusNeighbors.py" />
         <option value="$PROJECT_DIR$/polynomialSVM.py" />
         <option value="$PROJECT_DIR$/linearKernelSVC.py" />
+        <option value="$PROJECT_DIR$/polynomialKernelSVC.py" />
       </list>
     </option>
   </component>
@@ -138,16 +147,16 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/FeatureExtraction" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/Miscellaneous" />
       <recent name="$PROJECT_DIR$/Utilities" />
       <recent name="$PROJECT_DIR$/Util" />
       <recent name="$PROJECT_DIR$/Experimental" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/FeatureExtraction" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -412,7 +421,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="print statistics in color statistics file" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/SignalProcessing/__init__.py" />
     <entry file="file://$PROJECT_DIR$/ColorQuantization/colorFeaturesHSVQuantization.py" />
     <entry file="file://$PROJECT_DIR$/Experimental/SquareDetection/quoraDrawContours.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -729,11 +737,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/linearKernelSVC.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+        <state relative-caret-position="335">
+          <caret line="29" column="10" lean-forward="true" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/polynomialKernelSVC.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
         </state>
       </provider>
     </entry>
