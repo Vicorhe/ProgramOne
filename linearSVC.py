@@ -32,7 +32,7 @@ loss = 'hinge'
 dual = True
 max_iter = 2000
 
-lsv_clf = Pipeline([
+linear_SVC = Pipeline([
     ('linear_svc', LinearSVC(random_state=random_state, tol=tol, C=C,
                              penalty=penalty, loss=loss, dual=dual,
                              max_iter=max_iter))
@@ -45,7 +45,7 @@ lsv_clf = Pipeline([
 #   max_iter = 500, 1000, 1500, 2000, 2500
 
 
-lsv_clf.fit(X_train, y_train)
+linear_SVC.fit(X_train, y_train)
 
-print("training score: %f" % (lsv_clf.score(X_train, y_train)))
-print("testing score: %f" % (lsv_clf.score(X_test, y_test)))
+print("training score: %f" % (linear_SVC.score(X_train, y_train)))
+print("testing score: %f" % (linear_SVC.score(X_test, y_test)))

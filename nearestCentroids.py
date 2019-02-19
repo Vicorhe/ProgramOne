@@ -23,12 +23,12 @@ assert y_train.flags['C_CONTIGUOUS']
 assert y_test.flags['C_CONTIGUOUS']
 
 # nearest centroids classifier
-nc_clf = Pipeline([
-    ('k_centroids', NearestCentroid())
+nearest_centroid_clf = Pipeline([
+    ('nearest_centroids_clf', NearestCentroid())
 ])
 #   shrink_threshold: 0.2
 
-nc_clf.fit(X_train, y_train)
+nearest_centroid_clf.fit(X_train, y_train)
 
-print("training score: %f" % (nc_clf.score(X_train, y_train)))
-print("testing score: %f" % (nc_clf.score(X_test, y_test)))
+print("training score: %f" % (nearest_centroid_clf.score(X_train, y_train)))
+print("testing score: %f" % (nearest_centroid_clf.score(X_test, y_test)))

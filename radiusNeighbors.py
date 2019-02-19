@@ -26,14 +26,14 @@ assert y_test.flags['C_CONTIGUOUS']
 
 radius = 5000.0
 
-rn_clf = Pipeline([
-    ('radius_neighbors', RadiusNeighborsClassifier(radius=radius, weights='uniform'))
+radius_neighbors_clf = Pipeline([
+    ('radius_neighbors_clf', RadiusNeighborsClassifier(radius=radius, weights='uniform'))
 ])
 #   consider normalizing
 #   radius: 5000 ...
 #   weights: 'uniform', 'distance'
 
-rn_clf.fit(X_train, y_train)
+radius_neighbors_clf.fit(X_train, y_train)
 
-print("training score: %f" % (rn_clf.score(X_train, y_train)))
-print("testing score: %f" % (rn_clf.score(X_test, y_test)))
+print("training score: %f" % (radius_neighbors_clf.score(X_train, y_train)))
+print("testing score: %f" % (radius_neighbors_clf.score(X_test, y_test)))

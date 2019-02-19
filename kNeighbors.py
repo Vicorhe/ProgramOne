@@ -26,13 +26,13 @@ assert y_test.flags['C_CONTIGUOUS']
 
 n_neighbors = 3
 
-knn_clf = Pipeline([
-    ('k_neighbors', KNeighborsClassifier(n_neighbors=n_neighbors, weights='uniform'))
+k_nearest_neighbors_clf = Pipeline([
+    ('k_nearest_neighbors_clf', KNeighborsClassifier(n_neighbors=n_neighbors, weights='uniform'))
 ])
 #   n_neighbors: 3, 5, 7, 9, 11
 #   weights: 'uniform', 'distance'
 
-knn_clf.fit(X_train, y_train)
+k_nearest_neighbors_clf.fit(X_train, y_train)
 
-print("training score: %f" % (knn_clf.score(X_train, y_train)))
-print("testing score: %f" % (knn_clf.score(X_test, y_test)))
+print("training score: %f" % (k_nearest_neighbors_clf.score(X_train, y_train)))
+print("testing score: %f" % (k_nearest_neighbors_clf.score(X_test, y_test)))

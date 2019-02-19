@@ -22,12 +22,12 @@ assert X_test.flags['C_CONTIGUOUS']
 assert y_train.flags['C_CONTIGUOUS']
 assert y_test.flags['C_CONTIGUOUS']
 
-# support vector classifier
-sv_clf = Pipeline([
-    ('linear_svc', SVC(kernel='linear', C=1, gamma='scale'))
+# linear kernel support vector classifier
+linear_kernel_SVC = Pipeline([
+    ('linear_kernel_svc', SVC(kernel='linear', C=1, gamma='scale'))
 ])
 
-sv_clf.fit(X_train, y_train)
+linear_kernel_SVC.fit(X_train, y_train)
 
-print("training score: %f" % (sv_clf.score(X_train, y_train)))
-print("testing score: %f" % (sv_clf.score(X_test, y_test)))
+print("training score: %f" % (linear_kernel_SVC.score(X_train, y_train)))
+print("testing score: %f" % (linear_kernel_SVC.score(X_test, y_test)))
