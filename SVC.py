@@ -16,6 +16,12 @@ X_train = np.vstack([get_statistics(img, channels) for img, _ in training_images
 X_test = np.vstack([get_statistics(img, channels) for img, _ in testing_images])
 X_train, y_train = unison_shuffled_copies(X_train, y_train)
 
+# avoid data copy
+assert X_train.flags['C_CONTIGUOUS']
+assert X_test.flags['C_CONTIGUOUS']
+assert y_train.flags['C_CONTIGUOUS']
+assert y_test.flags['C_CONTIGUOUS']
+
 # support vector classifier
 sv_clf = Pipeline([
     ('linear_svc', SVC(kernel='linear', C=1, gamma='scale'))
