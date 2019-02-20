@@ -3,8 +3,8 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler, Normalizer
 from sklearn.ensemble import RandomForestClassifier
 from Miscellaneous.imageAcquisition import get_data_set
-# from FeatureExtraction.feature_set_b import get_statistics, get_feature_names
-from FeatureExtraction.feature_set_a import get_statistics, get_feature_names
+from FeatureExtraction.feature_set_b import get_statistics, get_feature_names
+# from FeatureExtraction.feature_set_a import get_statistics, get_feature_names
 from Utilities.utils import unison_shuffled_copies
 
 
@@ -22,20 +22,20 @@ assert X_test.flags['C_CONTIGUOUS']
 assert y_train.flags['C_CONTIGUOUS']
 assert y_test.flags['C_CONTIGUOUS']
 
-print('feature vector:', *get_feature_names(), sep=', ')
-'''
-# k nearest neighbors classifier
+# random forest ensemble classifier
 
-n_neighbors = 3
+n_estimators = 500
+max_leaf_nodes = 16
+n_jobs = -1
 
-k_nearest_neighbors_clf = Pipeline([
-    ('k_nearest_neighbors_clf', KNeighborsClassifier(n_neighbors=n_neighbors, weights='uniform'))
-])
-#   n_neighbors: 3, 5, 7, 9, 11
-#   weights: 'uniform', 'distance'
+random_forest_clf = RandomForestClassifier(n_estimators=n_estimators,
+                                           max_leaf_nodes=max_leaf_nodes,
+                                           n_jobs=n_jobs)
 
-k_nearest_neighbors_clf.fit(X_train, y_train)
+random_forest_clf.fit(X_train, y_train)
 
-print("training score: %f" % (k_nearest_neighbors_clf.score(X_train, y_train)))
-print("testing score: %f" % (k_nearest_neighbors_clf.score(X_test, y_test)))
-'''
+print("training score: %f" % (random_forest_clf.score(X_train, y_train)))
+print("testing score: %f" % (random_forest_clf.score(X_test, y_test)))
+
+for name, score in zip(get_feature_names(), random_forest_clf.feature_importances_):
+    print(name, score)
