@@ -20,3 +20,7 @@ def get_statistics(image, channels):
     return stats
 
 
+def get_feature_names():
+    return np.array(['C1 mean', 'C1 variance',
+                     'C2 mean', 'C2 variance',
+                     'C3 mean', 'C3 variance'])

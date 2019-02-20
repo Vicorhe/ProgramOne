@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6a4730d4-e023-4f16-87e3-5e051ef2fb1b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/sigmoidKernelSVC.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/randomForrests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FeatureExtraction/feature_set_a.py" beforeDir="false" afterPath="$PROJECT_DIR$/FeatureExtraction/feature_set_a.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FeatureExtraction/feature_set_b.py" beforeDir="false" afterPath="$PROJECT_DIR$/FeatureExtraction/feature_set_b.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sigmoidKernelSVC.py" beforeDir="false" afterPath="$PROJECT_DIR$/sigmoidKernelSVC.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -11,42 +15,21 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/linearKernelSVC.py">
+        <entry file="file://$PROJECT_DIR$/randomForrests.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="10" lean-forward="true" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="75">
+              <caret line="5" column="62" selection-start-line="5" selection-start-column="62" selection-end-line="5" selection-end-column="62" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/polynomialKernelSVC.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rbfKernelSVC.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="30" column="10" lean-forward="true" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sigmoidKernelSVC.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="41" column="30" lean-forward="true" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
+            <state relative-caret-position="89">
+              <caret line="6" column="79" lean-forward="true" selection-start-line="6" selection-start-column="79" selection-end-line="6" selection-end-column="79" />
             </state>
           </provider>
         </entry>
@@ -80,8 +63,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ColorQuantization/kMeansQuantizatio.py" />
-        <option value="$PROJECT_DIR$/ColorQuantization/TMPLoadingKmeansModels.py" />
         <option value="$PROJECT_DIR$/ColorQuantization/ColorSpaceComparisons/grayscaleHistogram.py" />
         <option value="$PROJECT_DIR$/ColorQuantization/ColorSpaceComparisons/ycrcbHistogram.py" />
         <option value="$PROJECT_DIR$/ColorQuantization/ColorSpaceComparisons/hsvHistogram.py" />
@@ -117,7 +98,6 @@
         <option value="$PROJECT_DIR$/rbfSVM.py" />
         <option value="$PROJECT_DIR$/FeatureExtraction/featureExtraction.py" />
         <option value="$PROJECT_DIR$/Miscellaneous/imageAcquisition.py" />
-        <option value="$PROJECT_DIR$/FeatureExtraction/feature_set_b.py" />
         <option value="$PROJECT_DIR$/linearSVM.py" />
         <option value="$PROJECT_DIR$/KNeighbors.py" />
         <option value="$PROJECT_DIR$/KCentroids.py" />
@@ -130,7 +110,10 @@
         <option value="$PROJECT_DIR$/linearKernelSVC.py" />
         <option value="$PROJECT_DIR$/polynomialKernelSVC.py" />
         <option value="$PROJECT_DIR$/rbfKernelSVC.py" />
+        <option value="$PROJECT_DIR$/FeatureExtraction/feature_set_b.py" />
+        <option value="$PROJECT_DIR$/FeatureExtraction/feature_set_a.py" />
         <option value="$PROJECT_DIR$/sigmoidKernelSVC.py" />
+        <option value="$PROJECT_DIR$/randomForrests.py" />
       </list>
     </option>
   </component>
@@ -154,6 +137,11 @@
               <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
               <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
+              <item name="FeatureExtraction" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -165,16 +153,16 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/FeatureExtraction" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/Miscellaneous" />
       <recent name="$PROJECT_DIR$/Utilities" />
       <recent name="$PROJECT_DIR$/Util" />
       <recent name="$PROJECT_DIR$/Experimental" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/FeatureExtraction" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -438,8 +426,17 @@
     <MESSAGE value="print statistics in color statistics file" />
     <option name="LAST_COMMIT_MESSAGE" value="print statistics in color statistics file" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/sigmoidKernelSVC.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/utils/__init__.py" />
     <entry file="file://$PROJECT_DIR$/utils/utils.py" />
     <entry file="file://$PROJECT_DIR$/ColorQuantization/TMPLoadingKmeansModels.py" />
     <entry file="file://$USER_HOME$/virtual_envs/program_one/lib/python3.6/site-packages/matplotlib/__init__.py">
@@ -606,13 +603,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FeatureExtraction/feature_set_a.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="16" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="19" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Boileraplate/__init__.py" />
     <entry file="file://$PROJECT_DIR$/FeatureExtraction/meanStd.py" />
     <entry file="file://$PROJECT_DIR$/FeatureExtraction/meanVarMode.py" />
@@ -675,26 +665,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FeatureExtraction/feature_set_b.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/rbfSVM.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/rbfSVM.py" />
     <entry file="file://$PROJECT_DIR$/kNeighbors.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
@@ -725,16 +699,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/polynomialSVM.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="45" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/polynomialSVM.py" />
     <entry file="file://$PROJECT_DIR$/linearSVC.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="71">
@@ -755,10 +720,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sigmoidKernelSVC.py">
+    <entry file="file://$PROJECT_DIR$/polynomialKernelSVC.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="41" column="30" lean-forward="true" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
+        <state relative-caret-position="459">
+          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
         </state>
       </provider>
     </entry>
@@ -769,10 +734,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/polynomialKernelSVC.py">
+    <entry file="file://$PROJECT_DIR$/randomForrests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+        <state relative-caret-position="75">
+          <caret line="5" column="62" selection-start-line="5" selection-start-column="62" selection-end-line="5" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FeatureExtraction/feature_set_a.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FeatureExtraction/feature_set_b.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" selection-start-line="23" selection-end-line="27" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sigmoidKernelSVC.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="6" column="79" lean-forward="true" selection-start-line="6" selection-start-column="79" selection-end-line="6" selection-end-column="79" />
         </state>
       </provider>
     </entry>
