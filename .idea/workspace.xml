@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6a4730d4-e023-4f16-87e3-5e051ef2fb1b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/bagging.py" beforeDir="false" afterPath="$PROJECT_DIR$/bagging.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/randomSubspaces.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,13 +25,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/bagging.py">
+        <entry file="file://$PROJECT_DIR$/randomSubspaces.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="32" column="11" lean-forward="true" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="495">
+              <caret line="41" column="60" lean-forward="true" selection-start-line="41" selection-start-column="60" selection-end-line="41" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -65,7 +62,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ColorQuantization/ColorSpaceComparisons/labHistogram.py" />
         <option value="$PROJECT_DIR$/ColorQuantization/ColorSpaceComparisons/rgbHistogram.py" />
         <option value="$PROJECT_DIR$/Utilities/concatenation.py" />
         <option value="$PROJECT_DIR$/ColorQuantization/kMeansQuantization.py" />
@@ -116,6 +112,7 @@
         <option value="$PROJECT_DIR$/pasting.py" />
         <option value="$PROJECT_DIR$/randomPatches.py" />
         <option value="$PROJECT_DIR$/bagging.py" />
+        <option value="$PROJECT_DIR$/randomSubspaces.py" />
       </list>
     </option>
   </component>
@@ -429,13 +426,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="print statistics in color statistics file" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/virtual_envs/program_one/lib/python3.6/site-packages/matplotlib/image.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="640" selection-start-line="640" selection-end-line="640" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Experimental/ColorSpaceComparisons/hsvHistogram.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -764,6 +754,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/bagging.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="32" column="11" lean-forward="true" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/randomPatches.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
@@ -774,13 +774,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bagging.py">
+    <entry file="file://$PROJECT_DIR$/randomSubspaces.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="32" column="11" lean-forward="true" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="495">
+          <caret line="41" column="60" lean-forward="true" selection-start-line="41" selection-start-column="60" selection-end-line="41" selection-end-column="60" />
         </state>
       </provider>
     </entry>
