@@ -2,23 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6a4730d4-e023-4f16-87e3-5e051ef2fb1b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experimental/BackgroundSubtraction/backgroundSubtraction.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experimental/ColorQuantization/kMeansQuantization.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experimental/ColorQuantization/randomPaletteQuantization.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experimental/Compression/KMeansCompression.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experimental/KMeans/CompareKMeansQuantization.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experimental/SquareDetection/opencvOFCExample.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experimental/SquareDetection/pyimagesearch/detect_shapes.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experimental/SquareDetection/pyimagesearch/shape_detector.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experimental/SquareDetection/quoraDrawContours.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experimental/Tracking/CamShiftTracker/camshift.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experimental/Tracking/CamShiftTracker/p.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experimental/Tracking/CamShiftTracker/ÿ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experimental/Tracking/lucasKanadeTracker/dinosaur.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experimental/Tracking/lucasKanadeTracker/lktrack.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Experimental/Tracking/lucasKanadeTracker/testLKTracker.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Miscellaneous/imageAcquisition.py" beforeDir="false" afterPath="$PROJECT_DIR$/Miscellaneous/imageAcquisition.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experimental/ColorSpaceComparisons/grayscaleHistogram.py" beforeDir="false" afterPath="$PROJECT_DIR$/Experimental/ColorSpaceComparisons/grayscaleHistogram.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experimental/ColorSpaceComparisons/hsvHistogram.py" beforeDir="false" afterPath="$PROJECT_DIR$/Experimental/ColorSpaceComparisons/hsvHistogram.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experimental/ColorSpaceComparisons/labHistogram.py" beforeDir="false" afterPath="$PROJECT_DIR$/Experimental/ColorSpaceComparisons/labHistogram.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experimental/ColorSpaceComparisons/rgbHistogram.py" beforeDir="false" afterPath="$PROJECT_DIR$/Experimental/ColorSpaceComparisons/rgbHistogram.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Experimental/ColorSpaceComparisons/ycrcbHistogram.py" beforeDir="false" afterPath="$PROJECT_DIR$/Experimental/ColorSpaceComparisons/ycrcbHistogram.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +31,44 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Experimental/ColorSpaceComparisons/labHistogram.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="180">
+              <caret line="12" column="73" selection-start-line="12" selection-start-column="73" selection-end-line="12" selection-end-column="73" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Experimental/ColorSpaceComparisons/rgbHistogram.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="73" selection-start-line="12" selection-start-column="73" selection-end-line="12" selection-end-column="73" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Experimental/ColorSpaceComparisons/ycrcbHistogram.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="73" selection-start-line="12" selection-start-column="73" selection-end-line="12" selection-end-column="73" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Experimental/ColorSpaceComparisons/hsvHistogram.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="73" selection-start-line="12" selection-start-column="73" selection-end-line="12" selection-end-column="73" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -52,6 +77,18 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Experimental/ColorSpaceComparisons/grayscaleHistogram.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="73" selection-start-line="12" selection-start-column="73" selection-end-line="12" selection-end-column="73" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Miscellaneous/imageAcquisition.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
@@ -96,11 +133,6 @@
         <option value="$PROJECT_DIR$/Utilities/utils.py" />
         <option value="$PROJECT_DIR$/Utilities/croping.py" />
         <option value="$PROJECT_DIR$/FeatureExtraction/colorStatistics.py" />
-        <option value="$PROJECT_DIR$/Experimental/ColorSpaceComparisons/hsvHistogram.py" />
-        <option value="$PROJECT_DIR$/Experimental/ColorSpaceComparisons/grayscaleHistogram.py" />
-        <option value="$PROJECT_DIR$/Experimental/ColorSpaceComparisons/labHistogram.py" />
-        <option value="$PROJECT_DIR$/Experimental/ColorSpaceComparisons/rgbHistogram.py" />
-        <option value="$PROJECT_DIR$/Experimental/ColorSpaceComparisons/ycrcbHistogram.py" />
         <option value="$PROJECT_DIR$/Experimental/KMeans/CompareKMeansQuantization.py" />
         <option value="$PROJECT_DIR$/FeatureExtraction/meanVarStdMode.py" />
         <option value="$PROJECT_DIR$/Boileraplate/imageAcquisition.py" />
@@ -143,6 +175,11 @@
         <option value="$PROJECT_DIR$/adaBoost.py" />
         <option value="$PROJECT_DIR$/gradientBoost.py" />
         <option value="$PROJECT_DIR$/Miscellaneous/imageAcquisition.py" />
+        <option value="$PROJECT_DIR$/Experimental/ColorSpaceComparisons/labHistogram.py" />
+        <option value="$PROJECT_DIR$/Experimental/ColorSpaceComparisons/rgbHistogram.py" />
+        <option value="$PROJECT_DIR$/Experimental/ColorSpaceComparisons/ycrcbHistogram.py" />
+        <option value="$PROJECT_DIR$/Experimental/ColorSpaceComparisons/hsvHistogram.py" />
+        <option value="$PROJECT_DIR$/Experimental/ColorSpaceComparisons/grayscaleHistogram.py" />
       </list>
     </option>
   </component>
@@ -165,11 +202,6 @@
             <path>
               <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
               <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
-              <item name="Miscellaneous" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -361,7 +393,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18745036" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -456,30 +487,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="print statistics in color statistics file" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Experimental/ColorSpaceComparisons/ycrcbHistogram.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="12" column="80" selection-start-line="12" selection-start-column="80" selection-end-line="12" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Experimental/ColorQuantization/randomPaletteQuantization.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="18" column="33" selection-start-line="18" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Experimental/SquareDetection/pyimagesearch/shape_detector.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/virtual_envs/program_one/lib/python3.6/site-packages/skimage/color/colorconv.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="154" selection-start-line="154" selection-end-line="154" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Experimental/SquareDetection/opencvOFCExample.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -800,19 +807,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Experimental/ColorSpaceComparisons/labHistogram.py">
+    <entry file="file://$PROJECT_DIR$/Miscellaneous/imageAcquisition.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="135">
+          <caret line="9" column="72" selection-start-line="9" selection-start-column="72" selection-end-line="9" selection-end-column="72" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Miscellaneous/imageAcquisition.py">
+    <entry file="file://$PROJECT_DIR$/Experimental/ColorSpaceComparisons/labHistogram.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="72" selection-start-line="9" selection-start-column="72" selection-end-line="9" selection-end-column="72" />
+        <state relative-caret-position="180">
+          <caret line="12" column="73" selection-start-line="12" selection-start-column="73" selection-end-line="12" selection-end-column="73" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Experimental/ColorSpaceComparisons/rgbHistogram.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="73" selection-start-line="12" selection-start-column="73" selection-end-line="12" selection-end-column="73" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Experimental/ColorSpaceComparisons/ycrcbHistogram.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="73" selection-start-line="12" selection-start-column="73" selection-end-line="12" selection-end-column="73" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Experimental/ColorSpaceComparisons/hsvHistogram.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="73" selection-start-line="12" selection-start-column="73" selection-end-line="12" selection-end-column="73" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Experimental/ColorSpaceComparisons/grayscaleHistogram.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="73" selection-start-line="12" selection-start-column="73" selection-end-line="12" selection-end-column="73" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
