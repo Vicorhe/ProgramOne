@@ -4,10 +4,10 @@ import cv2 as cv
 import numpy as np
 
 
-TRAINING_SET_PATH = '/Users/victorhe/Pictures/colorQuantization/%s/*.BMP'
-TESTING_SET_PATH = '/Users/victorhe/Pictures/colorQuantization/%s/test/*.BMP'
-TRAINING_LABELS_FILE_PATH = '/Users/victorhe/Pictures/colorQuantization/%s/labels.txt'
-TESTING_LABELS_FILE_PATH = '/Users/victorhe/Pictures/colorQuantization/%s/test/labels.txt'
+TRAINING_SET_PATH = '/Users/victorhe/Pictures/processedTileGroups/%s/*.BMP'
+TESTING_SET_PATH = '/Users/victorhe/Pictures/processedTileGroups/%s/test/*.BMP'
+TRAINING_LABELS_FILE_PATH = '/Users/victorhe/Pictures/processedTileGroups/%s/labels.txt'
+TESTING_LABELS_FILE_PATH = '/Users/victorhe/Pictures/processedTileGroups/%s/test/labels.txt'
 OPTIONS = {'rgb': (cv.COLOR_BGR2RGB, ('R', 'G', 'B')),
            'hsv': (cv.COLOR_BGR2HSV, ('H', 'S', 'V')),
            'lab': (cv.COLOR_BGR2LAB, ('L', 'A', 'B')),
