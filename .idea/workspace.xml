@@ -3,7 +3,25 @@
   <component name="ChangeListManager">
     <list default="true" id="6a4730d4-e023-4f16-87e3-5e051ef2fb1b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utilities/split_4.py" beforeDir="false" afterPath="$PROJECT_DIR$/Utilities/sample_10.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Miscellaneous/imageAcquisition.py" beforeDir="false" afterPath="$PROJECT_DIR$/Datasets/tiles.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Utilities/sample_10.py" beforeDir="false" afterPath="$PROJECT_DIR$/Utilities/sample_10.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adaBoost.py" beforeDir="false" afterPath="$PROJECT_DIR$/adaBoost.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bagging.py" beforeDir="false" afterPath="$PROJECT_DIR$/bagging.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extraTrees.py" beforeDir="false" afterPath="$PROJECT_DIR$/extraTrees.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/featureImportance.py" beforeDir="false" afterPath="$PROJECT_DIR$/featureImportance.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradientBoost.py" beforeDir="false" afterPath="$PROJECT_DIR$/gradientBoost.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kNeighbors.py" beforeDir="false" afterPath="$PROJECT_DIR$/kNeighbors.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linearKernelSVC.py" beforeDir="false" afterPath="$PROJECT_DIR$/linearKernelSVC.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linearSVC.py" beforeDir="false" afterPath="$PROJECT_DIR$/linearSVC.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nearestCentroids.py" beforeDir="false" afterPath="$PROJECT_DIR$/nearestCentroids.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pasting.py" beforeDir="false" afterPath="$PROJECT_DIR$/pasting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polynomialKernelSVC.py" beforeDir="false" afterPath="$PROJECT_DIR$/polynomialKernelSVC.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/radiusNeighbors.py" beforeDir="false" afterPath="$PROJECT_DIR$/radiusNeighbors.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/randomForest.py" beforeDir="false" afterPath="$PROJECT_DIR$/randomForest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/randomPatches.py" beforeDir="false" afterPath="$PROJECT_DIR$/randomPatches.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/randomSubspaces.py" beforeDir="false" afterPath="$PROJECT_DIR$/randomSubspaces.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rbfKernelSVC.py" beforeDir="false" afterPath="$PROJECT_DIR$/rbfKernelSVC.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sigmoidKernelSVC.py" beforeDir="false" afterPath="$PROJECT_DIR$/sigmoidKernelSVC.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,20 +31,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Utilities/croping.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Utilities/sample_10.py">
+        <entry file="file://$PROJECT_DIR$/Datasets/tiles.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="500">
+              <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="43" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -63,7 +72,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Utilities/utils.py" />
         <option value="$PROJECT_DIR$/Utilities/croping.py" />
         <option value="$PROJECT_DIR$/FeatureExtraction/colorStatistics.py" />
         <option value="$PROJECT_DIR$/Experimental/KMeans/CompareKMeansQuantization.py" />
@@ -114,10 +122,11 @@
         <option value="$PROJECT_DIR$/Experimental/ColorSpaceComparisons/hsvHistogram.py" />
         <option value="$PROJECT_DIR$/Experimental/ColorSpaceComparisons/grayscaleHistogram.py" />
         <option value="$PROJECT_DIR$/Utilities/sample_10.py" />
+        <option value="$PROJECT_DIR$/Datasets/tiles.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
     <option name="width" value="1280" />
     <option name="height" value="800" />
   </component>
@@ -129,7 +138,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -140,12 +148,18 @@
             <path>
               <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
               <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
+              <item name="Datasets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
               <item name="Utilities" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -446,24 +460,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Experimental/Tracking/lucasKanadeTracker/dinosaur.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Experimental/Tracking/CamShiftTracker/camshift.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Experimental/Tracking/lucasKanadeTracker/dinosaur.py" />
+    <entry file="file://$PROJECT_DIR$/Experimental/Tracking/CamShiftTracker/camshift.py" />
     <entry file="file://$PROJECT_DIR$/Experimental/TextureFeatures/waveletTransform.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -493,20 +491,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Utilities/split_4.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Utilities/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Utilities/split_4.py" />
     <entry file="file://$PROJECT_DIR$/FeatureExtraction/meanVarSkew.py" />
     <entry file="file://$PROJECT_DIR$/FeatureExtraction/moments.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -688,43 +673,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gradientBoost.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Experimental/KMeans/CompareKMeansQuantization.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="605">
-          <caret line="70" column="10" lean-forward="true" selection-start-line="70" selection-start-column="10" selection-end-line="70" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Experimental/Compression/KMeansCompression.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="45" column="18" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Experimental/ColorQuantization/kMeansQuantization.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="56" column="73" selection-start-line="56" selection-start-column="73" selection-end-line="56" selection-end-column="73" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Experimental/KMeans/CompareKMeansQuantization.py" />
+    <entry file="file://$PROJECT_DIR$/Experimental/Compression/KMeansCompression.py" />
+    <entry file="file://$PROJECT_DIR$/Experimental/ColorQuantization/kMeansQuantization.py" />
     <entry file="file://$PROJECT_DIR$/Experimental/ColorQuantization/uniformQuantization.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -785,16 +736,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Miscellaneous/imageAcquisition.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="72" selection-start-line="9" selection-start-column="72" selection-end-line="9" selection-end-column="72" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Utilities/croping.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -804,8 +745,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Utilities/sample_10.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="330">
+          <caret line="22" column="89" selection-start-line="22" selection-start-column="89" selection-end-line="22" selection-end-column="89" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Utilities/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gradientBoost.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Datasets/tiles.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="43" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>

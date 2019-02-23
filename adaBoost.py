@@ -3,7 +3,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler, Normalizer
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.tree import DecisionTreeClassifier
-from Miscellaneous.imageAcquisition import get_data_set
+from Datasets.tiles import get_data_set
 from FeatureExtraction.feature_set_b import get_statistics
 # from FeatureExtraction.feature_set_a import get_statistics
 from Utilities.utils import unison_shuffled_copies

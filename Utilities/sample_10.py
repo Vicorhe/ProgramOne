@@ -20,5 +20,5 @@ img = cv.imread(source_path)
 
 for i in range(SAMPLE_COUNT):
     tl_x, tl_y = randint(0, 19) * 30, randint(0, 19) * 30
-    destination = destination_path % (args['set'], args['destination'], args['image'], i)
+    destination = destination_path % (args['set'], args['destination'], args['destination'], i)
     cv.imwrite(destination, img[tl_x:tl_x+300, tl_y:tl_y+300])
