@@ -1,15 +1,22 @@
+from numpy import array2string
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 
 
-TABLE_HEADER = '{:<10}{:>14s}{:>14s}'
+CENTER_TEXT = '{:^38s}'
+TABLE_HEADER = '{:>24s}{:>14s}'
 TABLE_ROW = '{:>10s}{:>14.3f}{:>14.3f}'
 TABLE_BORDER = '-' * 38
 
+TITLE = 'PERFORMANCE REPORT'
+CONFUSION = 'CONFUSION MATRIX'
 MACRO = 'macro avg'
 MICRO = 'micro avg'
 PRECISION = 'precision'
 RECALL = 'recall'
 F1 = 'f1-score'
+TRAINING = 'training set'
+TESTING = 'testing set'
+ACCURACY = 'accuracy'
 
 
 def performance_report(training_truth, training_prediction,
@@ -29,8 +36,10 @@ def performance_report(training_truth, training_prediction,
     f1_macro = c_r[MACRO][F1]
 
     print(TABLE_BORDER)
+    print(CENTER_TEXT.format(TITLE))
+    print(TABLE_BORDER)
 
-    print(TABLE_HEADER.format('', MICRO, MACRO))
+    print(TABLE_HEADER.format(MICRO, MACRO))
     print(TABLE_BORDER)
     print(TABLE_ROW.format(PRECISION, precision_micro, precision_macro))
     print(TABLE_ROW.format(RECALL, recall_micro, recall_macro))
@@ -38,11 +47,15 @@ def performance_report(training_truth, training_prediction,
 
     print(TABLE_BORDER)
 
-    print(TABLE_HEADER.format('', 'training set', 'testing set'))
+    print(TABLE_HEADER.format(TRAINING, TESTING))
     print(TABLE_BORDER)
-    print(TABLE_ROW.format('accuracy', training_set_accuracy, testing_set_accuracy))
+    print(TABLE_ROW.format(ACCURACY, training_set_accuracy, testing_set_accuracy))
 
     print(TABLE_BORDER)
+    print(CENTER_TEXT.format(CONFUSION))
+    print(TABLE_BORDER)
 
-    print('confusion matrix:')
-    print(confusion_matrix(testing_truth, testing_prediction))
+    for row in confusion_matrix(testing_truth, testing_prediction):
+        print(CENTER_TEXT.format(array2string(row)))
+        
+    print(TABLE_BORDER)
