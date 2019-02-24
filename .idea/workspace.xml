@@ -3,25 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6a4730d4-e023-4f16-87e3-5e051ef2fb1b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Miscellaneous/imageAcquisition.py" beforeDir="false" afterPath="$PROJECT_DIR$/Datasets/tiles.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utilities/sample_10.py" beforeDir="false" afterPath="$PROJECT_DIR$/Utilities/sample_10.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adaBoost.py" beforeDir="false" afterPath="$PROJECT_DIR$/adaBoost.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bagging.py" beforeDir="false" afterPath="$PROJECT_DIR$/bagging.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extraTrees.py" beforeDir="false" afterPath="$PROJECT_DIR$/extraTrees.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/featureImportance.py" beforeDir="false" afterPath="$PROJECT_DIR$/featureImportance.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradientBoost.py" beforeDir="false" afterPath="$PROJECT_DIR$/gradientBoost.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kNeighbors.py" beforeDir="false" afterPath="$PROJECT_DIR$/kNeighbors.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linearKernelSVC.py" beforeDir="false" afterPath="$PROJECT_DIR$/linearKernelSVC.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linearSVC.py" beforeDir="false" afterPath="$PROJECT_DIR$/linearSVC.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nearestCentroids.py" beforeDir="false" afterPath="$PROJECT_DIR$/nearestCentroids.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pasting.py" beforeDir="false" afterPath="$PROJECT_DIR$/pasting.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polynomialKernelSVC.py" beforeDir="false" afterPath="$PROJECT_DIR$/polynomialKernelSVC.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/radiusNeighbors.py" beforeDir="false" afterPath="$PROJECT_DIR$/radiusNeighbors.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/randomForest.py" beforeDir="false" afterPath="$PROJECT_DIR$/randomForest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/randomPatches.py" beforeDir="false" afterPath="$PROJECT_DIR$/randomPatches.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/randomSubspaces.py" beforeDir="false" afterPath="$PROJECT_DIR$/randomSubspaces.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rbfKernelSVC.py" beforeDir="false" afterPath="$PROJECT_DIR$/rbfKernelSVC.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sigmoidKernelSVC.py" beforeDir="false" afterPath="$PROJECT_DIR$/sigmoidKernelSVC.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,14 +12,38 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Datasets/tiles.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="43" />
+            <state relative-caret-position="300">
+              <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/linearSVC.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/kNeighbors.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="605">
+              <caret line="50" selection-start-line="50" selection-end-line="50" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -96,7 +102,6 @@
         <option value="$PROJECT_DIR$/KCentroids.py" />
         <option value="$PROJECT_DIR$/SVC.py" />
         <option value="$PROJECT_DIR$/linearSVC.py" />
-        <option value="$PROJECT_DIR$/kNeighbors.py" />
         <option value="$PROJECT_DIR$/nearestCentroids.py" />
         <option value="$PROJECT_DIR$/radiusNeighbors.py" />
         <option value="$PROJECT_DIR$/polynomialSVM.py" />
@@ -123,10 +128,11 @@
         <option value="$PROJECT_DIR$/Experimental/ColorSpaceComparisons/grayscaleHistogram.py" />
         <option value="$PROJECT_DIR$/Utilities/sample_10.py" />
         <option value="$PROJECT_DIR$/Datasets/tiles.py" />
+        <option value="$PROJECT_DIR$/kNeighbors.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1280" />
     <option name="height" value="800" />
   </component>
@@ -144,16 +150,6 @@
             <path>
               <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
               <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
-              <item name="Datasets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
-              <item name="Utilities" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -589,16 +585,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kNeighbors.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="29" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pasting.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -630,16 +616,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="326">
           <caret line="33" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/linearSVC.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -769,10 +745,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Datasets/tiles.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="43" />
+        <state relative-caret-position="300">
+          <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/linearSVC.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kNeighbors.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="605">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
