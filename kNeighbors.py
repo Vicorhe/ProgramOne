@@ -3,9 +3,9 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler, Normalizer
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import StratifiedShuffleSplit
-from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 from Datasets.tiles import get_data_set
 from FeatureExtraction.feature_set_a import get_statistics
+from Evaluation.metricConstructThree import performance_report
 # from FeatureExtraction.feature_set_b import get_statistics
 
 
@@ -31,7 +31,7 @@ assert y_test.flags['C_CONTIGUOUS']
 
 # k nearest neighbors classifier
 
-n_neighbors = 3
+n_neighbors = 5
 
 k_nearest_neighbors_clf = Pipeline([
     ('k_nearest_neighbors_clf', KNeighborsClassifier(n_neighbors=n_neighbors,
@@ -43,9 +43,4 @@ k_nearest_neighbors_clf = Pipeline([
 k_nearest_neighbors_clf.fit(X_train, y_train)
 train_predict = k_nearest_neighbors_clf.predict(X_train)
 test_predict = k_nearest_neighbors_clf.predict(X_test)
-
-print('TRAIN SET accuracy score: %f' % accuracy_score(y_train, train_predict))
-print('TEST SET accuracy score: %f' % accuracy_score(y_test, test_predict))
-print(classification_report(y_test, test_predict))
-print(classification_report(y_test, test_predict, output_dict=True))
-print(confusion_matrix(y_test, test_predict))
+performance_report(y_train, train_predict, y_test, test_predict)
