@@ -3,14 +3,14 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler, Normalizer
 from sklearn.ensemble import BaggingClassifier
 from sklearn.tree import DecisionTreeClassifier
-from Datasets.tiles import get_data_set
+from Datasets.tiles import get_raw_data_set
 # from FeatureExtraction.feature_set_b import get_statistics
 from FeatureExtraction.feature_set_a import get_statistics
 from Utilities.utils import unison_shuffled_copies
 
 
 # fetch the raw training and testing images, and respective labels
-training_images, testing_images, y_train, y_test, channels = get_data_set()
+training_images, testing_images, y_train, y_test, channels = get_raw_data_set()
 
 # gather features
 X_train = np.vstack([get_statistics(img, channels) for img, _ in training_images])

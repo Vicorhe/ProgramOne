@@ -12,7 +12,7 @@ OPTIONS = {'rgb': (cv.COLOR_BGR2RGB, ('R', 'G', 'B')),
            'ycrcb': (cv.COLOR_BGR2YCR_CB, ('Y', 'Cr', 'Cb'))}
 
 
-def get_data_set():
+def get_raw_data_set():
     ap = argparse.ArgumentParser()
     ap.add_argument('-o',
                     '--option',

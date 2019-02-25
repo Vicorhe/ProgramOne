@@ -19,6 +19,13 @@ TESTING = 'testing set'
 ACCURACY = 'accuracy'
 
 
+# USE CASE
+###################################################################
+# train_predict = k_nearest_neighbors_clf.predict(X_train)        #
+# test_predict = k_nearest_neighbors_clf.predict(X_test)          #
+#                                                                 #
+# performance_report(y_train, train_predict, y_test, test_predict)#
+###################################################################
 def performance_report(training_truth, training_prediction,
                        testing_truth, testing_prediction):
 
