@@ -2,10 +2,10 @@ import numpy as np
 from sklearn.model_selection import cross_validate
 
 
-CENTER_TEXT = '{:^35s}'
-TABLE_HEADER = '{:>11s}{:>11s}{:>11s}'
-TABLE_ROW = '{:>11.3f}{:>11.3f}{:>11.3f}'
-TABLE_BORDER = '-' * 33
+CENTER_TEXT = '{:^22s}'
+TABLE_HEADER = '{:>11s}{:>11s}'
+TABLE_ROW = '{:>11.3f}{:>11.3f}'
+TABLE_BORDER = '-' * 22
 
 
 def cross_validation_report(clf, data, labels):
@@ -22,14 +22,14 @@ def cross_validation_report(clf, data, labels):
 
     print(TABLE_BORDER)
 
-    print(CENTER_TEXT.format('CROSS EVALUATION REPORT'))
+    print(CENTER_TEXT.format('CV REPORT'))
 
     print(TABLE_BORDER)
 
-    print(TABLE_HEADER.format('f1 macro', 'f1 micro', 'accuracy'))
+    print(TABLE_HEADER.format('f1 macro', 'accuracy'))
 
     print(TABLE_BORDER)
 
-    print(TABLE_ROW.format(f1_macro, f1_micro, score))
+    print(TABLE_ROW.format(f1_macro, score))
 
     print(TABLE_BORDER)
