@@ -2,10 +2,12 @@ import numpy as np
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler, Normalizer
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.model_selection import StratifiedShuffleSplit
+from sklearn.model_selection import StratifiedShuffleSplit, cross_validate
+from sklearn.externals import joblib
 from Datasets.tiles import get_data_set
 from FeatureExtraction.feature_set_a import get_statistics
-from Evaluation.metricConstructThree import performance_report
+from Evaluation.performance import performance_report
+from Evaluation.crossEvaluation import cross_evaluation_report
 # from FeatureExtraction.feature_set_b import get_statistics
 
 
@@ -18,7 +20,8 @@ X = np.vstack([get_statistics(img, channels) for img, _ in image_set])
 # split training and testing set
 n_splits = 1
 test_set_size = 0.3
-sss = StratifiedShuffleSplit(n_splits=n_splits, test_size=test_set_size)
+random_state = 6117
+sss = StratifiedShuffleSplit(n_splits=n_splits, test_size=test_set_size, random_state=random_state)
 train_index, test_index = next(sss.split(X, y))
 X_train, y_train = X[train_index], y[train_index]
 X_test, y_test = X[test_index], y[test_index]
@@ -31,8 +34,7 @@ assert y_test.flags['C_CONTIGUOUS']
 
 # k nearest neighbors classifier
 
-n_neighbors = 5
-
+n_neighbors = 3
 k_nearest_neighbors_clf = Pipeline([
     ('k_nearest_neighbors_clf', KNeighborsClassifier(n_neighbors=n_neighbors,
                                                      weights='uniform'))
@@ -41,6 +43,11 @@ k_nearest_neighbors_clf = Pipeline([
 #   weights: 'uniform', 'distance'
 
 k_nearest_neighbors_clf.fit(X_train, y_train)
-train_predict = k_nearest_neighbors_clf.predict(X_train)
-test_predict = k_nearest_neighbors_clf.predict(X_test)
-performance_report(y_train, train_predict, y_test, test_predict)
+
+# cross validation
+cross_evaluation_report(k_nearest_neighbors_clf, X_train, y_train)
+
+# train_predict = k_nearest_neighbors_clf.predict(X_train)
+# test_predict = k_nearest_neighbors_clf.predict(X_test)
+
+# performance_report(y_train, train_predict, y_test, test_predict)
