@@ -7,7 +7,7 @@ from sklearn.externals import joblib
 from Datasets.tiles import get_data_set
 from FeatureExtraction.feature_set_a import get_statistics
 from Evaluation.performance import performance_report
-from Evaluation.crossEvaluation import cross_evaluation_report
+from Evaluation.crossValidation import cross_validation_report
 # from FeatureExtraction.feature_set_b import get_statistics
 
 
@@ -45,7 +45,7 @@ k_nearest_neighbors_clf = Pipeline([
 k_nearest_neighbors_clf.fit(X_train, y_train)
 
 # cross validation
-cross_evaluation_report(k_nearest_neighbors_clf, X_train, y_train)
+cross_validation_report(k_nearest_neighbors_clf, X_train, y_train)
 
 # train_predict = k_nearest_neighbors_clf.predict(X_train)
 # test_predict = k_nearest_neighbors_clf.predict(X_test)
