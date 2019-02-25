@@ -1,26 +1,14 @@
-import numpy as np
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler, Normalizer
 from sklearn.ensemble import GradientBoostingClassifier
-from Datasets.tiles import get_raw_data_set
-from FeatureExtraction.feature_set_b import get_statistics
+from Datasets.utils import load_tile_data_set
 # from FeatureExtraction.feature_set_a import get_statistics
-from Utilities.utils import unison_shuffled_copies
+from FeatureExtraction.feature_set_b import get_statistics
+from Evaluation.crossValidation import cross_validation_report
 
 
-# fetch the raw training and testing images, and respective labels
-training_images, testing_images, y_train, y_test, channels = get_raw_data_set()
+# load data set
+X_train, y_train, X_test, y_test = load_tile_data_set(feature_func=get_statistics)
 
-# gather features
-X_train = np.vstack([get_statistics(img, channels) for img, _ in training_images])
-X_test = np.vstack([get_statistics(img, channels) for img, _ in testing_images])
-X_train, y_train = unison_shuffled_copies(X_train, y_train)
-
-# avoid data copy
-assert X_train.flags['C_CONTIGUOUS']
-assert X_test.flags['C_CONTIGUOUS']
-assert y_train.flags['C_CONTIGUOUS']
-assert y_test.flags['C_CONTIGUOUS']
 
 # gradient boost classifier
 
@@ -40,7 +28,7 @@ gradient_boost_clf = Pipeline([
                                                  criterion=criterion,
                                                  max_depth=max_depth,
                                                  max_features=max_features))
-])
+]).fit(X_train, y_train)
 #   loss = 'deviance', 'exponential'
 #   learning_rate = 0.1, 0.2, 0.3, 0.5, 0.7, 1.0
 #   n_estimators = 25, 50, 100, 200
@@ -49,7 +37,6 @@ gradient_boost_clf = Pipeline([
 #   max_depth = 2, 4, 6, 8, 10
 #   max_features = 'sqrt', 'log2', None
 
-gradient_boost_clf.fit(X_train, y_train)
 
-print("training score: %f" % (gradient_boost_clf.score(X_train, y_train)))
-print("testing score: %f" % (gradient_boost_clf.score(X_test, y_test)))
+# cross validation
+cross_validation_report(gradient_boost_clf, X_train, y_train)
