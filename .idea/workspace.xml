@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6a4730d4-e023-4f16-87e3-5e051ef2fb1b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Evaluation/crossEvaluation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Evaluation/crossEvaluation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Evaluation/crossValidation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Evaluation/crossValidation.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,23 +12,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Evaluation/crossEvaluation.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/kNeighbors.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
+            <state relative-caret-position="735">
+              <caret line="49" column="2" selection-start-line="49" selection-start-column="2" selection-end-line="49" selection-end-column="2" />
               <folding>
-                <element signature="e#0#6#0" expanded="true" />
+                <element signature="e#0#18#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Evaluation/performance.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Evaluation/crossValidation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6">
-              <caret line="4" selection-start-line="4" selection-end-line="7" selection-end-column="23" />
+            <state relative-caret-position="405">
+              <caret line="28" column="51" selection-start-line="28" selection-start-column="51" selection-end-line="28" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -63,7 +62,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/FeatureExtraction/meanVarStdMode.py" />
         <option value="$PROJECT_DIR$/Boileraplate/imageAcquisition.py" />
         <option value="$PROJECT_DIR$/Classification/linearSVM.py" />
         <option value="$PROJECT_DIR$/FeatureExtraction/meanVar.py" />
@@ -114,6 +112,7 @@
         <option value="$PROJECT_DIR$/Evaluation/performance.py" />
         <option value="$PROJECT_DIR$/kNeighbors.py" />
         <option value="$PROJECT_DIR$/Evaluation/crossEvaluation.py" />
+        <option value="$PROJECT_DIR$/Evaluation/crossValidation.py" />
       </list>
     </option>
   </component>
@@ -704,16 +703,6 @@
     <entry file="file://$PROJECT_DIR$/randomSubspaces.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/linearKernelSVC.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="10" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nearestCentroids.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -741,9 +730,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/linearKernelSVC.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="29" column="10" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/kNeighbors.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
+        <state relative-caret-position="735">
           <caret line="49" column="2" selection-start-line="49" selection-start-column="2" selection-end-line="49" selection-end-column="2" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
@@ -753,18 +752,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Evaluation/performance.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6">
-          <caret line="4" selection-start-line="4" selection-end-line="7" selection-end-column="23" />
+        <state relative-caret-position="201">
+          <caret line="17" column="23" lean-forward="true" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Evaluation/crossEvaluation.py">
+    <entry file="file://$PROJECT_DIR$/Evaluation/crossValidation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#6#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="405">
+          <caret line="28" column="51" selection-start-line="28" selection-start-column="51" selection-end-line="28" selection-end-column="51" />
         </state>
       </provider>
     </entry>

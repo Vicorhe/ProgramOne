@@ -26,7 +26,7 @@ def cross_validation_report(clf, data, labels):
 
     print(TABLE_BORDER)
 
-    print(TABLE_HEADER.format('macro f1', 'micro f1', 'accuracy'))
+    print(TABLE_HEADER.format('f1 macro', 'f1 micro', 'accuracy'))
 
     print(TABLE_BORDER)
 
