@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6a4730d4-e023-4f16-87e3-5e051ef2fb1b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/perceptron.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bagging.py" beforeDir="false" afterPath="$PROJECT_DIR$/Experimental/Classification/bagging.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kNeighbors.py" beforeDir="false" afterPath="$PROJECT_DIR$/Experimental/Classification/kNeighbors.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nearestCentroids.py" beforeDir="false" afterPath="$PROJECT_DIR$/Experimental/Classification/nearestCentroids.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pasting.py" beforeDir="false" afterPath="$PROJECT_DIR$/Experimental/Classification/pasting.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/radiusNeighbors.py" beforeDir="false" afterPath="$PROJECT_DIR$/Experimental/Classification/radiusNeighbors.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sigmoidKernelSVC.py" beforeDir="false" afterPath="$PROJECT_DIR$/Experimental/Classification/sigmoidKernelSVC.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,7 +12,20 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/perceptron.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+              <folding>
+                <element signature="e#0#37#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -47,7 +54,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/FeatureExtraction/meanVarMedian.py" />
         <option value="$PROJECT_DIR$/FeatureExtraction/meanVarMode.py" />
         <option value="$PROJECT_DIR$/FeatureExtraction/meanVarStd.py" />
         <option value="$PROJECT_DIR$/FeatureExtraction/meanVarMedianMode.py" />
@@ -98,11 +104,13 @@
         <option value="$PROJECT_DIR$/rbfKernelSVC.py" />
         <option value="$PROJECT_DIR$/sigmoidKernelSVC.py" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/perceptron.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1280" />
+    <option name="x" value="650" />
+    <option name="width" value="630" />
     <option name="height" value="800" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -132,17 +140,17 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/Utilities" />
+      <recent name="$PROJECT_DIR$/FeatureExtraction" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/Experimental/Classification" />
       <recent name="$PROJECT_DIR$/Datasets" />
-      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/Miscellaneous" />
       <recent name="$PROJECT_DIR$/Utilities" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Utilities" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/FeatureExtraction" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -311,9 +319,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <frame x="650" y="0" width="630" height="800" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18506752" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.18506752" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -406,15 +415,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="print statistics in color statistics file" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Experimental/TextureFeatures/waveletTransform.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Boileraplate/__init__.py" />
     <entry file="file://$PROJECT_DIR$/FeatureExtraction/meanStd.py" />
     <entry file="file://$PROJECT_DIR$/FeatureExtraction/meanVarMode.py" />
@@ -760,6 +760,16 @@
           <caret line="25" column="81" lean-forward="true" selection-start-line="25" selection-start-column="81" selection-end-line="25" selection-end-column="81" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/perceptron.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
           </folding>
         </state>
       </provider>
