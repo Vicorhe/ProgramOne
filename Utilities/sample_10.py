@@ -3,8 +3,8 @@ from random import randint
 import cv2 as cv
 
 
-source_path = '/Users/victorhe/Pictures/alternativeSourceTiles/%s/%s.BMP'
-destination_path = '/Users/victorhe/Pictures/alternativeSourceTiles/%s/%s/%s_%d.BMP'
+source_path = '/Users/victorhe/Pictures/studioSourceTiles/STUDIO_SET_3/cropped/%s.BMP'
+destination_path = '/Users/victorhe/Pictures/studioSourceTiles/%s/%s/%s_%d.BMP'
 SAMPLE_COUNT = 10
 
 ap = argparse.ArgumentParser()
@@ -14,11 +14,11 @@ ap.add_argument('-i', '--image', required=True, help='image to be split')
 args = vars(ap.parse_args())
 image_set = list()
 
-source_path = source_path % (args['set'], args['image'])
+source_path = source_path % (args['image'])
 
 img = cv.imread(source_path)
 
 for i in range(SAMPLE_COUNT):
     tl_x, tl_y = randint(0, 19) * 30, randint(0, 19) * 30
     destination = destination_path % (args['set'], args['destination'], args['destination'], i)
-    cv.imwrite(destination, img[tl_x:tl_x+300, tl_y:tl_y+300])
+    cv.imwrite(destination, img[tl_x:tl_x+400, tl_y:tl_y+400])

@@ -1,12 +1,5 @@
-import argparse
 from glob import glob
 import cv2 as cv
-import numpy as np
-
-
-ap = argparse.ArgumentParser()
-ap.add_argument('-s', '--set', required=True, help='set of images being evaluated')
-args = vars(ap.parse_args())
 
 
 def crop_center(image):
@@ -16,10 +9,10 @@ def crop_center(image):
     return image[mid_h - 500: mid_h + 500, mid_w - 500: mid_w + 500]
 
 
-for path in sorted(glob('/Users/victorhe/Pictures/studioSourceTiles/STUDIO_SET_1/%s/*.BMP' % args['set'])):
+for path in sorted(glob('/Users/victorhe/Pictures/studioSourceTiles/STUDIO_SET_4/*.BMP')):
     img = cv.imread(path)
     filename = path.split('/')[-1]
-    filename_with_path = '/Users/victorhe/Pictures/studioSourceTiles/STUDIO_SET_1/%s' % filename
+    filename_with_path = '/Users/victorhe/Pictures/studioSourceTiles/STUDIO_SET_4/cropped/%s' % filename
 
     result_img = crop_center(img)
 

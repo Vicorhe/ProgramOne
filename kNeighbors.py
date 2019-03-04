@@ -1,8 +1,8 @@
 from sklearn.pipeline import Pipeline
 from sklearn.neighbors import KNeighborsClassifier
 from Datasets.utils import load_tile_data_set
-# from FeatureExtraction.feature_set_a import get_statistics
-from FeatureExtraction.feature_set_b import get_statistics
+from FeatureExtraction.feature_set_a import get_statistics
+# from FeatureExtraction.feature_set_b import get_statistics
 from Evaluation.crossValidation import cross_validation_report
 
 
