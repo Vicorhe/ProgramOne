@@ -9,10 +9,10 @@ def crop_center(image):
     return image[mid_h - 500: mid_h + 500, mid_w - 500: mid_w + 500]
 
 
-for path in sorted(glob('/Users/victorhe/Pictures/studioSourceTiles/STUDIO_SET_4/*.BMP')):
+for path in sorted(glob('/Users/victorhe/Pictures/studioSourceTiles/SS6/*.BMP')):
     img = cv.imread(path)
     filename = path.split('/')[-1]
-    filename_with_path = '/Users/victorhe/Pictures/studioSourceTiles/STUDIO_SET_4/cropped/%s' % filename
+    filename_with_path = '/Users/victorhe/Pictures/studioSourceTiles/SS6/cropped/%s' % filename
 
     result_img = crop_center(img)
 
