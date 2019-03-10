@@ -2,9 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6a4730d4-e023-4f16-87e3-5e051ef2fb1b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/decisionTree.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logisticSGD.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BenchedClassifiers/logisticSGD.py" beforeDir="false" afterPath="$PROJECT_DIR$/logisticSGD.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BenchedClassifiers/pasting.py" beforeDir="false" afterPath="$PROJECT_DIR$/pasting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BenchedClassifiers/perceptron.py" beforeDir="false" afterPath="$PROJECT_DIR$/perceptron.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BenchedClassifiers/radiusNeighbors.py" beforeDir="false" afterPath="$PROJECT_DIR$/radiusNeighbors.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BenchedClassifiers/randomPatches.py" beforeDir="false" afterPath="$PROJECT_DIR$/randomPatches.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BenchedClassifiers/randomSubspaces.py" beforeDir="false" afterPath="$PROJECT_DIR$/randomSubspaces.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BenchedClassifiers/rbfKernelSVC.py" beforeDir="false" afterPath="$PROJECT_DIR$/rbfKernelSVC.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BenchedClassifiers/sigmoidKernelSVC.py" beforeDir="false" afterPath="$PROJECT_DIR$/sigmoidKernelSVC.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Datasets/tiles.py" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/tiles.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Datasets/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/DataSetOperations.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FeatureExtraction/feature_set_a.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FeatureExtraction/feature_set_b.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FeatureExtraction/moments.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adaBoost.py" beforeDir="false" afterPath="$PROJECT_DIR$/adaBoost.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bagging.py" beforeDir="false" afterPath="$PROJECT_DIR$/bagging.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/decisionTree.py" beforeDir="false" afterPath="$PROJECT_DIR$/decisionTree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extraTrees.py" beforeDir="false" afterPath="$PROJECT_DIR$/extraTrees.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/featureImportance.py" beforeDir="false" afterPath="$PROJECT_DIR$/featureImportance.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradientBoost.py" beforeDir="false" afterPath="$PROJECT_DIR$/gradientBoost.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kNeighbors.py" beforeDir="false" afterPath="$PROJECT_DIR$/kNeighbors.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linearKernelSVC.py" beforeDir="false" afterPath="$PROJECT_DIR$/linearKernelSVC.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linearSVC.py" beforeDir="false" afterPath="$PROJECT_DIR$/linearSVC.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiLayeredPerceptrons.py" beforeDir="false" afterPath="$PROJECT_DIR$/multiLayeredPerceptrons.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nearestCentroids.py" beforeDir="false" afterPath="$PROJECT_DIR$/nearestCentroids.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polynomialKernelSVC.py" beforeDir="false" afterPath="$PROJECT_DIR$/polynomialKernelSVC.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/randomForest.py" beforeDir="false" afterPath="$PROJECT_DIR$/randomForest.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,7 +37,41 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Modules/DataSetOperations.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="32" column="39" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Evaluation/crossValidation.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="35" selection-start-line="35" selection-end-line="35" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/adaBoost.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -42,10 +100,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Utilities/split_4.py" />
-        <option value="$PROJECT_DIR$/PolynomialSVM.py" />
-        <option value="$PROJECT_DIR$/rbfSVM.py" />
-        <option value="$PROJECT_DIR$/FeatureExtraction/featureExtraction.py" />
         <option value="$PROJECT_DIR$/linearSVM.py" />
         <option value="$PROJECT_DIR$/KNeighbors.py" />
         <option value="$PROJECT_DIR$/KCentroids.py" />
@@ -64,7 +118,6 @@
         <option value="$PROJECT_DIR$/Evaluation/crossEvaluation.py" />
         <option value="$PROJECT_DIR$/Utilities/preprocessing.py" />
         <option value="$PROJECT_DIR$/Evaluation/performance.py" />
-        <option value="$PROJECT_DIR$/adaBoost.py" />
         <option value="$PROJECT_DIR$/bagging.py" />
         <option value="$PROJECT_DIR$/extraTrees.py" />
         <option value="$PROJECT_DIR$/featureImportance.py" />
@@ -78,7 +131,6 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/perceptron.py" />
         <option value="$PROJECT_DIR$/multiLayeredPerceptrons.py" />
-        <option value="$PROJECT_DIR$/Utilities/sample_10.py" />
         <option value="$PROJECT_DIR$/linearKernelSVC.py" />
         <option value="$PROJECT_DIR$/polynomialKernelSVC.py" />
         <option value="$PROJECT_DIR$/kNeighbors.py" />
@@ -86,19 +138,24 @@
         <option value="$PROJECT_DIR$/randomSubspaces.py" />
         <option value="$PROJECT_DIR$/linearSVC.py" />
         <option value="$PROJECT_DIR$/Utilities/image_quality_test.py" />
-        <option value="$PROJECT_DIR$/Utilities/croping.py" />
         <option value="$PROJECT_DIR$/Utilities/n_sample.py" />
         <option value="$PROJECT_DIR$/Datasets/tiles.py" />
         <option value="$PROJECT_DIR$/Evaluation/crossValidation.py" />
         <option value="$PROJECT_DIR$/Datasets/utils.py" />
         <option value="$PROJECT_DIR$/logisticSGD.py" />
         <option value="$PROJECT_DIR$/decisionTree.py" />
+        <option value="$PROJECT_DIR$/Utilities/sample_10.py" />
+        <option value="$PROJECT_DIR$/Utilities/sample_100.py" />
+        <option value="$PROJECT_DIR$/Utilities/croping.py" />
+        <option value="$PROJECT_DIR$/Utilities/sample_n.py" />
+        <option value="$PROJECT_DIR$/Boileraplate/argparse_image_sets.py" />
+        <option value="$PROJECT_DIR$/Utilities/labels_generator.py" />
+        <option value="$PROJECT_DIR$/adaBoost.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="646" />
-    <option name="width" value="634" />
+    <option name="width" value="1280" />
     <option name="height" value="800" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -109,7 +166,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -120,17 +176,13 @@
             <path>
               <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
               <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
-              <item name="Datasets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
-              <item name="Evaluation" type="462c0819:PsiDirectoryNode" />
+              <item name="Modules" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -139,11 +191,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Modules" />
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/BenchedClassifiers" />
       <recent name="$PROJECT_DIR$/Experimental/Classification" />
       <recent name="$PROJECT_DIR$/Datasets" />
-      <recent name="$PROJECT_DIR$/Miscellaneous" />
-      <recent name="$PROJECT_DIR$/Utilities" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -317,9 +369,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="646" y="0" width="634" height="800" extended-state="0" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.22022839" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22001588" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -412,24 +464,9 @@
     <option name="LAST_COMMIT_MESSAGE" value="print statistics in color statistics file" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/FeatureExtraction/meanVarStd.py" />
-    <entry file="file://$PROJECT_DIR$/Boileraplate/argparse_image_sets.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="6" selection-start-line="3" selection-end-line="3" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Utilities/concatenation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Utilities/split_4.py" />
     <entry file="file://$PROJECT_DIR$/FeatureExtraction/meanVarSkew.py" />
-    <entry file="file://$PROJECT_DIR$/FeatureExtraction/moments.py">
+    <entry file="file://$PROJECT_DIR$/Modules/FeatureExtraction/moments.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
           <caret line="47" selection-start-line="47" selection-end-line="47" />
@@ -494,27 +531,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Utilities/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FeatureExtraction/feature_set_b.py">
+    <entry file="file://$PROJECT_DIR$/Modules/FeatureExtraction/feature_set_b.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="27" selection-start-line="27" selection-end-line="27" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FeatureExtraction/feature_set_a.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -565,7 +588,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Experimental/Classification/radiusNeighbors.py">
+    <entry file="file://$PROJECT_DIR$/radiusNeighbors.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="25" column="44" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
@@ -605,7 +628,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Experimental/Classification/sigmoidKernelSVC.py">
+    <entry file="file://$PROJECT_DIR$/sigmoidKernelSVC.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="24" column="61" selection-start-line="24" selection-start-column="61" selection-end-line="24" selection-end-column="61" />
@@ -683,98 +706,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/randomSubspaces.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="5" column="2" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/linearSVC.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Utilities/image_quality_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Utilities/croping.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Utilities/sample_10.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="11" selection-start-line="1" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Utilities/n_sample.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Evaluation/crossValidation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="11" column="4" lean-forward="true" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adaBoost.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="18" lean-forward="true" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Datasets/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="39" lean-forward="true" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Datasets/tiles.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="590">
-          <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/multiLayeredPerceptrons.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -794,6 +729,108 @@
           <caret line="16" column="20" lean-forward="true" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/randomSubspaces.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="5" column="2" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/multiLayeredPerceptrons.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Utilities/n_sample.py" />
+    <entry file="file://$PROJECT_DIR$/Utilities/image_quality_test.py" />
+    <entry file="file://$PROJECT_DIR$/Utilities/concatenation.py" />
+    <entry file="file://$PROJECT_DIR$/Boileraplate/argparse_bp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Utilities/labels_generator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Utilities/sample_n.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Utilities/croping.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="11" column="71" selection-start-line="11" selection-start-column="71" selection-end-line="11" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Utilities/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="18" selection-start-column="18" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Evaluation/crossValidation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/tiles.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="54" column="26" selection-start-line="54" selection-start-column="26" selection-end-line="54" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/FeatureExtraction/feature_set_a.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adaBoost.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Modules/DataSetOperations.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="39" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>

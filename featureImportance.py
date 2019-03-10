@@ -1,7 +1,7 @@
 from sklearn.ensemble import RandomForestClassifier
-from Datasets.utils import load_tile_data_set
+from Modules.DataSetOperations import load_tile_data_set
 # from FeatureExtraction.feature_set_a import get_statistics, get_feature_names
-from FeatureExtraction.feature_set_b import get_statistics, get_feature_names
+from Modules.FeatureExtraction.feature_set_b import get_statistics, get_feature_names
 
 
 # load data set

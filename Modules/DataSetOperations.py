@@ -1,5 +1,5 @@
 import numpy as np
-from Datasets.tiles import get_raw_data_set
+from Modules.Datasets.tiles import get_raw_data_set
 from sklearn.model_selection import StratifiedShuffleSplit
 
 

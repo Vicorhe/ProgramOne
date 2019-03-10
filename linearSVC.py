@@ -1,9 +1,9 @@
 from sklearn.pipeline import Pipeline
 from sklearn.svm import LinearSVC
-from Datasets.utils import load_tile_data_set
-from FeatureExtraction.feature_set_a import get_statistics
+from Modules.DataSetOperations import load_tile_data_set
+from Modules.FeatureExtraction.feature_set_a import get_statistics
 # from FeatureExtraction.feature_set_b import get_statistics
-from Evaluation.crossValidation import cross_validation_report
+from Modules.Evaluation.crossValidation import cross_validation_report
 
 
 # load data set
