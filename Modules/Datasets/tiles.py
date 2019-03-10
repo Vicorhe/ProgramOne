@@ -16,16 +16,22 @@ OPTIONS = {'rgb': (cv.COLOR_BGR2RGB, ('R', 'G', 'B')),
 
 def get_raw_data_set():
     ap = argparse.ArgumentParser()
+    ap.add_argument('-s',
+                    '--set',
+                    required=True,
+                    help='set of images being evaluated')
+    ap.add_argument('-f',
+                    '--feature-set',
+                    default='a',
+                    help='which feature set to use',
+                    choices=['a', 'b'])
     ap.add_argument('-o',
                     '--option',
                     default='hsv',
                     help='color space option to evaluate',
                     choices=['rgb', 'hsv', 'lab', 'ycrcb'])
-    ap.add_argument('-s',
-                    '--set',
-                    required=True,
-                    help='set of images being evaluated')
-    ap.add_argument('--m',
+    ap.add_argument('-m',
+                    '--manual',
                     help='whether or not to perform manual splitting of '
                          + 'training and testing sets',
                     action='store_true')

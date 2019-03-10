@@ -1,11 +1,11 @@
 import tensorflow as tf
-from Modules.DataSetOperations import load_tile_data_set
+from DATASETOPS import load_tile_data_set
 # from FeatureExtraction.feature_set_a import get_statistics
-from Modules.FeatureExtraction.feature_set_b import get_statistics, FEATURE_VECTOR_SIZE
+from FeatureExtraction.feature_set_b import FEATURE_VECTOR_SIZE
 
 
 # load data set
-x_train, y_train, x_test, y_test = load_tile_data_set(feature_func=get_statistics)
+x_train, y_train, x_test, y_test = load_tile_data_set()
 
 
 model = tf.keras.models.Sequential([

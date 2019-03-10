@@ -1,13 +1,12 @@
 from sklearn.pipeline import Pipeline
 from sklearn.svm import SVC
-from Modules.DataSetOperations import load_tile_data_set
+from DATASETOPS import load_tile_data_set
 # from FeatureExtraction.feature_set_a import get_statistics
-from Modules.FeatureExtraction.feature_set_b import get_statistics
-from Modules.Evaluation.crossValidation import cross_validation_report
+from Evaluation.crossValidation import cross_validation_report
 
 
 # load data set
-X_train, y_train, X_test, y_test = load_tile_data_set(feature_func=get_statistics)
+X_train, y_train, X_test, y_test = load_tile_data_set()
 
 
 # rbf kernel support vector classifier
