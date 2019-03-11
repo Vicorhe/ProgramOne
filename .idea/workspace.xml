@@ -4,28 +4,7 @@
     <list default="true" id="6a4730d4-e023-4f16-87e3-5e051ef2fb1b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DATASETOPS.py" beforeDir="false" afterPath="$PROJECT_DIR$/DATASETOPS.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Datasets/tiles.py" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Datasets/tiles.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adaBoost.py" beforeDir="false" afterPath="$PROJECT_DIR$/adaBoost.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bagging.py" beforeDir="false" afterPath="$PROJECT_DIR$/bagging.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/decisionTree.py" beforeDir="false" afterPath="$PROJECT_DIR$/decisionTree.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extraTrees.py" beforeDir="false" afterPath="$PROJECT_DIR$/extraTrees.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/featureImportance.py" beforeDir="false" afterPath="$PROJECT_DIR$/featureImportance.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradientBoost.py" beforeDir="false" afterPath="$PROJECT_DIR$/gradientBoost.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kNeighbors.py" beforeDir="false" afterPath="$PROJECT_DIR$/kNeighbors.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linearKernelSVC.py" beforeDir="false" afterPath="$PROJECT_DIR$/linearKernelSVC.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linearSVC.py" beforeDir="false" afterPath="$PROJECT_DIR$/linearSVC.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logisticSGD.py" beforeDir="false" afterPath="$PROJECT_DIR$/logisticSGD.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/multiLayeredPerceptrons.py" beforeDir="false" afterPath="$PROJECT_DIR$/multiLayeredPerceptrons.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nearestCentroids.py" beforeDir="false" afterPath="$PROJECT_DIR$/nearestCentroids.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pasting.py" beforeDir="false" afterPath="$PROJECT_DIR$/pasting.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/perceptron.py" beforeDir="false" afterPath="$PROJECT_DIR$/perceptron.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polynomialKernelSVC.py" beforeDir="false" afterPath="$PROJECT_DIR$/polynomialKernelSVC.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/radiusNeighbors.py" beforeDir="false" afterPath="$PROJECT_DIR$/radiusNeighbors.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/randomForest.py" beforeDir="false" afterPath="$PROJECT_DIR$/randomForest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/randomPatches.py" beforeDir="false" afterPath="$PROJECT_DIR$/randomPatches.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/randomSubspaces.py" beforeDir="false" afterPath="$PROJECT_DIR$/randomSubspaces.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rbfKernelSVC.py" beforeDir="false" afterPath="$PROJECT_DIR$/rbfKernelSVC.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sigmoidKernelSVC.py" beforeDir="false" afterPath="$PROJECT_DIR$/sigmoidKernelSVC.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Utilities/labels_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/Utilities/labels_generator.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,12 +17,24 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DATASETOPS.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="53" column="25" lean-forward="true" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
+            <state relative-caret-position="395">
+              <caret line="110" lean-forward="true" selection-start-line="110" selection-end-line="110" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
-                <element signature="e#308#560#0" />
+                <element signature="e#309#561#0" />
+                <element signature="e#2659#2861#0" />
+                <element signature="e#3038#3122#0" />
+                <element signature="e#3232#3314#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Utilities/labels_generator.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -121,12 +112,12 @@
         <option value="$PROJECT_DIR$/Utilities/sample_10.py" />
         <option value="$PROJECT_DIR$/Utilities/sample_100.py" />
         <option value="$PROJECT_DIR$/Boileraplate/argparse_image_sets.py" />
-        <option value="$PROJECT_DIR$/Utilities/labels_generator.py" />
         <option value="$PROJECT_DIR$/adaBoost.py" />
         <option value="$PROJECT_DIR$/Modules/Datasets/tiles.py" />
         <option value="$PROJECT_DIR$/Modules/DataSetOperations.py" />
         <option value="$PROJECT_DIR$/Utilities/sample_n.py" />
         <option value="$PROJECT_DIR$/Utilities/croping.py" />
+        <option value="$PROJECT_DIR$/Utilities/labels_generator.py" />
         <option value="$PROJECT_DIR$/DATASETOPS.py" />
       </list>
     </option>
@@ -143,6 +134,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -150,11 +142,15 @@
               <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
               <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
+              <item name="Utilities" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -652,13 +648,6 @@
     <entry file="file://$PROJECT_DIR$/Utilities/n_sample.py" />
     <entry file="file://$PROJECT_DIR$/Utilities/image_quality_test.py" />
     <entry file="file://$PROJECT_DIR$/Utilities/concatenation.py" />
-    <entry file="file://$PROJECT_DIR$/Utilities/labels_generator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Utilities/utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -801,13 +790,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Utilities/labels_generator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/DATASETOPS.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="53" column="25" lean-forward="true" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
+        <state relative-caret-position="395">
+          <caret line="110" lean-forward="true" selection-start-line="110" selection-end-line="110" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
-            <element signature="e#308#560#0" />
+            <element signature="e#309#561#0" />
+            <element signature="e#2659#2861#0" />
+            <element signature="e#3038#3122#0" />
+            <element signature="e#3232#3314#0" />
           </folding>
         </state>
       </provider>
