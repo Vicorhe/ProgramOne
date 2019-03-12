@@ -1,68 +1,52 @@
-from numpy import array2string
-from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+from sklearn.metrics import accuracy_score, classification_report
+from sklearn.base import clone
 
 
-CENTER_TEXT = '{:^38s}'
-TABLE_HEADER = '{:>24s}{:>14s}'
-TABLE_ROW = '{:>10s}{:>14.3f}{:>14.3f}'
-TABLE_BORDER = '-' * 38
+CENTER_TEXT = '{:^24s}'
+TABLE_HEADER = '{:>24s}'
+TABLE_ROW = '{:>10s}{:>14.3f}'
+TABLE_BORDER = '-' * 24
+TABLE_OUTER_BORDER = '*' * 24
 
 TITLE = 'PERFORMANCE REPORT'
-CONFUSION = 'CONFUSION MATRIX'
 MACRO = 'macro avg'
-MICRO = 'micro avg'
 PRECISION = 'precision'
 RECALL = 'recall'
-F1 = 'f1-score'
-TRAINING = 'training set'
-TESTING = 'testing set'
+TRAINING = 'training'
+TESTING = 'testing'
 ACCURACY = 'accuracy'
 
 
-# USE CASE
-###################################################################
-# train_predict = k_nearest_neighbors_clf.predict(X_train)        #
-# test_predict = k_nearest_neighbors_clf.predict(X_test)          #
-#                                                                 #
-# performance_report(y_train, train_predict, y_test, test_predict)#
-###################################################################
-def performance_report(training_truth, training_prediction,
-                       testing_truth, testing_prediction):
-
-    training_set_accuracy = accuracy_score(training_truth, training_prediction)
-    testing_set_accuracy = accuracy_score(testing_truth, testing_prediction)
-
-    c_r = classification_report(testing_truth, testing_prediction, output_dict=True)
-
-    precision_micro = c_r[MICRO][PRECISION]
-    recall_micro = c_r[MICRO][RECALL]
-    f1_micro = c_r[MICRO][F1]
-
-    precision_macro = c_r[MACRO][PRECISION]
-    recall_macro = c_r[MACRO][RECALL]
-    f1_macro = c_r[MACRO][F1]
-
-    print(TABLE_BORDER)
+def print_report(precision_macro, recall_macro, testing_set_accuracy, training_set_accuracy):
+    print(TABLE_OUTER_BORDER)
     print(CENTER_TEXT.format(TITLE))
     print(TABLE_BORDER)
+    print(TABLE_HEADER.format(MACRO))
+    print(TABLE_BORDER)
+    print(TABLE_ROW.format(PRECISION, precision_macro))
+    print(TABLE_ROW.format(RECALL, recall_macro))
+    print(TABLE_BORDER)
+    print(TABLE_HEADER.format(ACCURACY))
+    print(TABLE_BORDER)
+    print(TABLE_ROW.format(TESTING, testing_set_accuracy))
+    print(TABLE_ROW.format(TRAINING, training_set_accuracy))
+    print(TABLE_OUTER_BORDER)
 
-    print(TABLE_HEADER.format(MICRO, MACRO))
-    print(TABLE_BORDER)
-    print(TABLE_ROW.format(PRECISION, precision_micro, precision_macro))
-    print(TABLE_ROW.format(RECALL, recall_micro, recall_macro))
-    print(TABLE_ROW.format(F1, f1_micro, f1_macro))
 
-    print(TABLE_BORDER)
+def performance_report(clf, train_feature_sets, train_labels,
+                       test_feature_sets, test_labels):
 
-    print(TABLE_HEADER.format(TRAINING, TESTING))
-    print(TABLE_BORDER)
-    print(TABLE_ROW.format(ACCURACY, training_set_accuracy, testing_set_accuracy))
+    for train_feature_set, test_feature_set in zip(train_feature_sets,
+                                                   test_feature_sets):
+        clone_clf = clone(clf)
+        clone_clf.fit(train_feature_set, train_labels)
+        test_predict = clone_clf.predict(test_feature_set)
+        train_predict = clone_clf.predict(train_feature_set)
 
-    print(TABLE_BORDER)
-    print(CENTER_TEXT.format(CONFUSION))
-    print(TABLE_BORDER)
+        c_r = classification_report(test_labels, test_predict, output_dict=True)
+        precision_macro = c_r[MACRO][PRECISION]
+        recall_macro = c_r[MACRO][RECALL]
+        training_set_accuracy = accuracy_score(train_labels, train_predict)
+        testing_set_accuracy = accuracy_score(test_labels, test_predict)
 
-    for row in confusion_matrix(testing_truth, testing_prediction):
-        print(CENTER_TEXT.format(array2string(row)))
-        
-    print(TABLE_BORDER)
+        print_report(precision_macro, recall_macro, testing_set_accuracy, training_set_accuracy)
