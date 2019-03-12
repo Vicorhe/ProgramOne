@@ -1,23 +1,21 @@
 from sklearn.pipeline import Pipeline
 from sklearn.ensemble import ExtraTreesClassifier
 from DATASETOPS import load_tile_data_set
-# from FeatureExtraction.feature_set_a import get_statistics
 from Evaluation.crossValidation import cross_validation_report
+from Evaluation.performance import performance_report
 
 
 # load data set
-X_train, y_train, X_test, y_test = load_tile_data_set()
+train_data, test_data, train_labels, test_labels = load_tile_data_set()
 
 
 # extra trees classifier
-
 n_estimators = 10
 criterion = 'gini'
 max_depth = 4
 max_features = 'sqrt'
 bootstrap = True
 n_jobs = -1
-
 extra_trees_clf = Pipeline([
     ('extra_trees_clf', ExtraTreesClassifier(n_estimators=n_estimators,
                                              criterion=criterion,
@@ -25,7 +23,7 @@ extra_trees_clf = Pipeline([
                                              max_features=max_features,
                                              bootstrap=bootstrap,
                                              n_jobs=n_jobs))
-]).fit(X_train, y_train)
+])
 #   n_estimators = 10, 50, 100, 300, 500
 #   criterion = 'gini', 'entropy'
 #   max_depth = 2, 4, 6, 8, 10
@@ -33,4 +31,9 @@ extra_trees_clf = Pipeline([
 
 
 # cross validation
-cross_validation_report(extra_trees_clf, X_train, y_train)
+cross_validation_report(extra_trees_clf, train_data, train_labels)
+
+
+# performance
+performance_report(extra_trees_clf, train_data, train_labels,
+                   test_data, test_labels)

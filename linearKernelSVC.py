@@ -1,26 +1,24 @@
 from sklearn.pipeline import Pipeline
 from sklearn.svm import SVC
 from DATASETOPS import load_tile_data_set
-# from FeatureExtraction.feature_set_b import get_statistics
 from Evaluation.crossValidation import cross_validation_report
+from Evaluation.performance import performance_report
 
 
 # load data set
-X_train, y_train, X_test, y_test = load_tile_data_set()
+train_data, test_data, train_labels, test_labels = load_tile_data_set()
 
 
 # linear kernel support vector classifier
-
 kernel = 'linear'
 C = 1
 shrinking = True
 tol = 1e-3
 max_iter = -1
-
 linear_kernel_SVC = Pipeline([
     ('linear_kernel_svc', SVC(kernel=kernel, C=C, shrinking=shrinking,
                               tol=tol, max_iter=max_iter))
-]).fit(X_train, y_train)
+])
 #   C = 0.001, 0.01, 0.1, 1, 10, 100
 #   shrinking = True, False
 #   tol = 1e-2, 1e-3, 1e-4
@@ -28,4 +26,9 @@ linear_kernel_SVC = Pipeline([
 
 
 # cross validation
-cross_validation_report(linear_kernel_SVC, X_train, y_train)
+cross_validation_report(linear_kernel_SVC, train_data, train_labels)
+
+
+# performance
+performance_report(linear_kernel_SVC, train_data, train_labels,
+                   test_data, test_labels)
