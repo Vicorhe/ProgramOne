@@ -1,18 +1,12 @@
 import argparse
-from random import randint
 import cv2 as cv
 from glob import glob
 
 
 CROPPED_SET_PATH = '/Users/victorhe/Pictures/studioSourceTiles/%s/cropped/*.BMP'
-SOURCE_PATH = '/Users/victorhe/Pictures/studioSourceTiles/%s/cropped/%s.BMP'
 DESTINATION_PATH = '/Users/victorhe/Pictures/studioSourceTiles/%s/%s/%s.BMP'
-
-
-NUM_SAMPLES = 30
-DIMENSION = 50
-GRANULARITY = 30
-RANDOM_LIMIT = (500 - DIMENSION) // GRANULARITY
+NUMBER_CHUNKS = 10
+SIZE = 50
 
 
 ap = argparse.ArgumentParser()
@@ -35,12 +29,10 @@ for path in sorted(glob(CROPPED_SET_PATH % studio_set)):
                      ('Z', img[500:, 500:]))
 
     for quadrant, quadrant_img in img_quadrants:
-        unique_samples = set()
-        for i in range(NUM_SAMPLES):
-            tl_x = randint(0, RANDOM_LIMIT) * GRANULARITY
-            tl_y = randint(0, RANDOM_LIMIT) * GRANULARITY
-            unique_samples.add((tl_x, tl_y))
-            sample_name = image_name + '_' + str(i) + '_' + quadrant
-            destination_path = DESTINATION_PATH % (studio_set, destination_folder, sample_name)
-            cv.imwrite(destination_path, quadrant_img[tl_x: tl_x + DIMENSION, tl_y: tl_y + DIMENSION])
-        print('uniqueness ratio: %.3f' % (len(unique_samples)/NUM_SAMPLES))
+        for x in range(NUMBER_CHUNKS):
+            for y in range(NUMBER_CHUNKS):
+                tl_x, tl_y = x * SIZE, y * SIZE
+                count = str(x * NUMBER_CHUNKS + y)
+                sample_name = image_name + '_' + quadrant + '_' + count
+                sample_name = DESTINATION_PATH % (studio_set, destination_folder, sample_name)
+                cv.imwrite(sample_name, quadrant_img[tl_x:tl_x + SIZE, tl_y:tl_y + SIZE])
