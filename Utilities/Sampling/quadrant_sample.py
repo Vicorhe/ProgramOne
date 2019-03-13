@@ -3,10 +3,9 @@ from random import randint
 import cv2 as cv
 from glob import glob
 
+
 CROPPED_SET_PATH = '/Users/victorhe/Pictures/studioSourceTiles/%s/cropped/*.BMP'
-
 SOURCE_PATH = '/Users/victorhe/Pictures/studioSourceTiles/%s/cropped/%s.BMP'
-
 DESTINATION_PATH = '/Users/victorhe/Pictures/studioSourceTiles/%s/%s/%s.BMP'
 
 
@@ -25,14 +24,11 @@ args = vars(ap.parse_args())
 studio_set = args['set']
 destination_folder = args['destination']
 
-image_set = list()
-
 
 for path in sorted(glob(CROPPED_SET_PATH % studio_set)):
     image_name = path.split('/')[-1].split('.')[0]
-    source_image_path = SOURCE_PATH % (studio_set, image_name)
 
-    img = cv.imread(source_image_path)
+    img = cv.imread(path)
     img_quadrants = (('W', img[:500, :500]),
                      ('X', img[:500, 500:]),
                      ('Y', img[500:, :500]),
