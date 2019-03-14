@@ -28,9 +28,9 @@ rbf_kernel_SVC = Pipeline([
 
 
 # cross validation
-cross_validation_report(rbf_kernel_SVC, train_data, train_labels)
+cross_validation_report(rbf_kernel_SVC, train_data, train_labels, False)
 
 
 # performance
 performance_report(rbf_kernel_SVC, train_data, train_labels,
-                   test_data, test_labels)
+                   test_data, test_labels, False)

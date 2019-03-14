@@ -30,9 +30,9 @@ linear_SVC = Pipeline([
 
 
 # cross validation
-cross_validation_report(linear_SVC, train_data, train_labels)
+cross_validation_report(linear_SVC, train_data, train_labels, False)
 
 
 # performance
 performance_report(linear_SVC, train_data, train_labels,
-                   test_data, test_labels)
+                   test_data, test_labels, False)

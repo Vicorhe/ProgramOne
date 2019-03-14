@@ -28,9 +28,9 @@ decision_tree_clf = Pipeline([
 
 
 # cross validation
-cross_validation_report(decision_tree_clf, train_data, train_labels)
+cross_validation_report(decision_tree_clf, train_data, train_labels, False)
 
 
 # performance
 performance_report(decision_tree_clf, train_data, train_labels,
-                   test_data, test_labels)
+                   test_data, test_labels, False)

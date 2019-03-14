@@ -3,17 +3,18 @@ from sklearn.model_selection import cross_validate
 
 
 ROW = 'CV MEAN:{:>8.3f}   MAX:{:>8.3f}   MIN:{:>8.3f}'
-NUM_RUNS = 5
 
 
-def cross_validation_report(clf, feature_sets, labels):
+def cross_validation_report(clf, feature_sets, labels, repeat=True):
+    num_runs = 4 if repeat else 1
+
     meta_stats = list()
     cv = 3
     scoring = ['accuracy']
     n_jobs = -1
     return_train_score = False
 
-    for i in range(NUM_RUNS):
+    for i in range(num_runs):
         scores = list()
         for feature_set in feature_sets:
             c_v = cross_validate(clf, feature_set, labels, scoring=scoring, cv=cv,

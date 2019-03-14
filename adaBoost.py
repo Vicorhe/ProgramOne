@@ -28,9 +28,9 @@ ada_boost_clf = Pipeline([
 
 
 # cross validation
-cross_validation_report(ada_boost_clf, train_data, train_labels)
+cross_validation_report(ada_boost_clf, train_data, train_labels, False)
 
 
 # performance
 performance_report(ada_boost_clf, train_data, train_labels,
-                   test_data, test_labels)
+                   test_data, test_labels, False)
