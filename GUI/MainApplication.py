@@ -1,10 +1,15 @@
+import shelve
 import tkinter as tk
+
+
+DB_NAME = 'tiles'
 
 
 class MainApplication(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self, className='颜色分拣系统')
         self._frame = None
+        self.selected_series = None
         self.switch_frame(StartMenu)
         self.geometry('400x260')
 
@@ -55,8 +60,11 @@ class OperatingMenu(tk.Frame):
 
         my_list.config(yscrollcommand=scrollbar.set)
 
-        for series in ['象牙白', '象牙黑', '象牙蓝']:
-            my_list.insert(tk.END, series)
+        with shelve.open(DB_NAME) as db:
+            series_list = list(db.keys())
+
+            for series in series_list:
+                my_list.insert(tk.END, series)
 
     def build_options(self):
         options_frame = tk.Frame(self)
@@ -97,11 +105,13 @@ class TrainingMenu(tk.Frame):
         tk.Frame.__init__(self, master)
 
         self.master = master
+        self.my_list = None
+        self.prompt = None
 
         tk.Label(self, text='训练区').grid(row=0, column=0, columnspan=3, pady=10)
 
         self.build_list()
-        self.build_options()
+        self.build_user_actions()
 
         tk.Button(self, text='主页', command=lambda: self.master.switch_frame(StartMenu)).grid(row=2, column=0, columnspan=3, pady=10)
 
@@ -110,27 +120,60 @@ class TrainingMenu(tk.Frame):
         list_frame = tk.Frame(self)
         list_frame.grid(row=1, column=0)
 
-        my_list = tk.Listbox(list_frame, font=('Helvetica', 12))
-        my_list.pack(side=tk.LEFT, fill=tk.BOTH)
+        self.my_list = tk.Listbox(list_frame, font=('Helvetica', 12), selectmode=tk.SINGLE)
+        self.my_list.bind('<<ListboxSelect>>', self.selection_callback)
+        self.my_list.pack(side=tk.LEFT, fill=tk.BOTH)
 
         scrollbar = tk.Scrollbar(list_frame, orient='vertical')
-        scrollbar.config(command=my_list.yview)
+        scrollbar.config(command=self.my_list.yview)
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
 
-        my_list.config(yscrollcommand=scrollbar.set)
+        self.my_list.config(yscrollcommand=scrollbar.set)
 
-        for series in ['象牙白', '象牙黑', '象牙蓝'] * 7:
-            my_list.insert(tk.END, series)
+        with shelve.open(DB_NAME) as db:
+            series_list = list(db.keys())
 
-    def build_options(self):
+            for series in series_list:
+                self.my_list.insert(tk.END, series)
 
-        options_frame = tk.Frame(self)
-        options_frame.grid(row=1, column=1)
+            if len(series_list) > 0:
+                self.my_list.selection_set(0)
+                series = self.my_list.get(self.my_list.curselection())
+                print(series, 'selected')
+                self.master.selected_series = series
 
-        tk.Button(options_frame, text='新建', command=lambda: self.master.switch_frame(FormPage)).pack()
-        tk.Button(options_frame, text='更改', command=lambda: self.master.switch_frame(FormPage)).pack()
-        tk.Button(options_frame, text='删除').pack()
-        tk.Button(options_frame, text='训练', command=lambda: self.master.switch_frame(TrainingPage)).pack()
+    def selection_callback(self, event):
+        if self.my_list.curselection():
+            series = self.my_list.get(self.my_list.curselection())
+            print(series, 'selected')
+            self.master.selected_series = series
+
+    def build_user_actions(self):
+        actions_frame = tk.Frame(self)
+        actions_frame.grid(row=1, column=1)
+        tk.Button(actions_frame, text='新建', command=lambda: self.master.switch_frame(FormPage)).pack()
+        tk.Button(actions_frame, text='更改', command=lambda: self.master.switch_frame(FormPage)).pack()
+        tk.Button(actions_frame, text='删除', command=self.prompt_delete).pack()
+        tk.Button(actions_frame, text='训练', command=lambda: self.master.switch_frame(TrainingPage)).pack()
+
+    def prompt_delete(self):
+        self.bell()
+        self.prompt = tk.Toplevel(self)
+        if self.master.selected_series:
+            tk.Label(self.prompt, text='are you sure you want to delete tile series ' + self.master.selected_series).pack()
+            tk.Button(self.prompt, text='确定', command=self.delete_series).pack()
+            tk.Button(self.prompt, text='取消', command=self.prompt.destroy).pack()
+        else:
+            tk.Label(self.prompt, text='no series was selected').pack()
+            tk.Button(self.prompt, text='确定', command=self.prompt.destroy).pack()
+
+    def delete_series(self):
+        self.prompt.destroy()
+        with shelve.open(DB_NAME) as db:
+            print('deleting', self.master.selected_series)
+            del db[self.master.selected_series]
+            self.master.selected_series = None
+        self.master.switch_frame(TrainingMenu)
 
 
 class FormPage(tk.Frame):
@@ -138,46 +181,80 @@ class FormPage(tk.Frame):
         tk.Frame.__init__(self, master)
 
         self.master = master
+        self.preview_frame = None
+        self.num_shades = tk.IntVar()
+        self.series_name = tk.StringVar()
 
-        tk.Label(self, text='瓷砖资料表格').pack(pady=10)
-        self.build_color_instances(3)
         self.build_form()
-        self.build_options()
-        tk.Button(self, text='主页', command=lambda: self.master.switch_frame(StartMenu)).pack(pady=10)
+        self.build_preview()
+        self.build_user_actions()
+
+    def build_preview(self):
+        self.preview_frame = tk.Frame(self)
+        self.preview_frame.pack()
 
     def build_form(self):
+        tk.Label(self, text='瓷砖资料表格').pack(pady=10)
         form_frame = tk.Frame(self)
         form_frame.pack()
-
         tk.Label(form_frame, text='系列名称').grid(row=0)
-        e1 = tk.Entry(form_frame)
+        e1 = tk.Entry(form_frame, textvariable=self.series_name)
         e1.grid(row=0, column=1)
-
+        tk.Label(form_frame, text='偏色数量').grid(row=1, column=0)
         radio_frame = tk.Frame(form_frame)
-        radio_frame.grid(row=1, column=0, columnspan=2)
-        v = tk.IntVar()
+        radio_frame.grid(row=1, column=1)
         for i in range(5):
-            val = 2 + i
-            tk.Radiobutton(radio_frame, text=str(val), variable=v, value=val).pack(side=tk.LEFT, padx=10)
+            value = 2 + i
+            tk.Radiobutton(radio_frame, text=str(value), variable=self.num_shades, value=value,
+                           command=self.build_shades).pack(side=tk.LEFT, padx=10)
 
-    def build_options(self):
+    def build_shades(self):
+        # destroy previous shades
+        for child in self.preview_frame.winfo_children():
+            child.destroy()
+        # build new shades
+        for i in range(1, 1 + self.num_shades.get()):
+            self.build_shade_option(i)
+
+    def build_shade_option(self, option):
+        option_frame = tk.Frame(self.preview_frame)
+        option_frame.pack(side=tk.LEFT)
+        tk.Label(option_frame, text=str(option), fg='white', bg='green', bd=1, width=6, height=6).pack(padx=6)
+
+    def build_user_actions(self):
         options_frame = tk.Frame(self)
         options_frame.pack()
-        tk.Button(options_frame, text='确认', command=lambda: self.master.switch_frame(TrainingPage)).pack(side=tk.LEFT)
+        tk.Button(options_frame, text='确认', command=self.add_series_to_db).pack(side=tk.LEFT)
         tk.Button(options_frame, text='取消', command=lambda: self.master.switch_frame(TrainingMenu)).pack(side=tk.LEFT)
 
-    def build_color_instances(self, n):
-        color_instances_frame = tk.Frame(self)
-        color_instances_frame.pack()
+    def add_series_to_db(self):
+        num_shades = self.num_shades.get()
+        if not self.valid_name() or num_shades < 2:
+            self.prompt_unsuccessful()
+        else:
+            with shelve.open(DB_NAME) as db:
+                db[self.series_name.get()] = {
+                    'num_shades': num_shades
+                }
 
-        for i in range(n):
-            self.build_color_option(color_instances_frame, i)
+            self.master.switch_frame(TrainingPage)
 
-    def build_color_option(self, parent, option):
-        option_frame = tk.Frame(parent)
-        option_frame.pack(side=tk.LEFT)
+    def prompt_unsuccessful(self):
+        self.bell()
+        prompt = tk.Toplevel(self)
+        tk.Label(prompt, text='we were not able to create a tile series due to one of the following reasons: '
+                              '\na) series name was taken; '
+                              '\nb) series name was left empty; '
+                              '\nc) no valid number of shades was selected').pack()
+        tk.Button(prompt, text='确定', command=lambda: prompt.destroy()).pack()
 
-        tk.Label(option_frame, text=str(option), fg='white', bg='blue', bd=1, width=6, height=6).pack(padx=6)
+    def valid_name(self):
+        name = self.series_name.get()
+        with shelve.open(DB_NAME) as db:
+            if name in db.keys() or len(name) == 0:
+                return False
+            else:
+                return True
 
 
 class TrainingPage(tk.Frame):
