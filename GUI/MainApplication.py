@@ -8,9 +8,11 @@ DB_NAME = 'tiles'
 class MainApplication(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self, className='颜色分拣系统')
+
         self._frame = None
         self.selected_series = None
         self.is_updating = False
+
         self.switch_frame(StartMenu)
         self.geometry('400x260')
 
@@ -187,10 +189,24 @@ class TrainingMenu(tk.Frame):
     def build_user_actions(self):
         actions_frame = tk.Frame(self)
         actions_frame.grid(row=1, column=1)
-        tk.Button(actions_frame, text='新建', command=lambda: self.master.switch_frame(FormPage)).pack()
+        tk.Button(actions_frame, text='新建', command=self.route_to_creation_form).pack()
         tk.Button(actions_frame, text='更改', command=self.prompt_update).pack()
         tk.Button(actions_frame, text='删除', command=self.prompt_delete).pack()
         tk.Button(actions_frame, text='训练', command=self.prompt_train).pack()
+
+    def route_to_creation_form(self):
+        self.master.selected_series = None
+        self.master.switch_frame(FormPage)
+
+    def prompt_update(self):
+        if self.master.selected_series:
+            self.master.is_updating = True
+            self.master.switch_frame(FormPage)
+        else:
+            self.bell()
+            self.prompt = tk.Toplevel(self)
+            tk.Label(self.prompt, text='no series was selected').pack()
+            tk.Button(self.prompt, text='确定', command=self.prompt.destroy).pack()
 
     def prompt_delete(self):
         self.bell()
@@ -220,16 +236,6 @@ class TrainingMenu(tk.Frame):
             tk.Label(self.prompt, text='no series was selected').pack()
             tk.Button(self.prompt, text='确定', command=self.prompt.destroy).pack()
 
-    def prompt_update(self):
-        if self.master.selected_series:
-            self.master.is_updating = True
-            self.master.switch_frame(FormPage)
-        else:
-            self.bell()
-            self.prompt = tk.Toplevel(self)
-            tk.Label(self.prompt, text='no series was selected').pack()
-            tk.Button(self.prompt, text='确定', command=self.prompt.destroy).pack()
-
 
 class FormPage(tk.Frame):
     def __init__(self, master):
@@ -237,8 +243,8 @@ class FormPage(tk.Frame):
 
         self.master = master
         self.preview_frame = None
-        self.num_shades = tk.IntVar()
         self.series_name = tk.StringVar()
+        self.num_shades = tk.IntVar()
 
         self.build_form()
         self.build_preview()
@@ -258,6 +264,11 @@ class FormPage(tk.Frame):
             value = 2 + i
             tk.Radiobutton(radio_frame, text=str(value), variable=self.num_shades, value=value,
                            command=self.build_shades).pack(side=tk.LEFT, padx=10)
+        if self.master.is_updating:
+            with shelve.open(DB_NAME) as db:
+                selected_series = self.master.selected_series
+                self.series_name.set(selected_series)
+                self.num_shades.set(db[selected_series]['num_shades'])
 
     def build_preview(self):
         self.preview_frame = tk.Frame(self)
@@ -279,10 +290,28 @@ class FormPage(tk.Frame):
     def build_user_actions(self):
         options_frame = tk.Frame(self)
         options_frame.pack()
-        tk.Button(options_frame, text='确认', command=self.add_series_to_db).pack(side=tk.LEFT)
-        tk.Button(options_frame, text='取消', command=lambda: self.master.switch_frame(TrainingMenu)).pack(side=tk.LEFT)
+        if self.master.is_updating:
+            tk.Button(options_frame, text='保存', command=self.save_changes).pack(side=tk.LEFT)
+        else:
+            tk.Button(options_frame, text='创建', command=self.create_new_series).pack(side=tk.LEFT)
+        tk.Button(options_frame, text='取消', command=self.route_to_training_menu).pack(side=tk.LEFT)
 
-    def add_series_to_db(self):
+    def save_changes(self):
+        series_name = self.series_name.get()
+        num_shades = self.num_shades.get()
+        if not self.valid_name() or num_shades < 2:
+            self.prompt_unsuccessful()
+        else:
+            with shelve.open(DB_NAME) as db:
+                db[series_name] = {
+                    'num_shades': num_shades
+                }
+
+            self.master.selected_series = series_name
+            self.master.is_updating = False
+            self.master.switch_frame(TrainingPage)
+
+    def create_new_series(self):
         series_name = self.series_name.get()
         num_shades = self.num_shades.get()
         if not self.valid_name() or num_shades < 2:
@@ -305,10 +334,16 @@ class FormPage(tk.Frame):
                               '\nc) no valid number of shades was selected').pack()
         tk.Button(prompt, text='确定', command=lambda: prompt.destroy()).pack()
 
+    def route_to_training_menu(self):
+        self.master.is_updating = False
+        self.master.switch_frame(TrainingMenu)
+
     def valid_name(self):
         name = self.series_name.get()
         with shelve.open(DB_NAME) as db:
-            if name in db.keys() or len(name) == 0:
+            if len(name) == 0:
+                return False
+            elif name in db.keys() and name != self.master.selected_series:
                 return False
             else:
                 return True
@@ -350,6 +385,7 @@ class TrainingPage(tk.Frame):
         option_frame = tk.Frame(self.preview_frame)
         option_frame.pack(side=tk.LEFT)
         tk.Label(option_frame, text=str(option), fg='white', bg='green', bd=1, width=6, height=6).pack(padx=6)
+
 
 
 if __name__ == '__main__':
