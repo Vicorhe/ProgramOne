@@ -7,7 +7,7 @@ DB_NAME = 'tiles'
 
 class MainApplication(tk.Tk):
     def __init__(self):
-        tk.Tk.__init__(self, className='颜色分拣系统')
+        super().__init__(className='颜色分拣系统')
 
         self._frame = None
         self.selected_series = None
@@ -26,7 +26,7 @@ class MainApplication(tk.Tk):
 
 class StartMenu(tk.Frame):
     def __init__(self, master):
-        tk.Frame.__init__(self, master)
+        super().__init__(master)
 
         tk.Label(self, text='主页').grid(pady=10)
 
@@ -37,20 +37,12 @@ class StartMenu(tk.Frame):
                   command=lambda: master.switch_frame(TrainingMenu)).grid()
 
 
-class OperatingMenu(tk.Frame):
+class Listing(tk.Frame):
     def __init__(self, master):
-        tk.Frame.__init__(self, master)
+        super().__init__(master)
 
         self.master = master
         self.my_list = None
-        self.prompt = None
-
-        tk.Label(self, text='运作区').grid(row=0, column=0, columnspan=3, pady=10)
-
-        self.build_list()
-        self.build_user_actions()
-
-        tk.Button(self, text='主页', command=lambda: master.switch_frame(StartMenu)).grid(row=2, column=0, columnspan=3)
 
     def build_list(self):
         list_frame = tk.Frame(self)
@@ -83,6 +75,50 @@ class OperatingMenu(tk.Frame):
             series = self.my_list.get(self.my_list.curselection())
             print(series, 'selected')
             self.master.selected_series = series
+
+
+class Instance(tk.Frame):
+    def __init__(self, master):
+        super().__init__(master)
+
+        self.master = master
+        self.preview_frame = None
+        self.num_shades = None
+
+        if self.master.selected_series:
+            with shelve.open(DB_NAME) as db:
+                self.num_shades = db[self.master.selected_series]['num_shades']
+
+    def build_preview(self):
+        self.preview_frame = tk.Frame(self)
+        self.preview_frame.pack()
+
+    def build_shades(self):
+        # destroy previous shades
+        for child in self.preview_frame.winfo_children():
+            child.destroy()
+        # build new shades
+        for i in range(1, 1 + self.num_shades):
+            self.build_shade_option(i)
+
+    def build_shade_option(self, option):
+        option_frame = tk.Frame(self.preview_frame)
+        option_frame.pack(side=tk.LEFT)
+        tk.Label(option_frame, text=str(option), fg='white', bg='yellow', bd=1, width=6, height=6).pack(padx=6)
+
+
+class OperatingMenu(Listing):
+    def __init__(self, master):
+        super().__init__(master)
+
+        self.prompt = None
+
+        tk.Label(self, text='运作区').grid(row=0, column=0, columnspan=3, pady=10)
+
+        self.build_list()
+        self.build_user_actions()
+
+        tk.Button(self, text='主页', command=lambda: master.switch_frame(StartMenu)).grid(row=2, column=0, columnspan=3)
 
     def build_user_actions(self):
         actions_frame = tk.Frame(self)
@@ -100,16 +136,9 @@ class OperatingMenu(tk.Frame):
             tk.Button(self.prompt, text='确定', command=self.prompt.destroy).pack()
 
 
-class OperatingPage(tk.Frame):
+class OperatingPage(Instance):
     def __init__(self, master):
-        tk.Frame.__init__(self, master)
-
-        self.master = master
-        self.preview_frame = None
-        self.num_shades = None
-
-        with shelve.open(DB_NAME) as db:
-            self.num_shades = db[self.master.selected_series]['num_shades']
+        super().__init__(master)
 
         tk.Label(self, text='运行页面').pack(pady=10)
         tk.Label(self, text=self.master.selected_series).pack(pady=10)
@@ -120,30 +149,11 @@ class OperatingPage(tk.Frame):
         tk.Button(self, text='开始').pack()
         tk.Button(self, text='结束', command=lambda: self.master.switch_frame(OperatingMenu)).pack()
 
-    def build_preview(self):
-        self.preview_frame = tk.Frame(self)
-        self.preview_frame.pack()
 
-    def build_shades(self):
-        # destroy previous shades
-        for child in self.preview_frame.winfo_children():
-            child.destroy()
-        # build new shades
-        for i in range(1, 1 + self.num_shades):
-            self.build_shade_option(i)
-
-    def build_shade_option(self, option):
-        option_frame = tk.Frame(self.preview_frame)
-        option_frame.pack(side=tk.LEFT)
-        tk.Label(option_frame, text=str(option), fg='white', bg='green', bd=1, width=6, height=6).pack(padx=6)
-
-
-class TrainingMenu(tk.Frame):
+class TrainingMenu(Listing):
     def __init__(self, master):
-        tk.Frame.__init__(self, master)
+        super().__init__(master)
 
-        self.master = master
-        self.my_list = None
         self.prompt = None
 
         tk.Label(self, text='训练区').grid(row=0, column=0, columnspan=3, pady=10)
@@ -152,39 +162,6 @@ class TrainingMenu(tk.Frame):
         self.build_user_actions()
 
         tk.Button(self, text='主页', command=lambda: self.master.switch_frame(StartMenu)).grid(row=2, column=0, columnspan=3, pady=10)
-
-    def build_list(self):
-
-        list_frame = tk.Frame(self)
-        list_frame.grid(row=1, column=0)
-
-        self.my_list = tk.Listbox(list_frame, font=('Helvetica', 12), selectmode=tk.SINGLE)
-        self.my_list.bind('<<ListboxSelect>>', self.selection_callback)
-        self.my_list.pack(side=tk.LEFT, fill=tk.BOTH)
-
-        scrollbar = tk.Scrollbar(list_frame, orient='vertical')
-        scrollbar.config(command=self.my_list.yview)
-        scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
-
-        self.my_list.config(yscrollcommand=scrollbar.set)
-
-        with shelve.open(DB_NAME) as db:
-            series_list = list(db.keys())
-
-            for series in series_list:
-                self.my_list.insert(tk.END, series)
-
-            if len(series_list) > 0:
-                self.my_list.selection_set(0)
-                series = self.my_list.get(self.my_list.curselection())
-                print(series, 'selected')
-                self.master.selected_series = series
-
-    def selection_callback(self, event):
-        if self.my_list.curselection():
-            series = self.my_list.get(self.my_list.curselection())
-            print(series, 'selected')
-            self.master.selected_series = series
 
     def build_user_actions(self):
         actions_frame = tk.Frame(self)
@@ -237,12 +214,10 @@ class TrainingMenu(tk.Frame):
             tk.Button(self.prompt, text='确定', command=self.prompt.destroy).pack()
 
 
-class FormPage(tk.Frame):
+class FormPage(Instance):
     def __init__(self, master):
-        tk.Frame.__init__(self, master)
+        super().__init__(master)
 
-        self.master = master
-        self.preview_frame = None
         self.series_name = tk.StringVar()
         self.num_shades = tk.IntVar()
 
@@ -269,23 +244,6 @@ class FormPage(tk.Frame):
                 selected_series = self.master.selected_series
                 self.series_name.set(selected_series)
                 self.num_shades.set(db[selected_series]['num_shades'])
-
-    def build_preview(self):
-        self.preview_frame = tk.Frame(self)
-        self.preview_frame.pack()
-
-    def build_shades(self):
-        # destroy previous shades
-        for child in self.preview_frame.winfo_children():
-            child.destroy()
-        # build new shades
-        for i in range(1, 1 + self.num_shades.get()):
-            self.build_shade_option(i)
-
-    def build_shade_option(self, option):
-        option_frame = tk.Frame(self.preview_frame)
-        option_frame.pack(side=tk.LEFT)
-        tk.Label(option_frame, text=str(option), fg='white', bg='green', bd=1, width=6, height=6).pack(padx=6)
 
     def build_user_actions(self):
         options_frame = tk.Frame(self)
@@ -349,16 +307,9 @@ class FormPage(tk.Frame):
                 return True
 
 
-class TrainingPage(tk.Frame):
+class TrainingPage(Instance):
     def __init__(self, master):
-        tk.Frame.__init__(self, master)
-
-        self.master = master
-        self.preview_frame = None
-        self.num_shades = None
-
-        with shelve.open(DB_NAME) as db:
-            self.num_shades = db[self.master.selected_series]['num_shades']
+        super().__init__(master)
 
         tk.Label(self, text='训练页面').pack(pady=10)
         tk.Label(self, text=self.master.selected_series).pack(pady=10)
@@ -368,24 +319,6 @@ class TrainingPage(tk.Frame):
 
         tk.Button(self, text='开始').pack()
         tk.Button(self, text='结束', command=lambda: self.master.switch_frame(TrainingMenu)).pack()
-
-    def build_preview(self):
-        self.preview_frame = tk.Frame(self)
-        self.preview_frame.pack()
-
-    def build_shades(self):
-        # destroy previous shades
-        for child in self.preview_frame.winfo_children():
-            child.destroy()
-        # build new shades
-        for i in range(1, 1 + self.num_shades):
-            self.build_shade_option(i)
-
-    def build_shade_option(self, option):
-        option_frame = tk.Frame(self.preview_frame)
-        option_frame.pack(side=tk.LEFT)
-        tk.Label(option_frame, text=str(option), fg='white', bg='green', bd=1, width=6, height=6).pack(padx=6)
-
 
 
 if __name__ == '__main__':
