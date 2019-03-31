@@ -2,10 +2,9 @@ import shelve
 import tkinter as tk
 
 
-DB_NAME = 'tiles'
-
-
 class MainApplication(tk.Tk):
+    DB_NAME = 'tiles'
+
     def __init__(self):
         super().__init__(className='颜色分拣系统')
 
@@ -13,8 +12,8 @@ class MainApplication(tk.Tk):
         self.selected_series = None
         self.is_updating = False
 
-        self.switch_frame(StartMenu)
         self.geometry('400x260')
+        self.switch_frame(StartMenu)
 
     def switch_frame(self, frame_class):
         new_frame = frame_class(self)
@@ -29,12 +28,8 @@ class StartMenu(tk.Frame):
         super().__init__(master)
 
         tk.Label(self, text='主页').grid(pady=10)
-
-        tk.Button(self, text='运作区',
-                  command=lambda: master.switch_frame(OperatingMenu)).grid()
-
-        tk.Button(self, text='训练区',
-                  command=lambda: master.switch_frame(TrainingMenu)).grid()
+        tk.Button(self, text='运作区', command=lambda: master.switch_frame(OperatingMenu)).grid()
+        tk.Button(self, text='训练区', command=lambda: master.switch_frame(TrainingMenu)).grid()
 
 
 class Listing(tk.Frame):
@@ -48,32 +43,33 @@ class Listing(tk.Frame):
         list_frame = tk.Frame(self)
         list_frame.grid(row=1, column=0)
 
-        self.my_list = tk.Listbox(list_frame, font=('Helvetica', 12), selectmode=tk.SINGLE)
+        self.my_list = tk.Listbox(list_frame, selectmode=tk.SINGLE)
         self.my_list.bind('<<ListboxSelect>>', self.selection_callback)
         self.my_list.pack(side=tk.LEFT, fill=tk.BOTH)
-
         scrollbar = tk.Scrollbar(list_frame, orient='vertical')
         scrollbar.config(command=self.my_list.yview)
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
-
         self.my_list.config(yscrollcommand=scrollbar.set)
 
-        with shelve.open(DB_NAME) as db:
-            series_list = list(db.keys())
-
-            for series in series_list:
-                self.my_list.insert(tk.END, series)
-
-            if len(series_list) > 0:
-                self.my_list.selection_set(0)
-                series = self.my_list.get(self.my_list.curselection())
-                print(series, 'selected')
-                self.master.selected_series = series
+        self.populate_list()
+        self.select_default_series()
 
     def selection_callback(self, event):
         if self.my_list.curselection():
             series = self.my_list.get(self.my_list.curselection())
-            print(series, 'selected')
+            self.master.selected_series = series
+
+    def populate_list(self):
+        with shelve.open(self.master.DB_NAME) as db:
+            series_list = sorted(list(db.keys()))
+
+            for series in series_list:
+                self.my_list.insert(tk.END, series)
+
+    def select_default_series(self):
+        if self.my_list.size() > 0:
+            self.my_list.selection_set(0)
+            series = self.my_list.get(self.my_list.curselection())
             self.master.selected_series = series
 
 
@@ -83,22 +79,23 @@ class Instance(tk.Frame):
 
         self.master = master
         self.preview_frame = None
-        self.num_shades = None
+        self.num_shades = tk.IntVar()
 
         if self.master.selected_series:
-            with shelve.open(DB_NAME) as db:
-                self.num_shades = db[self.master.selected_series]['num_shades']
+            with shelve.open(self.master.DB_NAME) as db:
+                self.num_shades.set(db[self.master.selected_series]['num_shades'])
 
     def build_preview(self):
         self.preview_frame = tk.Frame(self)
         self.preview_frame.pack()
+        self.build_shades()
 
     def build_shades(self):
         # destroy previous shades
         for child in self.preview_frame.winfo_children():
             child.destroy()
         # build new shades
-        for i in range(1, 1 + self.num_shades):
+        for i in range(1, 1 + self.num_shades.get()):
             self.build_shade_option(i)
 
     def build_shade_option(self, option):
@@ -123,7 +120,6 @@ class OperatingMenu(Listing):
     def build_user_actions(self):
         actions_frame = tk.Frame(self)
         actions_frame.grid(row=1, column=1)
-
         tk.Button(actions_frame, text='确认', command=self.prompt_operate).pack()
 
     def prompt_operate(self):
@@ -198,7 +194,7 @@ class TrainingMenu(Listing):
 
     def delete_series(self):
         self.prompt.destroy()
-        with shelve.open(DB_NAME) as db:
+        with shelve.open(self.master.DB_NAME) as db:
             print('deleting', self.master.selected_series)
             del db[self.master.selected_series]
             self.master.selected_series = None
@@ -219,7 +215,6 @@ class FormPage(Instance):
         super().__init__(master)
 
         self.series_name = tk.StringVar()
-        self.num_shades = tk.IntVar()
 
         self.build_form()
         self.build_preview()
@@ -240,7 +235,7 @@ class FormPage(Instance):
             tk.Radiobutton(radio_frame, text=str(value), variable=self.num_shades, value=value,
                            command=self.build_shades).pack(side=tk.LEFT, padx=10)
         if self.master.is_updating:
-            with shelve.open(DB_NAME) as db:
+            with shelve.open(self.master.DB_NAME) as db:
                 selected_series = self.master.selected_series
                 self.series_name.set(selected_series)
                 self.num_shades.set(db[selected_series]['num_shades'])
@@ -260,7 +255,7 @@ class FormPage(Instance):
         if not self.valid_name() or num_shades < 2:
             self.prompt_unsuccessful()
         else:
-            with shelve.open(DB_NAME) as db:
+            with shelve.open(self.master.DB_NAME) as db:
                 db[series_name] = {
                     'num_shades': num_shades
                 }
@@ -275,7 +270,7 @@ class FormPage(Instance):
         if not self.valid_name() or num_shades < 2:
             self.prompt_unsuccessful()
         else:
-            with shelve.open(DB_NAME) as db:
+            with shelve.open(self.master.DB_NAME) as db:
                 db[series_name] = {
                     'num_shades': num_shades
                 }
@@ -298,7 +293,7 @@ class FormPage(Instance):
 
     def valid_name(self):
         name = self.series_name.get()
-        with shelve.open(DB_NAME) as db:
+        with shelve.open(self.master.DB_NAME) as db:
             if len(name) == 0:
                 return False
             elif name in db.keys() and name != self.master.selected_series:
