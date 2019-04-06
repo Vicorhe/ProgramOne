@@ -1,4 +1,5 @@
 import shelve
+import os
 import tkinter as tk
 
 
@@ -91,10 +92,15 @@ class Instance(tk.Frame):
         self.preview_frame = None
         self.prompt = None
         self.num_shades = tk.IntVar()
+        self.batch_number = 0
 
         if self.master.selected_series:
             with shelve.open(self.master.DB_NAME) as db:
                 self.num_shades.set(db[self.master.selected_series]['num_shades'])
+                self.batch_number = db[self.master.selected_series]['batch_number']
+
+        self.batch_path = '%s/TrainingBatches/%s/batch_%d' % \
+                          (os.getcwd(), self.master.selected_series, self.batch_number)
 
     def build_preview(self):
         self.preview_frame = tk.Frame(self)
@@ -127,13 +133,32 @@ class Instance(tk.Frame):
 
     # todo implement backend logic
     def alter_db_state(self):
+        with shelve.open(self.master.DB_NAME) as db:
+            db[self.master.selected_series] = {
+                'num_shades': self.num_shades.get(),
+                'batch_number': self.batch_number + 1
+            }
         self.prompt.destroy()
         self.master.switch_frame(TrainingMenu)
 
     # todo implement backend logic
     def clear_session_data(self):
+        self.remove_batch()
+
+        if self.batch_number == 0:
+            with shelve.open(self.master.DB_NAME) as db:
+                del db[self.master.selected_series]
+        
         self.prompt.destroy()
         self.master.switch_frame(TrainingMenu)
+
+    def remove_batch(self):
+        try:
+            os.rmdir(self.batch_path)
+        except OSError:
+            print("Deletion of the directory %s failed" % self.batch_path)
+        else:
+            print("Successfully deleted the directory %s" % self.batch_path)
 
 
 class OperatingMenu(Listing):
@@ -212,7 +237,7 @@ class TrainingMenu(Listing):
         self.master.switch_frame(TrainingMenu)
 
     def train_hook(self):
-        self.master.switch_frame(TrainingPage)
+        self.master.switch_frame(TrainingSession)
 
 
 class FormPage(Instance):
@@ -269,10 +294,13 @@ class FormPage(Instance):
             self.prompt_failed_save()
         else:
             with shelve.open(self.master.DB_NAME) as db:
-                db[series_name] = {'num_shades': num_shades}
+                db[series_name] = {
+                    'num_shades': num_shades,
+                    'batch_number': self.batch_number
+                }
             self.master.selected_series = series_name
             self.master.is_updating = False
-            self.master.switch_frame(TrainingPage)
+            self.master.switch_frame(TrainingSession)
 
     def valid_form_entry(self):
         name = self.series_name.get()
@@ -300,23 +328,6 @@ class FormPage(Instance):
         self.master.switch_frame(TrainingMenu)
 
 
-class TrainingPage(Instance):
-    def __init__(self, master):
-        super().__init__(master)
-
-        tk.Label(self, text='系列名称: ' + self.master.selected_series).pack(pady=10)
-
-        self.build_preview()
-        self.build_shades()
-
-        tk.Button(self, text='开始训练', command=self.route_to_training_session).pack()
-        tk.Button(self, text='取消训练', command=self.prompt_save_model).pack()
-
-    # todo set/determine batch naming convention
-    def route_to_training_session(self):
-        self.master.switch_frame(TrainingSession)
-
-
 class TrainingSession(Instance):
     def __init__(self, master):
         super().__init__(master)
@@ -333,6 +344,8 @@ class TrainingSession(Instance):
 
         tk.Button(self, text='结束训练', command=self.prompt_save_model).pack()
 
+        self.create_batch_directory()
+
         # todo remove this functionality when external trigger API incorporated
         self.master.bind('t', self.key)
 
@@ -346,6 +359,7 @@ class TrainingSession(Instance):
         tk.Label(self.indicator_frame, text='已打标签数量: ').grid(row=1, column=0)
         tk.Label(self.indicator_frame, textvariable=self.num_images_labeled).grid(row=1, column=1)
 
+    # todo remove this key binding
     def key(self, _event=None):
         print('模拟外触取图')
         self.num_images_taken.set(self.num_images_taken.get() + 1)
@@ -382,6 +396,15 @@ class TrainingSession(Instance):
         if self.num_images_labeled.get() < self.num_images_taken.get():
             print('选中了色号' + event.widget['text'])
             self.num_images_labeled.set(self.num_images_labeled.get() + 1)
+
+    def create_batch_directory(self):
+        if not os.path.isdir(self.batch_path):
+            try:
+                os.makedirs(self.batch_path)
+            except OSError:
+                print("Creation of the directory %s failed" % self.batch_path)
+            else:
+                print("Successfully created the directory %s" % self.batch_path)
 
 
 if __name__ == '__main__':
