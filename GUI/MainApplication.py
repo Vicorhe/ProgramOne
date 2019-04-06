@@ -89,6 +89,7 @@ class Instance(tk.Frame):
 
         self.master = master
         self.preview_frame = None
+        self.prompt = None
         self.num_shades = tk.IntVar()
 
         if self.master.selected_series:
@@ -97,7 +98,7 @@ class Instance(tk.Frame):
 
     def build_preview(self):
         self.preview_frame = tk.Frame(self)
-        self.preview_frame.pack()
+        self.preview_frame.pack(pady=15)
         self.build_shades()
 
     def build_shades(self):
@@ -110,8 +111,29 @@ class Instance(tk.Frame):
 
     def build_shade_option(self, option):
         option_frame = tk.Frame(self.preview_frame)
-        option_frame.pack(side=tk.LEFT)
-        tk.Label(option_frame, text=str(option), fg='white', bg='yellow', bd=1, width=6, height=6).pack(padx=6)
+        option_frame.pack(side=tk.LEFT, padx=6)
+
+        label = tk.Label(option_frame, text=str(option), fg='white', bg='dark slate gray', width=4, height=3,
+                         borderwidth=10)
+        label.pack()
+
+    def prompt_save_model(self):
+        self.bell()
+        self.prompt = tk.Toplevel(self)
+        text = '您是不是要保存刚刚操作的 ' + self.master.selected_series + ' 版本?'
+        tk.Label(self.prompt, text=text).pack()
+        tk.Button(self.prompt, text='确定', command=self.alter_db_state).pack()
+        tk.Button(self.prompt, text='取消', command=self.clear_session_data).pack()
+
+    # todo implement backend logic
+    def alter_db_state(self):
+        self.prompt.destroy()
+        self.master.switch_frame(TrainingMenu)
+
+    # todo implement backend logic
+    def clear_session_data(self):
+        self.prompt.destroy()
+        self.master.switch_frame(TrainingMenu)
 
 
 class OperatingMenu(Listing):
@@ -138,8 +160,7 @@ class OperatingPage(Instance):
     def __init__(self, master):
         super().__init__(master)
 
-        tk.Label(self, text='运行页面').pack(pady=10)
-        tk.Label(self, text=self.master.selected_series).pack(pady=10)
+        tk.Label(self, text='系列名称: ' + self.master.selected_series).pack(pady=10)
 
         self.build_preview()
         self.build_shades()
@@ -283,14 +304,85 @@ class TrainingPage(Instance):
     def __init__(self, master):
         super().__init__(master)
 
-        tk.Label(self, text='训练页面').pack(pady=10)
-        tk.Label(self, text=self.master.selected_series).pack(pady=10)
+        tk.Label(self, text='系列名称: ' + self.master.selected_series).pack(pady=10)
 
         self.build_preview()
         self.build_shades()
 
-        tk.Button(self, text='开始').pack()
-        tk.Button(self, text='结束', command=lambda: self.master.switch_frame(TrainingMenu)).pack()
+        tk.Button(self, text='开始训练', command=self.route_to_training_session).pack()
+        tk.Button(self, text='取消训练', command=self.prompt_save_model).pack()
+
+    # todo set/determine batch naming convention
+    def route_to_training_session(self):
+        self.master.switch_frame(TrainingSession)
+
+
+class TrainingSession(Instance):
+    def __init__(self, master):
+        super().__init__(master)
+
+        self.num_images_taken = tk.IntVar()
+        self.num_images_labeled = tk.IntVar()
+        self.indicator_frame = None
+
+        tk.Label(self, text=self.master.selected_series + ' 训练进行中').pack(pady=10)
+
+        self.build_preview()
+        self.build_dynamic_shades()
+        self.build_indicator_frame()
+
+        tk.Button(self, text='结束训练', command=self.prompt_save_model).pack()
+
+        # todo remove this functionality when external trigger API incorporated
+        self.master.bind('t', self.key)
+
+    def build_indicator_frame(self):
+        self.indicator_frame = tk.Frame(self)
+        self.indicator_frame.pack()
+
+        tk.Label(self.indicator_frame, text='相片采集数量: ').grid(row=0, column=0)
+        tk.Label(self.indicator_frame, textvariable=self.num_images_taken).grid(row=0, column=1)
+
+        tk.Label(self.indicator_frame, text='已打标签数量: ').grid(row=1, column=0)
+        tk.Label(self.indicator_frame, textvariable=self.num_images_labeled).grid(row=1, column=1)
+
+    def key(self, _event=None):
+        print('image taken')
+        self.num_images_taken.set(self.num_images_taken.get() + 1)
+
+    def build_dynamic_shades(self):
+        # destroy previous shades
+        for child in self.preview_frame.winfo_children():
+            child.destroy()
+        # build new shades
+        for i in range(1, 1 + self.num_shades.get()):
+            self.build_dynamic_shade_option(i)
+
+    def build_dynamic_shade_option(self, option):
+        option_frame = tk.Frame(self.preview_frame)
+        option_frame.pack(side=tk.LEFT, padx=6)
+
+        label = tk.Label(option_frame, text=str(option), fg='white', bg='dark slate gray', width=4, height=3,
+                         borderwidth=10)
+        label.pack()
+        label.bind('<Enter>', self.on_enter)
+        label.bind('<Leave>', self.on_leave)
+
+        label.bind('<Button>', self.on_click)
+
+    def on_enter(self, event):
+        if self.num_images_labeled.get() < self.num_images_taken.get():
+            event.widget.configure(relief=tk.RIDGE)
+
+
+    @staticmethod
+    def on_leave(event):
+        event.widget.configure(relief=tk.FLAT)
+
+    def on_click(self, event):
+        if self.num_images_labeled.get() < self.num_images_taken.get():
+            print(event.widget['text'] + ' clicked')
+            self.num_images_labeled.set(self.num_images_labeled.get() + 1)
 
 
 if __name__ == '__main__':
