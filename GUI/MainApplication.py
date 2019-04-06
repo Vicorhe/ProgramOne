@@ -120,7 +120,7 @@ class Instance(tk.Frame):
     def prompt_save_model(self):
         self.bell()
         self.prompt = tk.Toplevel(self)
-        text = '您是不是要保存刚刚操作的 ' + self.master.selected_series + ' 版本?'
+        text = '是否保存刚刚操作的 ' + self.master.selected_series + ' 系列版本?'
         tk.Label(self.prompt, text=text).pack()
         tk.Button(self.prompt, text='确定', command=self.alter_db_state).pack()
         tk.Button(self.prompt, text='取消', command=self.clear_session_data).pack()
@@ -178,7 +178,8 @@ class TrainingMenu(Listing):
         self.build_list()
         self.build_user_actions()
 
-        tk.Button(self, text='主页', command=lambda: self.master.switch_frame(StartMenu)).grid(row=2, column=0, columnspan=3, pady=10)
+        tk.Button(self, text='主页', command=lambda: self.master.switch_frame(StartMenu)).grid(row=2, column=0,
+                                                                                             columnspan=3, pady=10)
 
     def build_user_actions(self):
         actions_frame = tk.Frame(self)
@@ -205,7 +206,6 @@ class TrainingMenu(Listing):
 
     def delete_series(self):
         with shelve.open(self.master.DB_NAME) as db:
-            print('正在删除', self.master.selected_series)
             del db[self.master.selected_series]
             self.master.selected_series = None
         self.prompt.destroy()
@@ -289,10 +289,10 @@ class FormPage(Instance):
     def prompt_failed_save(self):
         self.bell()
         prompt = tk.Toplevel(self)
-        tk.Label(prompt, text='we were not able to create a tile series due to one of the following reasons: '
-                              '\na) series name was taken; '
-                              '\nb) series name was left empty; '
-                              '\nc) no valid number of shades was selected').pack()
+        tk.Label(prompt, text='未能保存瓷砖系列，原因是以下其中之一:'
+                              '\na.  系列名称已存在    '
+                              '\nb.  没有填写系列名称'
+                              '\nc.  没有选到系列数量').pack()
         tk.Button(prompt, text='确定', command=lambda: prompt.destroy()).pack()
 
     def route_to_training_menu(self):
@@ -347,7 +347,7 @@ class TrainingSession(Instance):
         tk.Label(self.indicator_frame, textvariable=self.num_images_labeled).grid(row=1, column=1)
 
     def key(self, _event=None):
-        print('image taken')
+        print('模拟外触取图')
         self.num_images_taken.set(self.num_images_taken.get() + 1)
 
     def build_dynamic_shades(self):
@@ -374,14 +374,13 @@ class TrainingSession(Instance):
         if self.num_images_labeled.get() < self.num_images_taken.get():
             event.widget.configure(relief=tk.RIDGE)
 
-
     @staticmethod
     def on_leave(event):
         event.widget.configure(relief=tk.FLAT)
 
     def on_click(self, event):
         if self.num_images_labeled.get() < self.num_images_taken.get():
-            print(event.widget['text'] + ' clicked')
+            print('选中了色号' + event.widget['text'])
             self.num_images_labeled.set(self.num_images_labeled.get() + 1)
 
 
