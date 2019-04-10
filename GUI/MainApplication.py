@@ -123,43 +123,6 @@ class Instance(tk.Frame):
                          borderwidth=10)
         label.pack()
 
-    def prompt_save_model(self):
-        self.bell()
-        self.prompt = tk.Toplevel(self)
-        text = '是否保存刚刚操作的 ' + self.master.selected_series + ' 系列版本?'
-        tk.Label(self.prompt, text=text).pack()
-        tk.Button(self.prompt, text='确定', command=self.alter_db_state).pack()
-        tk.Button(self.prompt, text='取消', command=self.clear_session_data).pack()
-
-    # todo implement backend logic
-    def alter_db_state(self):
-        with shelve.open(self.master.DB_NAME) as db:
-            db[self.master.selected_series] = {
-                'num_shades': self.num_shades.get(),
-                'batch_number': self.batch_number + 1
-            }
-        self.prompt.destroy()
-        self.master.switch_frame(TrainingMenu)
-
-    # todo implement backend logic
-    def clear_session_data(self):
-        self.remove_batch()
-
-        if self.batch_number == 0:
-            with shelve.open(self.master.DB_NAME) as db:
-                del db[self.master.selected_series]
-        
-        self.prompt.destroy()
-        self.master.switch_frame(TrainingMenu)
-
-    def remove_batch(self):
-        try:
-            os.rmdir(self.batch_path)
-        except OSError:
-            print("Deletion of the directory %s failed" % self.batch_path)
-        else:
-            print("Successfully deleted the directory %s" % self.batch_path)
-
 
 class OperatingMenu(Listing):
     def __init__(self, master):
@@ -335,6 +298,7 @@ class TrainingSession(Instance):
         self.num_images_taken = tk.IntVar()
         self.num_images_labeled = tk.IntVar()
         self.indicator_frame = None
+        self.labels = list()
 
         tk.Label(self, text=self.master.selected_series + ' 训练进行中').pack(pady=10)
 
@@ -346,23 +310,8 @@ class TrainingSession(Instance):
 
         self.create_batch_directory()
 
-        # todo remove this functionality when external trigger API incorporated
-        self.master.bind('t', self.key)
-
-    def build_indicator_frame(self):
-        self.indicator_frame = tk.Frame(self)
-        self.indicator_frame.pack()
-
-        tk.Label(self.indicator_frame, text='相片采集数量: ').grid(row=0, column=0)
-        tk.Label(self.indicator_frame, textvariable=self.num_images_taken).grid(row=0, column=1)
-
-        tk.Label(self.indicator_frame, text='已打标签数量: ').grid(row=1, column=0)
-        tk.Label(self.indicator_frame, textvariable=self.num_images_labeled).grid(row=1, column=1)
-
-    # todo remove this key binding
-    def key(self, _event=None):
-        print('模拟外触取图')
-        self.num_images_taken.set(self.num_images_taken.get() + 1)
+        # todo have external trigger API trigger this functionality instead
+        self.master.bind('t', self.take_image)
 
     def build_dynamic_shades(self):
         # destroy previous shades
@@ -394,8 +343,63 @@ class TrainingSession(Instance):
 
     def on_click(self, event):
         if self.num_images_labeled.get() < self.num_images_taken.get():
-            print('选中了色号' + event.widget['text'])
+            label = event.widget['text']
+            print('打了标记为', label)
+            self.labels.append(label)
             self.num_images_labeled.set(self.num_images_labeled.get() + 1)
+
+    def build_indicator_frame(self):
+        self.indicator_frame = tk.Frame(self)
+        self.indicator_frame.pack()
+
+        tk.Label(self.indicator_frame, text='相片采集数量: ').grid(row=0, column=0)
+        tk.Label(self.indicator_frame, textvariable=self.num_images_taken).grid(row=0, column=1)
+
+        tk.Label(self.indicator_frame, text='已打标签数量: ').grid(row=1, column=0)
+        tk.Label(self.indicator_frame, textvariable=self.num_images_labeled).grid(row=1, column=1)
+
+    def prompt_save_model(self):
+        self.bell()
+        self.prompt = tk.Toplevel(self)
+        text = '是否保存刚刚操作的 ' + self.master.selected_series + ' 系列版本?'
+        tk.Label(self.prompt, text=text).pack()
+        tk.Button(self.prompt, text='确定', command=self.alter_db_state).pack()
+        tk.Button(self.prompt, text='取消', command=self.clear_session_data).pack()
+
+    def alter_db_state(self):
+        self.write_labels_file()
+        with shelve.open(self.master.DB_NAME) as db:
+            db[self.master.selected_series] = {
+                'num_shades': self.num_shades.get(),
+                'batch_number': self.batch_number + 1
+            }
+        self.prompt.destroy()
+        self.master.switch_frame(TrainingMenu)
+
+    def write_labels_file(self):
+        labels_path = '%s/labels.txt' % self.batch_path
+        print('writing the following labels file at', labels_path)
+        print(self.labels)
+        with open(labels_path, 'w+') as file:
+            file.write(' '.join(self.labels))
+
+    def clear_session_data(self):
+        self.remove_batch()
+
+        if self.batch_number == 0:
+            with shelve.open(self.master.DB_NAME) as db:
+                del db[self.master.selected_series]
+
+        self.prompt.destroy()
+        self.master.switch_frame(TrainingMenu)
+
+    def remove_batch(self):
+        try:
+            os.rmdir(self.batch_path)
+        except OSError:
+            print("Deletion of the directory %s failed" % self.batch_path)
+        else:
+            print("Successfully deleted the directory %s" % self.batch_path)
 
     def create_batch_directory(self):
         if not os.path.isdir(self.batch_path):
@@ -405,6 +409,13 @@ class TrainingSession(Instance):
                 print("Creation of the directory %s failed" % self.batch_path)
             else:
                 print("Successfully created the directory %s" % self.batch_path)
+
+    # todo remove this key binding
+    def take_image(self, _event=None):
+        n = self.num_images_taken.get()
+        image_path = '%s/image_%d.BMP' % (self.batch_path, n)
+        print('模拟外触取图', image_path)
+        self.num_images_taken.set(n + 1)
 
 
 if __name__ == '__main__':

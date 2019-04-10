@@ -3,16 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6a4730d4-e023-4f16-87e3-5e051ef2fb1b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Evaluation/crossValidation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Evaluation/crossValidation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Evaluation/performance.py" beforeDir="false" afterPath="$PROJECT_DIR$/Evaluation/performance.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adaBoost.py" beforeDir="false" afterPath="$PROJECT_DIR$/adaBoost.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/decisionTree.py" beforeDir="false" afterPath="$PROJECT_DIR$/decisionTree.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kNeighbors.py" beforeDir="false" afterPath="$PROJECT_DIR$/kNeighbors.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linearKernelSVC.py" beforeDir="false" afterPath="$PROJECT_DIR$/linearKernelSVC.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linearSVC.py" beforeDir="false" afterPath="$PROJECT_DIR$/linearSVC.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logisticSGD.py" beforeDir="false" afterPath="$PROJECT_DIR$/BenchedClassifiers/logisticSGD.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polynomialKernelSVC.py" beforeDir="false" afterPath="$PROJECT_DIR$/polynomialKernelSVC.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rbfKernelSVC.py" beforeDir="false" afterPath="$PROJECT_DIR$/rbfKernelSVC.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/MainApplication.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/MainApplication.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/tiles.db" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/tiles.db" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,7 +13,28 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/GUI/MainApplication.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1452">
+              <caret line="382" column="35" selection-start-line="382" selection-start-column="35" selection-end-line="382" selection-end-column="35" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+                <element signature="e#11845#12084#0" />
+                <element signature="e#12144#12545#0" />
+                <element signature="e#12586#12701#0" />
+                <element signature="e#12754#12792#0" />
+                <element signature="e#12284#12711#0" />
+                <element signature="e#13626#13858#0" />
+                <element signature="e#13914#14220#0" />
+                <element signature="e#12728#12942#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -34,6 +47,10 @@
     <findStrings>
       <find>factoryVisit2</find>
       <find>args</find>
+      <find>series_name</find>
+      <find>TrainingPage</find>
+      <find>prompt_save_model</find>
+      <find>alter_db_state</find>
     </findStrings>
     <replaceStrings>
       <replace>factorySampleCollection</replace>
@@ -50,11 +67,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/randomForrests.py" />
-        <option value="$PROJECT_DIR$/Miscellaneous/imageAcquisition.py" />
-        <option value="$PROJECT_DIR$/Experimental/ColorSpaceComparisons/labHistogram.py" />
-        <option value="$PROJECT_DIR$/Experimental/ColorSpaceComparisons/rgbHistogram.py" />
-        <option value="$PROJECT_DIR$/Experimental/ColorSpaceComparisons/ycrcbHistogram.py" />
         <option value="$PROJECT_DIR$/Experimental/ColorSpaceComparisons/hsvHistogram.py" />
         <option value="$PROJECT_DIR$/Experimental/ColorSpaceComparisons/grayscaleHistogram.py" />
         <option value="$PROJECT_DIR$/Evaluation/metricConstructThree.py" />
@@ -101,10 +113,15 @@
         <option value="$PROJECT_DIR$/logisticSGD.py" />
         <option value="$PROJECT_DIR$/polynomialKernelSVC.py" />
         <option value="$PROJECT_DIR$/rbfKernelSVC.py" />
+        <option value="$PROJECT_DIR$/Utilities/Sampling/uniform_medium_sample.py" />
+        <option value="$PROJECT_DIR$/References/Boileraplate/tkApplicationTemplate.py" />
+        <option value="$PROJECT_DIR$/References/Templates/tkApplicationTemplate.py" />
+        <option value="$PROJECT_DIR$/GUI/BaseClasses.py" />
+        <option value="$PROJECT_DIR$/GUI/MainApplication.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1280" />
     <option name="height" value="800" />
   </component>
@@ -116,6 +133,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -126,13 +144,12 @@
             <path>
               <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
               <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
-              <item name="FeatureExtraction" type="462c0819:PsiDirectoryNode" />
+              <item name="GUI" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -321,7 +338,7 @@
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22001588" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21763304" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -413,20 +430,18 @@
     <MESSAGE value="print statistics in color statistics file" />
     <option name="LAST_COMMIT_MESSAGE" value="print statistics in color statistics file" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/GUI/MainApplication.py</url>
+          <line>343</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/FeatureExtraction/moments.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="47" selection-start-line="47" selection-end-line="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rbfSVM.py" />
-    <entry file="file://$PROJECT_DIR$/polynomialSVM.py" />
-    <entry file="file://$PROJECT_DIR$/Experimental/KMeans/CompareKMeansQuantization.py" />
     <entry file="file://$PROJECT_DIR$/Experimental/Compression/KMeansCompression.py" />
     <entry file="file://$PROJECT_DIR$/Experimental/ColorQuantization/kMeansQuantization.py" />
     <entry file="file://$PROJECT_DIR$/References/Experimental/ColorQuantization/uniformQuantization.py">
@@ -539,7 +554,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/References/Boileraplate/argparse_bp.py">
+    <entry file="file://$PROJECT_DIR$/References/Templates/argparse_bp.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" selection-start-line="4" selection-end-line="6" selection-end-column="28" />
@@ -618,16 +633,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Utilities/Sampling/uniform_sample.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="75" lean-forward="true" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="75" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
@@ -778,6 +783,55 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Utilities/Sampling/uniform_medium_sample.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="75" selection-start-line="33" selection-start-column="75" selection-end-line="33" selection-end-column="75" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Utilities/Sampling/uniform_sample.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="36" lean-forward="true" selection-start-line="31" selection-start-column="36" selection-end-line="31" selection-end-column="75" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/References/Templates/tkApplicationTemplate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="44" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/BaseClasses.py" />
+    <entry file="file://$PROJECT_DIR$/GUI/tiles.db">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/MainApplication.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1452">
+          <caret line="382" column="35" selection-start-line="382" selection-start-column="35" selection-end-line="382" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#11845#12084#0" />
+            <element signature="e#12144#12545#0" />
+            <element signature="e#12586#12701#0" />
+            <element signature="e#12754#12792#0" />
+            <element signature="e#12284#12711#0" />
+            <element signature="e#13626#13858#0" />
+            <element signature="e#13914#14220#0" />
+            <element signature="e#12728#12942#0" />
+          </folding>
         </state>
       </provider>
     </entry>
