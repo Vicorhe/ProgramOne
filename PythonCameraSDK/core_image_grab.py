@@ -29,20 +29,27 @@ def main():
     # allocate memory for frame buffer
     p_frame_buffer = mvsdk.CameraAlignMalloc(frame_buffer_size, 16)
 
-    # take one image
-    try:
-        p_raw_data, frame_head = mvsdk.CameraGetImageBuffer(camera, 2000)
-        mvsdk.CameraImageProcess(camera, p_raw_data, p_frame_buffer, frame_head)
-        mvsdk.CameraReleaseImageBuffer(camera, p_raw_data)
+    counter = 0
 
-        # save the image to disk
-        status = mvsdk.CameraSaveImage(camera, "z:\\grab.bmp", p_frame_buffer, frame_head, mvsdk.FILE_BMP, 100)
-        if status == mvsdk.CAMERA_STATUS_SUCCESS:
-            print("Save image successfully. image_size = {}X{}".format(frame_head.iWidth, frame_head.iHeight))
-        else:
-            print("Save image failed. err={}".format(status))
-    except mvsdk.CameraException as e:
-        print("CameraGetImageBuffer failed({}): {}".format(e.error_code, e.message))
+    while True:
+        try:
+            print('trying to take image')
+            p_raw_data, frame_head = mvsdk.CameraGetImageBuffer(camera, 30000)
+            mvsdk.CameraImageProcess(camera, p_raw_data, p_frame_buffer, frame_head)
+            mvsdk.CameraReleaseImageBuffer(camera, p_raw_data)
+            print('success image process')
+
+            # save the image to disk
+            image_path = "C:\\Users\\van32\\Pictures\\grab_%d.BMP" % counter
+            status = mvsdk.CameraSaveImage(camera, image_path, p_frame_buffer, frame_head, mvsdk.FILE_BMP, 100)
+            if status == mvsdk.CAMERA_STATUS_SUCCESS:
+                print("Save image successfully")
+            else:
+                print("err={}".format(status))
+
+            counter += 1
+        except mvsdk.CameraException as e:
+            print("CameraGetImageBuffer failed({}): {}".format(e.error_code, e.message))
 
     # close camera
     mvsdk.CameraUnInit(camera)
