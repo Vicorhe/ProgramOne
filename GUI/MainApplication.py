@@ -1,6 +1,7 @@
 import shelve
 import os
 import tkinter as tk
+import mvsdk
 
 
 class MainApplication(tk.Tk):
@@ -92,14 +93,18 @@ class Instance(tk.Frame):
         self.preview_frame = None
         self.prompt = None
         self.num_shades = tk.IntVar()
+        self.num_images_taken = tk.IntVar()
         self.batch_number = 0
+
+        self.camera = None
+        self.image_buffer = None
 
         if self.master.selected_series:
             with shelve.open(self.master.DB_NAME) as db:
                 self.num_shades.set(db[self.master.selected_series]['num_shades'])
                 self.batch_number = db[self.master.selected_series]['batch_number']
 
-        self.batch_path = '%s/TrainingBatches/%s/batch_%d' % \
+        self.batch_path = '%s\\TrainingBatches\\%s\\batch_%d' % \
                           (os.getcwd(), self.master.selected_series, self.batch_number)
 
     def build_preview(self):
@@ -123,6 +128,57 @@ class Instance(tk.Frame):
                          borderwidth=10)
         label.pack()
 
+    def camera_setup(self):
+        device_list = mvsdk.CameraEnumerateDevice()
+        num_devices = len(device_list)
+        if num_devices < 1:
+            raise Exception("No Camera Connected")
+
+        device_info = device_list[0]
+        try:
+            self.camera = mvsdk.CameraInit(device_info, -1, -1)
+        except mvsdk.CameraException as e:
+            raise Exception("Camera Init Failed")
+
+        # run camera API
+        mvsdk.CameraPlay(self.camera)
+
+    def allocate_image_buffer(self):
+        camera_capability = mvsdk.CameraGetCapability(self.camera)
+        frame_buffer_size = camera_capability.sResolutionRange.iWidthMax * camera_capability.sResolutionRange.iHeightMax * 3
+        self.image_buffer = mvsdk.CameraAlignMalloc(frame_buffer_size, 16)
+
+    def camera_mainloop(self):
+        try:
+            while True:
+                try:
+                    print('trying to take image')
+                    p_raw_data, frame_head = mvsdk.CameraGetImageBuffer(self.camera, 30000)
+                    mvsdk.CameraImageProcess(self.camera, p_raw_data, self.image_buffer, frame_head)
+                    mvsdk.CameraReleaseImageBuffer(self.camera, p_raw_data)
+                    print('success image process')
+
+                    # save the image to disk
+                    n = self.num_images_taken.get()
+                    image_path = '%s\\image_%d.BMP' % (self.batch_path, n)
+                    print(image_path)
+                    # image_path = "C:\\Users\\van32\\Pictures\\grab_%d.BMP" % c
+                    status = mvsdk.CameraSaveImage(self.camera, image_path, self.image_buffer, frame_head, mvsdk.FILE_BMP, 100)
+                    if status == mvsdk.CAMERA_STATUS_SUCCESS:
+                        print("Image Save Success")
+                    else:
+                        print("Image Save Fail")
+
+                    self.num_images_taken.set(n + 1)
+
+                except mvsdk.CameraException as e:
+                    print("err={}".format(e.message))
+        finally:
+            self.camera_breakdown()
+
+    def camera_breakdown(self):
+        mvsdk.CameraUnInit(self.camera)
+        mvsdk.CameraAlignFree(self.image_buffer)
 
 class OperatingMenu(Listing):
     def __init__(self, master):
@@ -295,7 +351,6 @@ class TrainingSession(Instance):
     def __init__(self, master):
         super().__init__(master)
 
-        self.num_images_taken = tk.IntVar()
         self.num_images_labeled = tk.IntVar()
         self.indicator_frame = None
         self.labels = list()
@@ -312,6 +367,10 @@ class TrainingSession(Instance):
 
         # todo have external trigger API trigger this functionality instead
         self.master.bind('t', self.take_image)
+
+        self.camera_setup()
+        self.allocate_image_buffer()
+        self.camera_mainloop()
 
     def build_dynamic_shades(self):
         # destroy previous shades
