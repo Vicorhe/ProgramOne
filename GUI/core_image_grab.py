@@ -15,18 +15,15 @@ def main():
     try:
         camera = mvsdk.CameraInit(device_info, -1, -1)
     except mvsdk.CameraException as e:
-        print("CameraInit Failed({}): {}".format(e.error_code, e.message))
+        print("CameraInit Failed")
         return
-
-    camera_capability = mvsdk.CameraGetCapability(camera)
 
     # run camera API
     mvsdk.CameraPlay(camera)
 
-    # frame buffer size for highest resolution
-    frame_buffer_size = camera_capability.sResolutionRange.iWidthMax * camera_capability.sResolutionRange.iHeightMax * 3
-
     # allocate memory for frame buffer
+    camera_capability = mvsdk.CameraGetCapability(camera)
+    frame_buffer_size = camera_capability.sResolutionRange.iWidthMax * camera_capability.sResolutionRange.iHeightMax * 3
     p_frame_buffer = mvsdk.CameraAlignMalloc(frame_buffer_size, 16)
 
     counter = 0
@@ -43,18 +40,16 @@ def main():
             image_path = "C:\\Users\\van32\\Pictures\\grab_%d.BMP" % counter
             status = mvsdk.CameraSaveImage(camera, image_path, p_frame_buffer, frame_head, mvsdk.FILE_BMP, 100)
             if status == mvsdk.CAMERA_STATUS_SUCCESS:
-                print("Save image successfully")
+                print("Image Save Success")
             else:
-                print("err={}".format(status))
+                print("Image Save Fail")
 
             counter += 1
         except mvsdk.CameraException as e:
-            print("CameraGetImageBuffer failed({}): {}".format(e.error_code, e.message))
+            print("err={}".format(e.message))
 
-    # close camera
+    # clean up
     mvsdk.CameraUnInit(camera)
-
-    # free frame buffer memory
     mvsdk.CameraAlignFree(p_frame_buffer)
 
 
