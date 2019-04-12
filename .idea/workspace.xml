@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6a4730d4-e023-4f16-87e3-5e051ef2fb1b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PythonCameraSDK/core_image_grab.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/core_image_grab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PythonCameraSDK/cv_grab.py" beforeDir="false" afterPath="$PROJECT_DIR$/References/PythonCameraSDK/cv_grab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PythonCameraSDK/grab.py" beforeDir="false" afterPath="$PROJECT_DIR$/References/PythonCameraSDK/grab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PythonCameraSDK/mvsdk.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/mvsdk.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PythonCameraSDK/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/References/PythonCameraSDK/readme.txt" afterDir="false" />
-    </list>
+    <list default="true" id="6a4730d4-e023-4f16-87e3-5e051ef2fb1b" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,11 +22,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GUI/core_image_grab.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-115">
               <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/GUI/MainApplication.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2049">
+              <caret line="420" column="26" lean-forward="true" selection-start-line="420" selection-start-column="26" selection-end-line="420" selection-end-column="26" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -342,7 +347,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2192216" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -691,16 +695,6 @@
     <entry file="file://$PROJECT_DIR$/GUI/tiles.db">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/MainApplication.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="605">
-          <caret line="382" column="35" selection-start-line="382" selection-start-column="35" selection-end-line="382" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PythonCameraSDK/._mvsdk.py" />
     <entry file="file://$PROJECT_DIR$/GUI/mvsdk.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -730,6 +724,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-115">
           <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/MainApplication.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2049">
+          <caret line="420" column="26" lean-forward="true" selection-start-line="420" selection-start-column="26" selection-end-line="420" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
