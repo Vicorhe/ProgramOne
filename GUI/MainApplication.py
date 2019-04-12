@@ -370,7 +370,7 @@ class TrainingSession(Instance):
 
         self.camera_setup()
         self.allocate_image_buffer()
-        self.camera_mainloop()
+        self.after(500, self.camera_mainloop)
 
     def build_dynamic_shades(self):
         # destroy previous shades

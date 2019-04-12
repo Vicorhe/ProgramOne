@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6a4730d4-e023-4f16-87e3-5e051ef2fb1b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ProgramOne.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProgramOne.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/MainApplication.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/MainApplication.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/core_image_grab.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/core_image_grab.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,88 +21,43 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="BMP" value="3" />
-          <entry key="gitignore" value="1" />
-          <entry key="py" value="4" />
+          <entry key="gitignore" value="2" />
+          <entry key="py" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Image" value="3" />
-          <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="4" />
+          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="Python" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="gitignore" value="7" />
-          <entry key="py" value="771" />
+          <entry key="gitignore" value="8" />
+          <entry key="py" value="795" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="7" />
-          <entry key="Python" value="771" />
+          <entry key="PLAIN_TEXT" value="8" />
+          <entry key="Python" value="795" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GUI/MainApplication.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="100" selection-start-line="100" selection-end-line="100" />
+            <state relative-caret-position="264">
+              <caret line="374" column="35" lean-forward="true" selection-start-line="374" selection-start-column="35" selection-end-line="374" selection-end-column="35" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
-                <element signature="e#81#545#0" />
-                <element signature="e#579#877#0" />
-                <element signature="e#909#2625#0" />
-                <element signature="e#2931#3142#0" />
-                <element signature="e#3333#3437#0" />
-                <element signature="e#3475#3706#0" />
-                <element signature="e#3758#4022#0" />
-                <element signature="e#4129#4552#0" />
-                <element signature="e#4630#4880#0" />
-                <element signature="e#4617#4697#0" />
-                <element signature="e#4059#4691#0" />
-                <element signature="e#4729#5072#0" />
-                <element signature="e#5108#6964#0" />
-                <element signature="e#6997#10252#0" />
-                <element signature="e#11721#11836#0" />
-                <element signature="e#11889#11927#0" />
-                <element signature="e#11968#12219#0" />
-                <element signature="e#12266#12693#0" />
-                <element signature="e#12736#13064#0" />
-                <element signature="e#13104#13427#0" />
-                <element signature="e#13470#13703#0" />
-                <element signature="e#13747#13989#0" />
-                <element signature="e#14027#14259#0" />
-                <element signature="e#14307#14613#0" />
-                <element signature="e#14697#14867#0" />
-                <marker date="1554987612068" expanded="true" signature="4964:6207" ph="..." />
               </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GUI/TrainingBatches/cheese/batch_1/image_0.BMP">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GUI/TrainingBatches/cheese/batch_1/image_2.BMP">
-          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
     </leaf>
@@ -193,8 +143,8 @@
         <option value="$PROJECT_DIR$/GUI/BaseClasses.py" />
         <option value="$PROJECT_DIR$/PythonCameraSDK/core_image_grab.py" />
         <option value="$PROJECT_DIR$/GUI/core_image_grab.py" />
-        <option value="$PROJECT_DIR$/GUI/MainApplication.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/GUI/MainApplication.py" />
       </list>
     </option>
   </component>
@@ -216,6 +166,11 @@
             <path>
               <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
               <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
+              <item name="GUI" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -741,9 +696,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/TrainingBatches/cheese/batch_1/image_2.BMP">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/TrainingBatches/cheese/batch_1/image_1.BMP">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/TrainingBatches/cheese/batch_1/image_0.BMP">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/GUI/core_image_grab.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
+        <state relative-caret-position="287">
           <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="51" selection-end-column="49" />
           <folding>
             <element signature="e#54#456#0" />
@@ -753,55 +724,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/TrainingBatches/cheese/batch_1/image_2.BMP">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/TrainingBatches/cheese/batch_1/image_0.BMP">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/TrainingBatches/cheese/batch_1/image_1.BMP">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/GUI/MainApplication.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="100" selection-start-line="100" selection-end-line="100" />
+        <state relative-caret-position="264">
+          <caret line="374" column="35" lean-forward="true" selection-start-line="374" selection-start-column="35" selection-end-line="374" selection-end-column="35" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-            <element signature="e#81#545#0" />
-            <element signature="e#579#877#0" />
-            <element signature="e#909#2625#0" />
-            <element signature="e#2931#3142#0" />
-            <element signature="e#3333#3437#0" />
-            <element signature="e#3475#3706#0" />
-            <element signature="e#3758#4022#0" />
-            <element signature="e#4129#4552#0" />
-            <element signature="e#4630#4880#0" />
-            <element signature="e#4617#4697#0" />
-            <element signature="e#4059#4691#0" />
-            <element signature="e#4729#5072#0" />
-            <element signature="e#5108#6964#0" />
-            <element signature="e#6997#10252#0" />
-            <element signature="e#11721#11836#0" />
-            <element signature="e#11889#11927#0" />
-            <element signature="e#11968#12219#0" />
-            <element signature="e#12266#12693#0" />
-            <element signature="e#12736#13064#0" />
-            <element signature="e#13104#13427#0" />
-            <element signature="e#13470#13703#0" />
-            <element signature="e#13747#13989#0" />
-            <element signature="e#14027#14259#0" />
-            <element signature="e#14307#14613#0" />
-            <element signature="e#14697#14867#0" />
-            <marker date="1554987612068" expanded="true" signature="4964:6207" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
         </state>
       </provider>
     </entry>
