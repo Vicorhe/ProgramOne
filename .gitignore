@@ -1,5 +1,6 @@
 *.pkl
 *.xml
 *.BMP
-.idea/*
-tiles.*
+.idea/
+GUI/tiles
+TrainingBatches/
