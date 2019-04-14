@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6a4730d4-e023-4f16-87e3-5e051ef2fb1b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/GUI/MainApplication.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/MainApplication.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/tiles.bak" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/tiles.bak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/tiles.dat" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/tiles.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/tiles.dir" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/tiles.dir" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,7 +48,7 @@
     <session id="1706759265">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.36" value="1" />
           <entry key="project.opened" value="2" />
@@ -75,13 +72,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="78" />
-          <entry key="py" value="1300" />
+          <entry key="py" value="1389" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="78" />
-          <entry key="Python" value="1300" />
+          <entry key="Python" value="1389" />
         </counts>
       </usages-collector>
     </session>
@@ -91,15 +88,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GUI/MainApplication.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="404" column="13" lean-forward="true" selection-start-line="404" selection-start-column="13" selection-end-line="404" selection-end-column="13" />
+            <state relative-caret-position="46">
+              <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
               <folding>
-                <element signature="e#0#13#0" expanded="true" />
                 <element signature="e#94#558#0" />
                 <element signature="e#592#890#0" />
-                <element signature="e#922#2638#0" />
-                <element signature="e#2688#4160#0" />
-                <element signature="e#2707#3415#0" />
                 <element signature="e#3454#3558#0" />
                 <element signature="e#3596#3827#0" />
                 <element signature="e#3879#4143#0" />
@@ -117,12 +110,11 @@
                 <element signature="e#15533#15856#0" />
                 <element signature="e#15899#16132#0" />
                 <element signature="e#16176#16418#0" />
-                <element signature="e#16736#17042#0" />
                 <element signature="e#18174#18607#0" />
                 <element signature="e#18330#18588#0" />
                 <element signature="e#20151#20260#0" />
-                <marker date="1555263502938" expanded="true" signature="14732:17053" ph="..." />
-                <marker date="1555263502938" expanded="true" signature="14950:14955" ph="..." />
+                <marker date="1555264139204" expanded="true" signature="14739:17050" ph="..." />
+                <marker date="1555264139204" expanded="true" signature="14947:14952" ph="..." />
               </folding>
             </state>
           </provider>
@@ -238,11 +230,6 @@
             <path>
               <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
               <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
-              <item name="GUI" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
               <item name="References" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -257,17 +244,17 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/References" />
-      <recent name="$PROJECT_DIR$/GUI" />
-      <recent name="$PROJECT_DIR$/BenchedClassifiers" />
-      <recent name="$PROJECT_DIR$/Utilities/Sampling" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/Utilities" />
       <recent name="$PROJECT_DIR$/FeatureExtraction" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\van32\Documents\ProgramOne\References\PythonCameraSDK" />
+      <recent name="$PROJECT_DIR$/References" />
+      <recent name="$PROJECT_DIR$/GUI" />
+      <recent name="$PROJECT_DIR$/BenchedClassifiers" />
+      <recent name="$PROJECT_DIR$/Utilities/Sampling" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -437,7 +424,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1320" height="784" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21840873" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -519,17 +505,6 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="print statistics in color statistics file" />
     <option name="LAST_COMMIT_MESSAGE" value="print statistics in color statistics file" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/GUI/MainApplication.py</url>
-          <line>298</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Utilities/croping.py">
@@ -762,7 +737,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/core_image_grab.py">
+    <entry file="file://$PROJECT_DIR$/References/PythonCameraSDK/core_image_grab.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="39" column="43" selection-start-line="39" selection-end-line="40" />
@@ -804,15 +779,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/GUI/MainApplication.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="404" column="13" lean-forward="true" selection-start-line="404" selection-start-column="13" selection-end-line="404" selection-end-column="13" />
+        <state relative-caret-position="46">
+          <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
             <element signature="e#94#558#0" />
             <element signature="e#592#890#0" />
-            <element signature="e#922#2638#0" />
-            <element signature="e#2688#4160#0" />
-            <element signature="e#2707#3415#0" />
             <element signature="e#3454#3558#0" />
             <element signature="e#3596#3827#0" />
             <element signature="e#3879#4143#0" />
@@ -830,12 +801,11 @@
             <element signature="e#15533#15856#0" />
             <element signature="e#15899#16132#0" />
             <element signature="e#16176#16418#0" />
-            <element signature="e#16736#17042#0" />
             <element signature="e#18174#18607#0" />
             <element signature="e#18330#18588#0" />
             <element signature="e#20151#20260#0" />
-            <marker date="1555263502938" expanded="true" signature="14732:17053" ph="..." />
-            <marker date="1555263502938" expanded="true" signature="14950:14955" ph="..." />
+            <marker date="1555264139204" expanded="true" signature="14739:17050" ph="..." />
+            <marker date="1555264139204" expanded="true" signature="14947:14952" ph="..." />
           </folding>
         </state>
       </provider>

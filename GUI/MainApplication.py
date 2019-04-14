@@ -1,8 +1,8 @@
 import shelve
 import os
-import shutil
 import tkinter as tk
-import threading
+from shutil import rmtree
+from threading import Thread
 import mvsdk
 
 
@@ -399,7 +399,7 @@ class TrainingSession(Instance):
 
     def remove_batch(self):
         try:
-            shutil.rmtree(self.batch_path)
+            rmtree(self.batch_path)
         except OSError:
             print("Deletion of the directory %s failed" % self.batch_path)
         else:
@@ -415,9 +415,9 @@ class TrainingSession(Instance):
                 print("Successfully created the directory %s" % self.batch_path)
 
 
-class CameraApp(threading.Thread):
+class CameraApp(Thread):
     def __init__(self, session):
-        threading.Thread.__init__(self)
+        Thread.__init__(self)
         self.session = session
         self.camera = None
         self.image_buffer = None
