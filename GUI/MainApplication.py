@@ -1,6 +1,7 @@
 import shelve
 import os
 import tkinter as tk
+import threading
 import mvsdk
 
 
@@ -150,33 +151,39 @@ class Instance(tk.Frame):
 
     def camera_mainloop(self):
         try:
-            while True:
-                try:
-                    print('trying to take image')
-                    p_raw_data, frame_head = mvsdk.CameraGetImageBuffer(self.camera, 30000)
-                    mvsdk.CameraImageProcess(self.camera, p_raw_data, self.image_buffer, frame_head)
-                    mvsdk.CameraReleaseImageBuffer(self.camera, p_raw_data)
-                    print('success image process')
+            print('in loop:', self.camera)
+            print('blocking before CameraGetImageBuffer')
+            p_raw_data, frame_head = mvsdk.CameraGetImageBuffer(self.camera, 300)
+            print('blocking before CameraImageProcess')
+            mvsdk.CameraImageProcess(self.camera, p_raw_data, self.image_buffer, frame_head)
+            print('blocking before CameraReleaseImageBuffer')
+            mvsdk.CameraReleaseImageBuffer(self.camera, p_raw_data)
+            print('success image process')
 
-                    # save the image to disk
-                    n = self.num_images_taken.get()
-                    image_path = '%s\\image_%d.BMP' % (self.batch_path, n)
-                    print(image_path)
-                    # image_path = "C:\\Users\\van32\\Pictures\\grab_%d.BMP" % c
-                    status = mvsdk.CameraSaveImage(self.camera, image_path, self.image_buffer, frame_head, mvsdk.FILE_BMP, 100)
-                    if status == mvsdk.CAMERA_STATUS_SUCCESS:
-                        print("Image Save Success")
-                    else:
-                        print("Image Save Fail")
+            # save the image to disk
+            n = self.num_images_taken.get()
+            image_path = '%s\\image_%d.BMP' % (self.batch_path, n)
+            print(image_path)
+            # image_path = "C:\\Users\\van32\\Pictures\\grab_%d.BMP" % c
+            status = mvsdk.CameraSaveImage(self.camera, image_path, self.image_buffer, frame_head, mvsdk.FILE_BMP, 100)
+            if status == mvsdk.CAMERA_STATUS_SUCCESS:
+                print("Image Save Success")
+            else:
+                print("Image Save Fail")
 
-                    self.num_images_taken.set(n + 1)
+            self.num_images_taken.set(n + 1)
+            # todo remove
+            print('main loop -> try about to recall')
+            self.after(300, self.camera_mainloop)
 
-                except mvsdk.CameraException as e:
-                    print("err={}".format(e.message))
-        finally:
-            self.camera_breakdown()
+        except mvsdk.CameraException as e:
+            print("CameraGetImageBuffer failed({}): {}".format(e.error_code, e.message))
+            # todo remove
+            print('main loop -> except about to recall')
+            self.after(300, self.camera_mainloop)
 
     def camera_breakdown(self):
+        print('cleanup ing')
         mvsdk.CameraUnInit(self.camera)
         mvsdk.CameraAlignFree(self.image_buffer)
 
@@ -351,6 +358,8 @@ class TrainingSession(Instance):
     def __init__(self, master):
         super().__init__(master)
 
+        self.terminate = False
+
         self.num_images_labeled = tk.IntVar()
         self.indicator_frame = None
         self.labels = list()
@@ -368,9 +377,7 @@ class TrainingSession(Instance):
         # todo have external trigger API trigger this functionality instead
         self.master.bind('t', self.take_image)
 
-        self.camera_setup()
-        self.allocate_image_buffer()
-        self.after(500, self.camera_mainloop)
+        self.appInstance = CameraApp(self)
 
     def build_dynamic_shades(self):
         # destroy previous shades
@@ -403,7 +410,7 @@ class TrainingSession(Instance):
     def on_click(self, event):
         if self.num_images_labeled.get() < self.num_images_taken.get():
             label = event.widget['text']
-            print('打了标记为', label)
+            print('labeled', label)
             self.labels.append(label)
             self.num_images_labeled.set(self.num_images_labeled.get() + 1)
 
@@ -418,6 +425,8 @@ class TrainingSession(Instance):
         tk.Label(self.indicator_frame, textvariable=self.num_images_labeled).grid(row=1, column=1)
 
     def prompt_save_model(self):
+        self.terminate = True
+        self.appInstance.join()
         self.bell()
         self.prompt = tk.Toplevel(self)
         text = '是否保存刚刚操作的 ' + self.master.selected_series + ' 系列版本?'
@@ -475,6 +484,71 @@ class TrainingSession(Instance):
         image_path = '%s/image_%d.BMP' % (self.batch_path, n)
         print('模拟外触取图', image_path)
         self.num_images_taken.set(n + 1)
+
+
+class CameraApp(threading.Thread):
+    def __init__(self, session):
+        threading.Thread.__init__(self)
+        self.session = session
+        self.camera = None
+        self.image_buffer = None
+        self.start()
+
+# todo make this work
+    def run(self):
+        try:
+            self.camera_setup()
+            self.allocate_image_buffer()
+            while True:
+                if self.session.terminate:
+                    break
+                self.camera_mainloop()
+        finally:
+            self.camera_breakdown()
+
+    def camera_setup(self):
+        device_list = mvsdk.CameraEnumerateDevice()
+        num_devices = len(device_list)
+        if num_devices < 1:
+            raise Exception("No Camera Connected")
+
+        device_info = device_list[0]
+        try:
+            self.camera = mvsdk.CameraInit(device_info, -1, -1)
+        except mvsdk.CameraException as e:
+            raise Exception("Camera Init Failed")
+
+        # run camera API
+        mvsdk.CameraPlay(self.camera)
+
+    def allocate_image_buffer(self):
+        camera_capability = mvsdk.CameraGetCapability(self.camera)
+        frame_buffer_size = camera_capability.sResolutionRange.iWidthMax * camera_capability.sResolutionRange.iHeightMax * 3
+        self.image_buffer = mvsdk.CameraAlignMalloc(frame_buffer_size, 16)
+
+    def camera_mainloop(self):
+        try:
+            p_raw_data, frame_head = mvsdk.CameraGetImageBuffer(self.camera, 1000)
+            mvsdk.CameraImageProcess(self.camera, p_raw_data, self.image_buffer, frame_head)
+            mvsdk.CameraReleaseImageBuffer(self.camera, p_raw_data)
+
+            # save the image to disk
+            n = self.session.num_images_taken.get()
+            image_path = '%s\\image_%d.BMP' % (self.session.batch_path, n)
+            status = mvsdk.CameraSaveImage(self.camera, image_path, self.image_buffer, frame_head, mvsdk.FILE_BMP, 100)
+            if status == mvsdk.CAMERA_STATUS_SUCCESS:
+                print("Image Save Success at", image_path)
+            else:
+                print("Image Save Fail")
+            self.session.num_images_taken.set(n + 1)
+
+        except mvsdk.CameraException as e:
+            pass
+
+    def camera_breakdown(self):
+        print('cleanup ing')
+        mvsdk.CameraUnInit(self.camera)
+        mvsdk.CameraAlignFree(self.image_buffer)
 
 
 if __name__ == '__main__':

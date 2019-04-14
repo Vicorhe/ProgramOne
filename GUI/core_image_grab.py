@@ -33,9 +33,11 @@ def main():
 
         while True:
             try:
-                print('trying to take image')
-                p_raw_data, frame_head = mvsdk.CameraGetImageBuffer(camera, 30000)
+                print('blocking before CameraGetImageBuffer')
+                p_raw_data, frame_head = mvsdk.CameraGetImageBuffer(camera, 300)
+                print('blocking before CameraImageProcess')
                 mvsdk.CameraImageProcess(camera, p_raw_data, p_frame_buffer, frame_head)
+                print('blocking before CameraReleaseImageBuffer')
                 mvsdk.CameraReleaseImageBuffer(camera, p_raw_data)
                 print('success image process')
 
@@ -49,9 +51,10 @@ def main():
 
                 counter += 1
             except mvsdk.CameraException as e:
-                print("err={}".format(e.message))
+                print(e.message)
     finally:
         # clean up
+        print('clean up code called')
         mvsdk.CameraUnInit(camera)
         mvsdk.CameraAlignFree(p_frame_buffer)
 
