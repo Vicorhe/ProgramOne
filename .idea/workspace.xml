@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6a4730d4-e023-4f16-87e3-5e051ef2fb1b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/MainApplication.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/MainApplication.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/TrainingBatches/cheese/batch_0/labels.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/TrainingBatches/cheese/batch_1/labels.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/core_image_grab.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/core_image_grab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/tiles.bak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/tiles.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/tiles.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/tiles.dir" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/tiles.bak" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/tiles.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/tiles.dat" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/tiles.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/tiles.dir" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/tiles.dir" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,53 +59,50 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="BMP" value="1" />
+          <entry key="BMP" value="2" />
           <entry key="gitignore" value="2" />
           <entry key="py" value="6" />
-          <entry key="txt" value="2" />
+          <entry key="txt" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Image" value="1" />
-          <entry key="PLAIN_TEXT" value="4" />
+          <entry key="Image" value="2" />
+          <entry key="PLAIN_TEXT" value="6" />
           <entry key="Python" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="78" />
-          <entry key="py" value="1233" />
+          <entry key="py" value="1300" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="78" />
-          <entry key="Python" value="1233" />
+          <entry key="Python" value="1300" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GUI/MainApplication.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
-              <caret line="546" selection-start-line="546" selection-end-line="546" />
+            <state relative-caret-position="448">
+              <caret line="404" column="13" lean-forward="true" selection-start-line="404" selection-start-column="13" selection-end-line="404" selection-end-column="13" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
                 <element signature="e#94#558#0" />
                 <element signature="e#592#890#0" />
                 <element signature="e#922#2638#0" />
+                <element signature="e#2688#4160#0" />
                 <element signature="e#2707#3415#0" />
                 <element signature="e#3454#3558#0" />
                 <element signature="e#3596#3827#0" />
                 <element signature="e#3879#4143#0" />
-                <element signature="e#4181#4614#0" />
-                <element signature="e#4661#4919#0" />
-                <element signature="e#4960#6192#0" />
-                <element signature="e#6243#6323#0" />
                 <element signature="e#6350#6982#0" />
                 <element signature="e#7020#7363#0" />
                 <element signature="e#7399#9255#0" />
@@ -119,28 +111,19 @@
                 <element signature="e#13708#14109#0" />
                 <element signature="e#14150#14265#0" />
                 <element signature="e#14318#14356#0" />
+                <element signature="e#14397#14648#0" />
                 <element signature="e#14695#15122#0" />
+                <element signature="e#15362#15690#0" />
                 <element signature="e#15533#15856#0" />
                 <element signature="e#15899#16132#0" />
                 <element signature="e#16176#16418#0" />
-                <element signature="e#16456#16688#0" />
                 <element signature="e#16736#17042#0" />
-                <element signature="e#17126#17296#0" />
                 <element signature="e#18174#18607#0" />
                 <element signature="e#18330#18588#0" />
                 <element signature="e#20151#20260#0" />
-                <marker date="1555260907688" expanded="true" signature="17585:19873" ph="..." />
-                <marker date="1555260907688" expanded="true" signature="17825:17830" ph="..." />
+                <marker date="1555263502938" expanded="true" signature="14732:17053" ph="..." />
+                <marker date="1555263502938" expanded="true" signature="14950:14955" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/GUI/TrainingBatches/哈哈哈/batch_0/labels.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="46" selection-end-column="71" />
             </state>
           </provider>
         </entry>
@@ -256,58 +239,6 @@
               <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
               <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
               <item name="GUI" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
-              <item name="GUI" type="462c0819:PsiDirectoryNode" />
-              <item name="TrainingBatches" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
-              <item name="GUI" type="462c0819:PsiDirectoryNode" />
-              <item name="TrainingBatches" type="462c0819:PsiDirectoryNode" />
-              <item name="¹þ¹þ¹þ" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
-              <item name="GUI" type="462c0819:PsiDirectoryNode" />
-              <item name="TrainingBatches" type="462c0819:PsiDirectoryNode" />
-              <item name="¹þ¹þ¹þ" type="462c0819:PsiDirectoryNode" />
-              <item name="batch_0" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
-              <item name="GUI" type="462c0819:PsiDirectoryNode" />
-              <item name="TrainingBatches" type="462c0819:PsiDirectoryNode" />
-              <item name="¹þ¹þ¹þ" type="462c0819:PsiDirectoryNode" />
-              <item name="batch_1" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
-              <item name="GUI" type="462c0819:PsiDirectoryNode" />
-              <item name="TrainingBatches" type="462c0819:PsiDirectoryNode" />
-              <item name="哈哈哈" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
-              <item name="GUI" type="462c0819:PsiDirectoryNode" />
-              <item name="TrainingBatches" type="462c0819:PsiDirectoryNode" />
-              <item name="哈哈哈" type="462c0819:PsiDirectoryNode" />
-              <item name="batch_0" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProgramOne" type="462c0819:PsiDirectoryNode" />
-              <item name="GUI" type="462c0819:PsiDirectoryNode" />
-              <item name="TrainingBatches" type="462c0819:PsiDirectoryNode" />
-              <item name="哈哈哈" type="462c0819:PsiDirectoryNode" />
-              <item name="batch_1" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ProgramOne" type="b2602c69:ProjectViewProjectNode" />
@@ -506,6 +437,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1320" height="784" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21840873" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -593,48 +525,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/GUI/MainApplication.py</url>
-          <line>88</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/GUI/MainApplication.py</url>
-          <line>184</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/GUI/MainApplication.py</url>
-          <line>151</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/GUI/MainApplication.py</url>
-          <line>357</line>
+          <line>298</line>
           <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/GUI/MainApplication.py</url>
-          <line>497</line>
-          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Utilities/concatenation.py" />
-    <entry file="file://$PROJECT_DIR$/Utilities/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="18" selection-start-column="18" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Modules/Datasets/tiles.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Utilities/croping.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -889,23 +786,36 @@
     <entry file="file://$PROJECT_DIR$/GUI/TrainingBatches/cheese/batch_6/image_12.BMP">
       <provider selected="true" editor-type-id="images" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/TrainingBatches/哈哈哈/batch_0/labels.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="46" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/TrainingBatches/hello/batch_3/image_0.BMP">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/TrainingBatches/hello/batch_2/labels.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GUI/TrainingBatches/hello/batch_0/labels.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/GUI/MainApplication.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="546" selection-start-line="546" selection-end-line="546" />
+        <state relative-caret-position="448">
+          <caret line="404" column="13" lean-forward="true" selection-start-line="404" selection-start-column="13" selection-end-line="404" selection-end-column="13" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
             <element signature="e#94#558#0" />
             <element signature="e#592#890#0" />
             <element signature="e#922#2638#0" />
+            <element signature="e#2688#4160#0" />
             <element signature="e#2707#3415#0" />
             <element signature="e#3454#3558#0" />
             <element signature="e#3596#3827#0" />
             <element signature="e#3879#4143#0" />
-            <element signature="e#4181#4614#0" />
-            <element signature="e#4661#4919#0" />
-            <element signature="e#4960#6192#0" />
-            <element signature="e#6243#6323#0" />
             <element signature="e#6350#6982#0" />
             <element signature="e#7020#7363#0" />
             <element signature="e#7399#9255#0" />
@@ -914,26 +824,19 @@
             <element signature="e#13708#14109#0" />
             <element signature="e#14150#14265#0" />
             <element signature="e#14318#14356#0" />
+            <element signature="e#14397#14648#0" />
             <element signature="e#14695#15122#0" />
+            <element signature="e#15362#15690#0" />
             <element signature="e#15533#15856#0" />
             <element signature="e#15899#16132#0" />
             <element signature="e#16176#16418#0" />
-            <element signature="e#16456#16688#0" />
             <element signature="e#16736#17042#0" />
-            <element signature="e#17126#17296#0" />
             <element signature="e#18174#18607#0" />
             <element signature="e#18330#18588#0" />
             <element signature="e#20151#20260#0" />
-            <marker date="1555260907688" expanded="true" signature="17585:19873" ph="..." />
-            <marker date="1555260907688" expanded="true" signature="17825:17830" ph="..." />
+            <marker date="1555263502938" expanded="true" signature="14732:17053" ph="..." />
+            <marker date="1555263502938" expanded="true" signature="14950:14955" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GUI/TrainingBatches/哈哈哈/batch_0/labels.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="46" selection-end-column="71" />
         </state>
       </provider>
     </entry>
