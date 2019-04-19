@@ -95,6 +95,7 @@ class Instance(tk.Frame):
 
         self.master = master
         self.preview_frame = None
+        self.shades = list()
         self.prompt = None
         self.num_shades = tk.IntVar()
         self.num_images_taken = tk.IntVar()
@@ -115,6 +116,7 @@ class Instance(tk.Frame):
 
     def build_shades(self):
         # destroy previous shades
+        self.shades = list()
         for child in self.preview_frame.winfo_children():
             child.destroy()
         # build new shades
@@ -128,9 +130,17 @@ class Instance(tk.Frame):
         label = tk.Label(option_frame, text=str(option), fg='white', bg='dark slate gray', width=4, height=3,
                          borderwidth=10)
         label.pack()
+        self.shades.append(label)
 
     def predict(self):
         return random.randint(1, self.num_shades.get())
+
+    def highlight_shade(self, shade_id):
+        for i, shade_option in enumerate(self.shades):
+            if i == shade_id - 1:
+                shade_option.configure(relief=tk.RIDGE)
+            else:
+                shade_option.configure(relief=tk.FLAT)
 
 
 class OperatingMenu(Listing):
@@ -504,7 +514,9 @@ class CameraApp(Thread):
             frame = np.frombuffer(frame_data, dtype=np.uint8)
             frame = frame.reshape((frame_head.iHeight, frame_head.iWidth, 3))
 
-            print(self.session.predict())
+            p = self.session.predict()
+            print(p)
+            self.session.highlight_shade(p)
 
             self.session.num_images_taken.set(n + 1)
 
