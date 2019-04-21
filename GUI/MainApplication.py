@@ -1,5 +1,7 @@
 import shelve
 import os
+import random
+import numpy as np
 import tkinter as tk
 from shutil import rmtree
 from threading import Thread
@@ -59,7 +61,7 @@ class Listing(tk.Frame):
         self.populate_list()
         self.select_default_series()
 
-    def selection_callback(self, event):
+    def selection_callback(self, _event):
         if self.my_list.curselection():
             series = self.my_list.get(self.my_list.curselection())
             self.master.selected_series = series
@@ -93,6 +95,7 @@ class Instance(tk.Frame):
 
         self.master = master
         self.preview_frame = None
+        self.shades = list()
         self.prompt = None
         self.num_shades = tk.IntVar()
         self.num_images_taken = tk.IntVar()
@@ -113,6 +116,7 @@ class Instance(tk.Frame):
 
     def build_shades(self):
         # destroy previous shades
+        self.shades = list()
         for child in self.preview_frame.winfo_children():
             child.destroy()
         # build new shades
@@ -126,6 +130,17 @@ class Instance(tk.Frame):
         label = tk.Label(option_frame, text=str(option), fg='white', bg='dark slate gray', width=4, height=3,
                          borderwidth=10)
         label.pack()
+        self.shades.append(label)
+
+    def predict(self):
+        return random.randint(1, self.num_shades.get())
+
+    def highlight_shade(self, shade_id):
+        for i, shade_option in enumerate(self.shades):
+            if i == shade_id - 1:
+                shade_option.configure(relief=tk.RIDGE)
+            else:
+                shade_option.configure(relief=tk.FLAT)
 
 
 class OperatingMenu(Listing):
@@ -145,10 +160,10 @@ class OperatingMenu(Listing):
         tk.Button(actions_frame, text='确认', command=lambda: self.selection_based_prompt(self.operate_hook)).pack()
 
     def operate_hook(self):
-        self.master.switch_frame(OperatingPage)
+        self.master.switch_frame(OperatingSession)
 
 
-class OperatingPage(Instance):
+class OperatingSession(Instance):
     def __init__(self, master):
         super().__init__(master)
 
@@ -157,8 +172,15 @@ class OperatingPage(Instance):
         self.build_preview()
         self.build_shades()
 
-        tk.Button(self, text='开始').pack()
-        tk.Button(self, text='结束', command=lambda: self.master.switch_frame(OperatingMenu)).pack()
+        tk.Button(self, text='结束', command=self.leave_session).pack()
+
+        self.terminate_session = False
+        self.appInstance = CameraApp(self, False)
+
+    def leave_session(self):
+        self.terminate_session = True
+        self.appInstance.join()
+        self.master.switch_frame(OperatingMenu)
 
 
 class TrainingMenu(Listing):
@@ -299,7 +321,6 @@ class TrainingSession(Instance):
     def __init__(self, master):
         super().__init__(master)
 
-        self.terminate_session = False
         self.num_images_labeled = tk.IntVar()
         self.indicator_frame = None
         self.labels = list()
@@ -313,7 +334,9 @@ class TrainingSession(Instance):
         tk.Button(self, text='结束训练', command=self.prompt_save_model).pack()
 
         self.create_batch_directory()
-        self.appInstance = CameraApp(self)
+
+        self.terminate_session = False
+        self.appInstance = CameraApp(self, True)
 
     def build_dynamic_shades(self):
         # destroy previous shades
@@ -416,11 +439,15 @@ class TrainingSession(Instance):
 
 
 class CameraApp(Thread):
-    def __init__(self, session):
+    def __init__(self, session, isTraining):
         Thread.__init__(self)
         self.session = session
         self.camera = None
         self.image_buffer = None
+        if isTraining:
+            self.camera_mainloop = self.training_mainloop
+        else:
+            self.camera_mainloop = self.operating_mainloop
         self.start()
 
     def run(self):
@@ -455,7 +482,7 @@ class CameraApp(Thread):
         frame_buffer_size = camera_capability.sResolutionRange.iWidthMax * camera_capability.sResolutionRange.iHeightMax * 3
         self.image_buffer = mvsdk.CameraAlignMalloc(frame_buffer_size, 16)
 
-    def camera_mainloop(self):
+    def training_mainloop(self):
         try:
             p_raw_data, frame_head = mvsdk.CameraGetImageBuffer(self.camera, 500)
             mvsdk.CameraImageProcess(self.camera, p_raw_data, self.image_buffer, frame_head)
@@ -469,6 +496,28 @@ class CameraApp(Thread):
                 print("Image Save Success at", image_path)
             else:
                 print("Image Save Fail")
+            self.session.num_images_taken.set(n + 1)
+
+        except mvsdk.CameraException as e:
+            pass
+
+    def operating_mainloop(self):
+        try:
+            p_raw_data, frame_head = mvsdk.CameraGetImageBuffer(self.camera, 500)
+            mvsdk.CameraImageProcess(self.camera, p_raw_data, self.image_buffer, frame_head)
+            mvsdk.CameraReleaseImageBuffer(self.camera, p_raw_data)
+
+            # convert image to model friendly formats
+            n = self.session.num_images_taken.get()
+
+            frame_data = (mvsdk.c_ubyte * frame_head.uBytes).from_address(self.image_buffer)
+            frame = np.frombuffer(frame_data, dtype=np.uint8)
+            frame = frame.reshape((frame_head.iHeight, frame_head.iWidth, 3))
+
+            p = self.session.predict()
+            print(p)
+            self.session.highlight_shade(p)
+
             self.session.num_images_taken.set(n + 1)
 
         except mvsdk.CameraException as e:
