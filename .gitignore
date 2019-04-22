@@ -1,6 +1,7 @@
 *.pkl
 *.xml
 *.BMP
-.idea/
+.idea/misc.xml
+.idea/ProgramOne.iml
 GUI/tiles
 TrainingBatches/

@@ -18,7 +18,7 @@ class MainApplication(tk.Tk):
         self.selected_series = None
         self.is_updating = False
 
-        self.geometry('400x260')
+        self.geometry('%dx%d%+d%+d' % (1100, 650, 150, 50))
         self.switch_frame(StartMenu)
 
     def switch_frame(self, frame_class):
@@ -33,9 +33,11 @@ class StartMenu(tk.Frame):
     def __init__(self, master):
         super().__init__(master)
 
-        tk.Label(self, text='主页').grid(pady=10)
-        tk.Button(self, text='运作区', command=lambda: master.switch_frame(OperatingMenu)).grid()
-        tk.Button(self, text='训练区', command=lambda: master.switch_frame(TrainingMenu)).grid()
+        tk.Label(self, text='主页', font=("Courier", 35), height=2).grid(pady=10)
+        tk.Button(self, text='运作区', font=("Courier", 35), width=6, height=2, borderwidth=10,
+                  command=lambda: master.switch_frame(OperatingMenu)).grid(pady=10)
+        tk.Button(self, text='训练区', font=("Courier", 35), width=6, height=2, borderwidth=10,
+                  command=lambda: master.switch_frame(TrainingMenu)).grid()
 
 
 class Listing(tk.Frame):
@@ -50,7 +52,7 @@ class Listing(tk.Frame):
         list_frame = tk.Frame(self)
         list_frame.grid(row=1, column=0)
 
-        self.my_list = tk.Listbox(list_frame, selectmode=tk.SINGLE)
+        self.my_list = tk.Listbox(list_frame, selectmode=tk.SINGLE, font=("Courier", 22))
         self.my_list.bind('<<ListboxSelect>>', self.selection_callback)
         self.my_list.pack(side=tk.LEFT, fill=tk.BOTH)
         scrollbar = tk.Scrollbar(list_frame, orient='vertical')
@@ -85,8 +87,11 @@ class Listing(tk.Frame):
         else:
             self.bell()
             self.prompt = tk.Toplevel(self)
-            tk.Label(self.prompt, text='没有选到瓷砖系列').pack()
-            tk.Button(self.prompt, text='确定', command=self.prompt.destroy).pack()
+            self.prompt.geometry('%dx%d%+d%+d' % (700, 400, 250, 125))
+            tk.Label(self.prompt, text='没有选到瓷砖系列',
+                     font=("Courier", 25)).pack(pady=15)
+            tk.Button(self.prompt, text='确定', font=("Courier", 25), height=2, width=6, borderwidth=5,
+                      command=self.prompt.destroy).pack(pady=10)
 
 
 class Instance(tk.Frame):
@@ -127,8 +132,8 @@ class Instance(tk.Frame):
         option_frame = tk.Frame(self.preview_frame)
         option_frame.pack(side=tk.LEFT, padx=6)
 
-        label = tk.Label(option_frame, text=str(option), fg='white', bg='dark slate gray', width=4, height=3,
-                         borderwidth=10)
+        label = tk.Label(option_frame, text=str(option), fg='white', bg='dark slate gray',
+                         width=4, height=2, font=("Courier", 40), borderwidth=20)
         label.pack()
         self.shades.append(label)
 
@@ -147,17 +152,20 @@ class OperatingMenu(Listing):
     def __init__(self, master):
         super().__init__(master)
 
-        tk.Label(self, text='运作区').grid(row=0, column=0, columnspan=3, pady=10)
+        tk.Label(self, text='运作区', font=("Courier", 35), height=2
+                 ).grid(row=0, column=0, columnspan=3, pady=10)
 
         self.build_list()
         self.build_user_actions()
 
-        tk.Button(self, text='主页', command=lambda: master.switch_frame(StartMenu)).grid(row=2, column=0, columnspan=3)
+        tk.Button(self, text='主页', font=("Courier", 20), width=6, height=2, borderwidth=5,
+                  command=lambda: master.switch_frame(StartMenu)).grid(row=2, column=0, columnspan=3, pady=10)
 
     def build_user_actions(self):
         actions_frame = tk.Frame(self)
-        actions_frame.grid(row=1, column=1)
-        tk.Button(actions_frame, text='确认', command=lambda: self.selection_based_prompt(self.operate_hook)).pack()
+        actions_frame.grid(row=1, column=1, padx=20)
+        tk.Button(actions_frame, text='确认', font=("Courier", 15), width=6, height=2, borderwidth=5,
+                  command=lambda: self.selection_based_prompt(self.operate_hook)).pack()
 
     def operate_hook(self):
         self.master.switch_frame(OperatingSession)
@@ -167,12 +175,14 @@ class OperatingSession(Instance):
     def __init__(self, master):
         super().__init__(master)
 
-        tk.Label(self, text='系列名称: ' + self.master.selected_series).pack(pady=10)
+        tk.Label(self, text='系列名称: ' + self.master.selected_series,
+                 font=("Courier", 35), height=2).pack(pady=10)
 
         self.build_preview()
         self.build_shades()
 
-        tk.Button(self, text='结束', command=self.leave_session).pack()
+        tk.Button(self, text='结束', font=("Courier", 30), height=2, width=7, borderwidth=5,
+                  command=self.leave_session).pack()
 
         self.terminate_session = False
         self.appInstance = CameraApp(self, False)
@@ -187,21 +197,26 @@ class TrainingMenu(Listing):
     def __init__(self, master):
         super().__init__(master)
 
-        tk.Label(self, text='训练区').grid(row=0, column=0, columnspan=3, pady=10)
+        tk.Label(self, text='训练区', font=("Courier", 35), height=2
+                 ).grid(row=0, column=0, columnspan=3, pady=10)
 
         self.build_list()
         self.build_user_actions()
 
-        tk.Button(self, text='主页', command=lambda: self.master.switch_frame(StartMenu)).grid(row=2, column=0,
-                                                                                             columnspan=3, pady=10)
+        tk.Button(self, text='主页', font=("Courier", 20), width=6, height=2, borderwidth=5,
+                  command=lambda: self.master.switch_frame(StartMenu)).grid(row=2, column=0, columnspan=3, pady=10)
 
     def build_user_actions(self):
         actions_frame = tk.Frame(self)
-        actions_frame.grid(row=1, column=1)
-        tk.Button(actions_frame, text='新建', command=self.create_hook).pack()
-        tk.Button(actions_frame, text='更改', command=lambda: self.selection_based_prompt(self.update_hook)).pack()
-        tk.Button(actions_frame, text='删除', command=lambda: self.selection_based_prompt(self.delete_hook)).pack()
-        tk.Button(actions_frame, text='训练', command=lambda: self.selection_based_prompt(self.train_hook)).pack()
+        actions_frame.grid(row=1, column=1, padx=20)
+        tk.Button(actions_frame, text='新建', font=("Courier", 15), width=6, height=2, borderwidth=5,
+                  command=self.create_hook).pack(pady=5)
+        tk.Button(actions_frame, text='更改', font=("Courier", 15), width=6, height=2, borderwidth=5,
+                  command=lambda: self.selection_based_prompt(self.update_hook)).pack(pady=5)
+        tk.Button(actions_frame, text='删除', font=("Courier", 15), width=6, height=2, borderwidth=5,
+                  command=lambda: self.selection_based_prompt(self.delete_hook)).pack(pady=5)
+        tk.Button(actions_frame, text='训练', font=("Courier", 15), width=6, height=2, borderwidth=5,
+                  command=lambda: self.selection_based_prompt(self.train_hook)).pack(pady=5)
 
     def create_hook(self):
         self.master.selected_series = None
@@ -214,9 +229,13 @@ class TrainingMenu(Listing):
     def delete_hook(self):
         self.bell()
         self.prompt = tk.Toplevel(self)
-        tk.Label(self.prompt, text='您确定要把以下瓷砖系列删除码: ' + self.master.selected_series).pack()
-        tk.Button(self.prompt, text='确定', command=self.delete_series).pack()
-        tk.Button(self.prompt, text='取消', command=self.prompt.destroy).pack()
+        self.prompt.geometry('%dx%d%+d%+d' % (700, 400, 250, 125))
+        tk.Label(self.prompt, text='您确定要把以下瓷砖系列删除码: ' + self.master.selected_series,
+                 font=("Courier", 25)).pack(pady=15)
+        tk.Button(self.prompt, text='确定', font=("Courier", 25), height=2, width=6, borderwidth=5,
+                  command=self.delete_series).pack(pady=10)
+        tk.Button(self.prompt, text='取消', font=("Courier", 25), height=2, width=6, borderwidth=5,
+                  command=self.prompt.destroy).pack()
 
     def delete_series(self):
         with shelve.open(self.master.DB_NAME) as db:
@@ -235,7 +254,8 @@ class FormPage(Instance):
 
         self.series_name = tk.StringVar()
 
-        tk.Label(self, text='瓷砖资料表格').pack(pady=10)
+        tk.Label(self, text='瓷砖资料表格', font=("Courier", 35), height=2
+                 ).pack(pady=10)
 
         self.build_form()
         self.build_preview()
@@ -245,13 +265,15 @@ class FormPage(Instance):
         form_frame = tk.Frame(self)
         form_frame.pack()
 
-        tk.Label(form_frame, text='系列名称').grid(row=0)
-        e1 = tk.Entry(form_frame, textvariable=self.series_name)
-        e1.grid(row=0, column=1)
+        tk.Label(form_frame, text='系列名称', font=("Courier", 35), height=1
+                 ).grid(row=0)
+        e1 = tk.Entry(form_frame, textvariable=self.series_name, font=("Courier", 35))
+        e1.grid(row=0, column=1, padx=15)
 
-        tk.Label(form_frame, text='偏色数量').grid(row=1, column=0)
+        tk.Label(form_frame, text='偏色数量', font=("Courier", 35), height=1
+                 ).grid(row=1, column=0)
         radio_frame = tk.Frame(form_frame)
-        radio_frame.grid(row=1, column=1)
+        radio_frame.grid(row=1, column=1, padx=10)
 
         self.populate_radio_frame(radio_frame)
         self.fill_out_form()
@@ -260,6 +282,7 @@ class FormPage(Instance):
         for i in range(5):
             value = 2 + i
             tk.Radiobutton(radio_frame, text=str(value), variable=self.num_shades, value=value,
+                           font=("Courier", 35), width=3,
                            command=self.build_shades).pack(side=tk.LEFT, padx=10)
 
     def fill_out_form(self):
@@ -273,8 +296,10 @@ class FormPage(Instance):
         actions_frame = tk.Frame(self)
         actions_frame.pack()
         save_button_text = '保存' if self.master.is_updating else '创建'
-        tk.Button(actions_frame, text=save_button_text, command=self.save_series).pack(side=tk.LEFT)
-        tk.Button(actions_frame, text='取消', command=self.route_to_training_menu).pack(side=tk.LEFT)
+        tk.Button(actions_frame, text=save_button_text, font=("Courier", 25), height=2, width=7, borderwidth=5,
+                  command=self.save_series).pack(side=tk.LEFT, padx=10)
+        tk.Button(actions_frame, text='取消', font=("Courier", 25), height=2, width=7, borderwidth=5,
+                  command=self.route_to_training_menu).pack(side=tk.LEFT, padx=10)
 
     def save_series(self):
         series_name = self.series_name.get()
@@ -288,8 +313,9 @@ class FormPage(Instance):
                     'batch_number': self.batch_number
                 }
             self.master.selected_series = series_name
+            next_page = TrainingMenu if self.master.is_updating else TrainingSession
             self.master.is_updating = False
-            self.master.switch_frame(TrainingSession)
+            self.master.switch_frame(next_page)
 
     def valid_form_entry(self):
         name = self.series_name.get()
@@ -306,11 +332,11 @@ class FormPage(Instance):
     def prompt_failed_save(self):
         self.bell()
         prompt = tk.Toplevel(self)
-        tk.Label(prompt, text='未能保存瓷砖系列，原因是以下其中之一:'
-                              '\na.  系列名称已存在    '
-                              '\nb.  没有填写系列名称'
-                              '\nc.  没有选到系列数量').pack()
-        tk.Button(prompt, text='确定', command=lambda: prompt.destroy()).pack()
+        prompt.geometry('%dx%d%+d%+d' % (700, 400, 250, 125))
+        tk.Label(prompt, text='未能保存瓷砖系列，原因是以下其中之一:\na.系列名称已存在\nb.没有填写系列名称\nc.没有选到系列数量',
+                 font=("Courier", 25)).pack(pady=15)
+        tk.Button(prompt, text='确定', font=("Courier", 25), height=2, width=6, borderwidth=5,
+                  command=lambda: prompt.destroy()).pack(pady=10)
 
     def route_to_training_menu(self):
         self.master.is_updating = False
@@ -325,13 +351,15 @@ class TrainingSession(Instance):
         self.indicator_frame = None
         self.labels = list()
 
-        tk.Label(self, text=self.master.selected_series + ' 训练进行中').pack(pady=10)
+        tk.Label(self, text=self.master.selected_series + ' 训练进行中',
+                 font=("Courier", 35), height=2).pack(pady=10)
 
         self.build_preview()
         self.build_dynamic_shades()
         self.build_indicator_frame()
 
-        tk.Button(self, text='结束训练', command=self.prompt_save_model).pack()
+        tk.Button(self, text='结束训练', font=("Courier", 25), height=2, width=7, borderwidth=5,
+                  command=self.prompt_save_model).pack()
 
         self.create_batch_directory()
 
@@ -350,8 +378,8 @@ class TrainingSession(Instance):
         option_frame = tk.Frame(self.preview_frame)
         option_frame.pack(side=tk.LEFT, padx=6)
 
-        label = tk.Label(option_frame, text=str(option), fg='white', bg='dark slate gray', width=4, height=3,
-                         borderwidth=10)
+        label = tk.Label(option_frame, text=str(option), fg='white', bg='dark slate gray',
+                         width=4, height=2, font=("Courier", 40), borderwidth=20)
         label.pack()
         label.bind('<Enter>', self.on_enter)
         label.bind('<Leave>', self.on_leave)
@@ -375,23 +403,30 @@ class TrainingSession(Instance):
 
     def build_indicator_frame(self):
         self.indicator_frame = tk.Frame(self)
-        self.indicator_frame.pack()
+        self.indicator_frame.pack(pady=10)
 
-        tk.Label(self.indicator_frame, text='相片采集数量: ').grid(row=0, column=0)
-        tk.Label(self.indicator_frame, textvariable=self.num_images_taken).grid(row=0, column=1)
+        tk.Label(self.indicator_frame, text='相片采集数量: ',
+                 font=("Courier", 30), height=1).grid(row=0, column=0)
+        tk.Label(self.indicator_frame, textvariable=self.num_images_taken,
+                 font=("Courier", 30), height=1).grid(row=0, column=1)
 
-        tk.Label(self.indicator_frame, text='已打标签数量: ').grid(row=1, column=0)
-        tk.Label(self.indicator_frame, textvariable=self.num_images_labeled).grid(row=1, column=1)
+        tk.Label(self.indicator_frame, text='已打标签数量: ',
+                 font=("Courier", 30), height=1).grid(row=1, column=0)
+        tk.Label(self.indicator_frame, textvariable=self.num_images_labeled,
+                 font=("Courier", 30), height=1).grid(row=1, column=1)
 
     def prompt_save_model(self):
         self.terminate_session = True
         self.appInstance.join()
         self.bell()
         self.prompt = tk.Toplevel(self)
+        self.prompt.geometry('%dx%d%+d%+d' % (700, 400, 250, 125))
         text = '是否保存刚刚操作的 ' + self.master.selected_series + ' 系列版本?'
-        tk.Label(self.prompt, text=text).pack()
-        tk.Button(self.prompt, text='确定', command=self.alter_db_state).pack()
-        tk.Button(self.prompt, text='取消', command=self.clear_session_data).pack()
+        tk.Label(self.prompt, text=text, font=("Courier", 25)).pack(pady=15)
+        tk.Button(self.prompt, text='确定', font=("Courier", 25), height=2, width=6, borderwidth=5,
+                  command=self.alter_db_state).pack(pady=10)
+        tk.Button(self.prompt, text='取消', font=("Courier", 25), height=2, width=6, borderwidth=5,
+                  command=self.clear_session_data).pack()
 
     def alter_db_state(self):
         self.write_labels_file()
@@ -418,6 +453,7 @@ class TrainingSession(Instance):
                 del db[self.master.selected_series]
 
         self.prompt.destroy()
+        self.master.selected_series = None
         self.master.switch_frame(TrainingMenu)
 
     def remove_batch(self):
