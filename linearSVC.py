@@ -1,12 +1,13 @@
 from sklearn.pipeline import Pipeline
 from sklearn.svm import LinearSVC
-from DATASETOPS import load_tile_data_set
+# from DATASETOPS import load_tile_data_set
+from livetraining import get_data
 from Evaluation.crossValidation import cross_validation_report
 from Evaluation.performance import performance_report
 
 
 # load data set
-train_data, test_data, train_labels, test_labels = load_tile_data_set()
+train_data, test_data, train_labels, test_labels = get_data()
 
 
 # linear support vector classifier

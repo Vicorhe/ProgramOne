@@ -1,6 +1,11 @@
 *.pkl
+*.bak
+*.dat
+*.dir
+..idea/*.iml
 *.xml
 *.BMP
+*.pyc
 .idea/misc.xml
 .idea/ProgramOne.iml
 GUI/tiles
