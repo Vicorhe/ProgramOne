@@ -21,7 +21,7 @@ def load_tile_data_set():
     data_container = list()
     for path in image_paths:
         image = cv.imread(str(path))
-        converted_image = cv.cvtColor(image, cv.COLOR_BGR2HSV)
+        converted_image = cv.cvtColor(image[:, 1015:], cv.COLOR_BGR2HSV)
         data_container.append(feature_set_a(converted_image, ('H', 'S', 'V')))
     stacked_data = np.vstack(data_container)
 
