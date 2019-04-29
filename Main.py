@@ -15,7 +15,6 @@ from Algorithms.PolynomialKernelSVC import get_classifier
 # from Algorithms.RBFKernelSVC import get_classifier
 from DATASETOPS import load_tile_data_set
 from Evaluation.crossValidation import cross_validation_report
-from Evaluation.performance import performance_report
 
 
 # load data set
@@ -25,8 +24,4 @@ train_data, test_data, train_labels, test_labels = load_tile_data_set()
 clf = get_classifier()
 
 # cross validation
-cross_validation_report(clf, train_data, train_labels, False)
-
-# performance
-performance_report(clf, train_data, train_labels,
-                   test_data, test_labels, False)
+cross_validation_report(clf, train_data, train_labels)
