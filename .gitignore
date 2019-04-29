@@ -1,11 +1,4 @@
-*.pkl
-*.bak
-*.dat
-*.dir
-*.xml
-*.BMP
-*.pyc
-.DS_Store
-.idea/**/*
-TrainingBatches/
+.idea/
 __pycache__/
+tiles.*
+TrainingBatches/

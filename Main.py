@@ -13,7 +13,7 @@ from Algorithms.PolynomialKernelSVC import get_classifier
 # from Algorithms.RandomPatches import get_classifier
 # from Algorithms.RandomSubspaces import get_classifier
 # from Algorithms.RBFKernelSVC import get_classifier
-from DATASETOPS import load_tile_data_set
+from FetchDataSet import load_tile_data_set
 from Evaluation.crossValidation import cross_validation_report
 
 
