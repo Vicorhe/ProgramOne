@@ -2,7 +2,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.tree import DecisionTreeClassifier
 
 
-def get_classifier():
+def decision_tree():
     # decision tree classifier
     criterion = 'gini'
     max_depth = 3

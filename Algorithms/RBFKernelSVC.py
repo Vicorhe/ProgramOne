@@ -2,7 +2,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.svm import SVC
 
 
-def get_classifier():
+def rbf_kernel_svc():
     # rbf kernel support vector classifier
     kernel = 'rbf'
     C = 1

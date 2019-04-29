@@ -2,7 +2,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.svm import SVC
 
 
-def get_classifier():
+def poly_kernel_svc():
     # polynomial kernel support vector classifier
     kernel = 'poly'
     C = 1

@@ -3,7 +3,7 @@ from sklearn.ensemble import BaggingClassifier
 from sklearn.tree import DecisionTreeClassifier
 
 
-def get_classifier():
+def pasting():
     # pasting classifier
     base_estimator = DecisionTreeClassifier()
     n_estimators = 10

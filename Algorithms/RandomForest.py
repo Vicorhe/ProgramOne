@@ -2,7 +2,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.ensemble import RandomForestClassifier
 
 
-def get_classifier():
+def random_forest():
     # random forest classifier
     n_estimators = 10
     criterion = 'gini'

@@ -2,7 +2,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.svm import SVC
 
 
-def get_classifier():
+def linear_kernel_svc():
     # linear kernel support vector classifier
     kernel = 'linear'
     C = 1

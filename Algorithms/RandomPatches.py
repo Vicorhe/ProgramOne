@@ -3,7 +3,7 @@ from sklearn.ensemble import BaggingClassifier
 from sklearn.tree import DecisionTreeClassifier
 
 
-def get_classifier():
+def random_patches():
     # random patches classifier
     base_estimator = DecisionTreeClassifier()
     n_estimators = 10

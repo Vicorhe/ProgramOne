@@ -2,7 +2,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.linear_model import SGDClassifier
 
 
-def get_classifier():
+def logistic_sgd():
     # log loss stochastic gradient descent classifier
     loss = 'log'
     penalty = 'l2'

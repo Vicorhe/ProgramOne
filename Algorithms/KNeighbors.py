@@ -2,7 +2,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.neighbors import KNeighborsClassifier
 
 
-def get_classifier():
+def k_neighbors():
     # k nearest neighbors classifier
     n_neighbors = 3
     weights = 'uniform'

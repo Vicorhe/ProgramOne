@@ -2,7 +2,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.svm import LinearSVC
 
 
-def get_classifier():
+def linear_svc():
     # linear support vector classifier
     random_state = 6117
     tol = 1e-06

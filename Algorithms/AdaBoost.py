@@ -3,7 +3,7 @@ from sklearn.ensemble import AdaBoostClassifier
 from sklearn.tree import DecisionTreeClassifier
 
 
-def get_classifier():
+def ada():
     # ada boost classifier
     base_estimator = DecisionTreeClassifier(max_depth=1)
     n_estimators = 50

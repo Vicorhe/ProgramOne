@@ -2,7 +2,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.ensemble import ExtraTreesClassifier
 
 
-def get_classifier():
+def extra_trees():
     # extra trees classifier
     n_estimators = 10
     criterion = 'gini'

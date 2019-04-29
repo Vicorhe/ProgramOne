@@ -2,7 +2,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.ensemble import GradientBoostingClassifier
 
 
-def get_classifier():
+def gradient_boost():
     # gradient boost classifier
     loss = 'deviance'
     learning_rate = 0.1

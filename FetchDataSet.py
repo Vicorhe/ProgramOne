@@ -11,7 +11,7 @@ MAC_PICTURES_PATH = '/Users/victorhe/Pictures'
 WINDOWS_PICTURES_PATH = 'C:\\Users\\van32\\Pictures'
 
 
-BATCH_NAME = 'batch_2'
+BATCH_NAME = 'batch_3'
 
 
 def load_tile_data_set():
