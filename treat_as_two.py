@@ -2,19 +2,19 @@ import cv2 as cv
 import numpy as np
 from pathlib import Path
 from sys import platform
-from sklearn.model_selection import StratifiedShuffleSplit
 from FeatureExtraction.feature_set_a import get_statistics as feature_set_a
 from FeatureExtraction.feature_set_b import get_statistics as feature_set_b
+from Utilities.utils import unison_shuffled_copies
 
 
 MAC_PICTURES_PATH = '/Users/victorhe/Pictures'
 WINDOWS_PICTURES_PATH = 'C:\\Users\\van32\\Pictures'
 
 
-BATCH_NAME = 'batch_1'
+BATCH_NAME = 'batch_8'
 
 
-def load_tile_data_set():
+def process_data():
     image_paths = sorted(get_base_path().glob('*.BMP'))
     labels_path = get_base_path() / 'labels.txt'
 
@@ -33,22 +33,16 @@ def load_tile_data_set():
         for line in labels_file:
             labels = np.array(line.split())
 
-    # split training and testing set
-    n_splits = 1
-    test_set_size = 0.25
-    sss = StratifiedShuffleSplit(n_splits=n_splits, test_size=test_set_size)
-    train_index, test_index = next(sss.split(stacked_data, labels))
+    sorted_indices = np.argsort(labels)
 
-    training_data, training_labels = np.array([stacked_data[train_index]]), labels[train_index]
-    testing_data, testing_labels = np.array([stacked_data[test_index]]), labels[test_index]
+    sorted_data = stacked_data[sorted_indices]
+    sorted_labels = labels[sorted_indices].reshape((-1, 1))
+    sorted_labels = np.where(sorted_labels == '3', '2', sorted_labels)
+    sorted_labels = np.where(sorted_labels == '4', '2', sorted_labels)
 
-    # avoid data copy
-    assert training_data.flags['C_CONTIGUOUS']
-    assert testing_data.flags['C_CONTIGUOUS']
-    assert training_labels.flags['C_CONTIGUOUS']
-    assert testing_labels.flags['C_CONTIGUOUS']
+    training_data, training_labels = unison_shuffled_copies(sorted_data, sorted_labels)
 
-    return training_data, testing_data, training_labels, testing_labels
+    return training_data, training_labels.ravel()
 
 
 def get_base_path():

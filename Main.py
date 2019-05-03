@@ -13,7 +13,10 @@ from Algorithms.RandomForest import random_forest
 from Algorithms.RandomPatches import random_patches
 from Algorithms.RandomSubspaces import random_subspaces
 from Algorithms.RBFKernelSVC import rbf_kernel_svc
-from FetchDataSet import load_tile_data_set
+# from treat_as_two import process_data
+from treat_as_two_all_batches import process_data
+# from ignore_ws import process_data
+# from ignore_ws_all_batches import process_data
 from Evaluation.crossValidation import cross_validation_report
 
 
@@ -24,7 +27,7 @@ CLASSIFIERS = [ada, bagging, decision_tree, extra_trees, gradient_boost, k_neigh
 
 
 # load data set
-train_data, test_data, train_labels, test_labels = load_tile_data_set()
+train_data, train_labels = process_data()
 
 # get classifier
 for clf_constructor in CLASSIFIERS:
