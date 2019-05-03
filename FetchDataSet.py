@@ -11,7 +11,7 @@ MAC_PICTURES_PATH = '/Users/victorhe/Pictures'
 WINDOWS_PICTURES_PATH = 'C:\\Users\\van32\\Pictures'
 
 
-BATCH_NAME = 'batch_3'
+BATCH_NAME = 'batch_7'
 
 
 def load_tile_data_set():
@@ -21,7 +21,10 @@ def load_tile_data_set():
     data_container = list()
     for path in image_paths:
         image = cv.imread(str(path))
-        converted_image = cv.cvtColor(image[:, 1015:], cv.COLOR_BGR2HSV)
+        i_1 = image[152:655, :]
+        i_2 = image[725:, :]
+        image_3 = np.concatenate((i_1, i_2), axis=0)
+        converted_image = cv.cvtColor(image_3, cv.COLOR_BGR2HSV)
         data_container.append(feature_set_a(converted_image, ('H', 'S', 'V')))
     stacked_data = np.vstack(data_container)
 
