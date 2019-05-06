@@ -4,6 +4,7 @@ from pathlib import Path
 from sys import platform
 from FeatureExtraction.feature_set_a import get_statistics as feature_set_a
 from FeatureExtraction.feature_set_b import get_statistics as feature_set_b
+from FeatureExtraction.feature_set_c import get_statistics as feature_set_c
 from Utilities.utils import unison_shuffled_copies
 
 
@@ -30,7 +31,7 @@ def process_data():
             i_2 = image[725:, :]
             image_3 = np.concatenate((i_1, i_2), axis=0)
             converted_image = cv.cvtColor(image_3, cv.COLOR_BGR2HSV)
-            data_container.append(feature_set_a(converted_image, ('H', 'S', 'V')))
+            data_container.append(feature_set_c(converted_image, ('H', 'S', 'V')))
 
         with open(labels_path) as labels_file:
             for line in labels_file:
