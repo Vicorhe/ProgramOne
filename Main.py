@@ -1,3 +1,6 @@
+"""
+    Make sure the Image Set is directly under Pictures Directory before testing
+"""
 from Algorithms.AdaBoost import ada
 from Algorithms.Bagging import bagging
 from Algorithms.DecisionTree import decision_tree
@@ -16,18 +19,15 @@ from Algorithms.RBFKernelSVC import rbf_kernel_svc
 # from treat_as_two import process_data
 # from treat_as_two_all_batches import process_data
 # from ignore_ws import process_data
-from ignore_ws_all_batches import process_data
+# from ignore_ws_all_batches import process_data
+from FetchDataSet import load_tile_data_set
 from Evaluation.crossValidation import cross_validation_report
 
 
-CLASSIFIERS = [ada, bagging, decision_tree, extra_trees, gradient_boost, k_neighbors,
-               linear_kernel_svc, linear_svc, logistic_sgd, pasting, poly_kernel_svc,
-               random_forest, random_patches, random_subspaces, rbf_kernel_svc
-]
-
+CLASSIFIERS = [gradient_boost, poly_kernel_svc, random_forest]
 
 # load data set
-train_data, train_labels = process_data()
+train_data, train_labels = load_tile_data_set()
 
 # get classifier
 for clf_constructor in CLASSIFIERS:

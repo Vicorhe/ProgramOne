@@ -5,6 +5,7 @@ from sys import platform
 from sklearn.model_selection import StratifiedShuffleSplit
 from FeatureExtraction.feature_set_a import get_statistics as feature_set_a
 from FeatureExtraction.feature_set_b import get_statistics as feature_set_b
+from Utilities.utils import unison_shuffled_copies
 
 
 MAC_PICTURES_PATH = '/Users/victorhe/Pictures'
@@ -21,8 +22,10 @@ def load_tile_data_set():
     data_container = list()
     for path in image_paths:
         image = cv.imread(str(path))
+        # [start_row:end_row, start_col:end_col]
         i_1 = image[152:655, :]
         i_2 = image[725:, :]
+        # stack two cropped images vertically
         image_3 = np.concatenate((i_1, i_2), axis=0)
         converted_image = cv.cvtColor(image_3, cv.COLOR_BGR2HSV)
         data_container.append(feature_set_a(converted_image, ('H', 'S', 'V')))
@@ -33,22 +36,13 @@ def load_tile_data_set():
         for line in labels_file:
             labels = np.array(line.split())
 
-    # split training and testing set
-    n_splits = 1
-    test_set_size = 0.25
-    sss = StratifiedShuffleSplit(n_splits=n_splits, test_size=test_set_size)
-    train_index, test_index = next(sss.split(stacked_data, labels))
-
-    training_data, training_labels = np.array([stacked_data[train_index]]), labels[train_index]
-    testing_data, testing_labels = np.array([stacked_data[test_index]]), labels[test_index]
+    training_data, training_labels = unison_shuffled_copies(stacked_data, labels)
 
     # avoid data copy
     assert training_data.flags['C_CONTIGUOUS']
-    assert testing_data.flags['C_CONTIGUOUS']
     assert training_labels.flags['C_CONTIGUOUS']
-    assert testing_labels.flags['C_CONTIGUOUS']
 
-    return training_data, testing_data, training_labels, testing_labels
+    return training_data, training_labels
 
 
 def get_base_path():
