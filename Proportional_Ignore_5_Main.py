@@ -19,19 +19,28 @@ from FetchDataSet import load_tile_data_set
 from ExtractFeaturesIntoDataFrame import load_data_frame_from_pickle
 from Evaluation.crossValidation import cross_validation_report
 from sklearn.metrics import confusion_matrix
+import pandas as pd
 
 
 CLASSIFIERS = [linear_kernel_svc, poly_kernel_svc, rbf_kernel_svc,
                bagging, extra_trees, pasting, random_forest, random_patches]
 
 # load data set
-batch = 'batch_d'
+
+batch = 'batch_c'
 batch_df = load_data_frame_from_pickle(batch)
-batch_df = batch_df.sample(frac=1).reset_index(drop=True)
-train_data, train_labels = batch_df.iloc[:, :6], batch_df.iloc[:, 6]
+
+ones_df = batch_df.loc[batch_df['Labels'] == '1']
+twos_df = batch_df.loc[batch_df['Labels'] == '2']
+sample_size = min(len(ones_df), len(twos_df))
+df_s = [ones_df[:sample_size], twos_df[:sample_size]]
+new_df = pd.concat(df_s, ignore_index=True)
+
+new_df = new_df.sample(frac=1).reset_index(drop=True)
+train_data, train_labels = new_df.iloc[:, :6], new_df.iloc[:, 6]
 
 
-print(batch_df['Labels'].value_counts())
+print(new_df['Labels'].value_counts())
 # get classifier
 for clf_constructor in CLASSIFIERS:
     clf = clf_constructor()

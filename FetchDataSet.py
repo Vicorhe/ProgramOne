@@ -9,10 +9,10 @@ from Utilities.utils import unison_shuffled_copies
 
 
 MAC_PICTURES_PATH = '/Users/victorhe/Pictures'
-WINDOWS_PICTURES_PATH = 'C:\\Users\\van32\\Pictures'
+WINDOWS_PICTURES_PATH = 'C:\\Users\\van32\\Pictures\\TrainingBatches\\three'
 
 
-BATCH_NAME = 'batch_1'
+BATCH_NAME = 'batch_3'
 
 
 def load_tile_data_set():
@@ -23,12 +23,12 @@ def load_tile_data_set():
     for path in image_paths:
         image = cv.imread(str(path))
         # [start_row:end_row, start_col:end_col]
-        i_1 = image[152:655, :]
-        i_2 = image[725:, :]
+        # i_1 = image[152:655, :]
+        # i_2 = image[725:, :]
         # stack two cropped images vertically
-        image_3 = np.concatenate((i_1, i_2), axis=0)
-        converted_image = cv.cvtColor(image_3, cv.COLOR_BGR2HSV)
-        data_container.append(feature_set_a(converted_image, ('H', 'S', 'V')))
+        # image_3 = np.concatenate((i_1, i_2), axis=0)
+        converted_image = cv.cvtColor(image[60:940, 260:1140], cv.COLOR_BGR2HSV)
+        data_container.append(feature_set_a(converted_image))
     stacked_data = np.vstack(data_container)
 
     labels = None
@@ -36,7 +36,7 @@ def load_tile_data_set():
         for line in labels_file:
             labels = np.array(line.split())
 
-    training_data, training_labels = unison_shuffled_copies(stacked_data, labels)
+    training_data, training_labels = stacked_data, labels # unison_shuffled_copies(stacked_data, labels)
 
     # avoid data copy
     assert training_data.flags['C_CONTIGUOUS']

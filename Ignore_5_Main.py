@@ -25,8 +25,9 @@ CLASSIFIERS = [linear_kernel_svc, poly_kernel_svc, rbf_kernel_svc,
                bagging, extra_trees, pasting, random_forest, random_patches]
 
 # load data set
-batch = 'batch_d'
+batch = 'batch_c'
 batch_df = load_data_frame_from_pickle(batch)
+batch_df = batch_df.loc[batch_df['Labels'] < '3']
 batch_df = batch_df.sample(frac=1).reset_index(drop=True)
 train_data, train_labels = batch_df.iloc[:, :6], batch_df.iloc[:, 6]
 
