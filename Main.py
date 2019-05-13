@@ -21,9 +21,9 @@ batch = 'batch_c'
 training_batch_df = load_pickled_data_frame(batch)
 
 # todo mirror ignore_label operations to testing_batch_df bellow
-# training_batch_df = DataSetOps.ignore_label('5', training_batch_df)
-# training_batch_df = DataSetOps.make_label_ratio_equal(training_batch_df)
-training_batch_df = DataSetOps.custom(training_batch_df)
+training_batch_df = DataSetOps.ignore_label('5', training_batch_df)
+training_batch_df = DataSetOps.make_label_ratio_equal(training_batch_df)
+
 
 training_batch_df = DataSetOps.shuffle_data_set(training_batch_df)
 train_data, train_labels = training_batch_df.iloc[:, :6], training_batch_df.iloc[:, 6]
@@ -41,7 +41,7 @@ for clf_constructor in CLASSIFIERS:
 testing_batch_df = load_pickled_data_frame(batch)
 
 # todo mirror ignore_label operations to training_batch_df above
-# testing_batch_df = DataSetOps.ignore_label('5', testing_batch_df)
+testing_batch_df = DataSetOps.ignore_label('5', testing_batch_df)
 test_data, test_labels = testing_batch_df.iloc[:, :6], testing_batch_df.iloc[:, 6]
 
 
