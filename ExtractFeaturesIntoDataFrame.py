@@ -2,34 +2,37 @@ import cv2 as cv
 import numpy as np
 import pandas as pd
 import pickle
+import os
 from pathlib import Path
-from sys import platform
 from FeatureExtraction.feature_set_a import get_statistics, get_feature_names
 
 
-MAC_PICTURES_PATH = '/Users/victorhe/Pictures/'
 WINDOWS_PICTURES_PATH = 'C:\\Users\\van32\\Pictures\\TrainingBatches\\three'
 
 
 def images_to_data_frame(batch_name):
-    feature_matrix = extract_feature_matrix(batch_name)
+    """
+    ONLY USE on WINDOWS WORKSTATION
 
+    This method is meant to be called once to process a batch of images
+    with a set roi (adjustable in get_roi()) and with a set feature_set
+    (adjustable inside extract_features_from_images() and importing the
+    intended feature set).
+
+    After processing, it saves the dataFrame to the 'DataFrames' Folder
+    in this project.
+    """
+    feature_matrix = extract_features_from_images(batch_name)
     labels_vector = read_labels_into_vector(batch_name)
-
-    data = np.hstack((feature_matrix, labels_vector))
-
-    columns = get_feature_names()
-    columns.append('Labels')
-    df = pd.DataFrame(data, columns=columns)
-
-    pickle_file_name = batch_name + '.pickle'
-    pickle_file_name = get_base_path(batch_name) / pickle_file_name
-    with open(pickle_file_name, 'wb') as f:
-        pickle.dump(df, f, pickle.HIGHEST_PROTOCOL)
+    df = construct_training_data_frame(feature_matrix, labels_vector)
+    pickle_data_frame(batch_name, df)
 
 
-def extract_feature_matrix(batch_name):
-    image_paths = sorted(get_base_path(batch_name).glob('*.BMP'))
+def extract_features_from_images(batch_name):
+    """
+    Constructs feature matrix out of a batch of images.
+    """
+    image_paths = sorted(get_batch_source_path(batch_name).glob('*.BMP'))
     feature_vectors = list()
     for path in image_paths:
         image = cv.imread(str(path))
@@ -40,14 +43,25 @@ def extract_feature_matrix(batch_name):
     return feature_matrix
 
 
+def get_batch_source_path(batch_name):
+    return Path(WINDOWS_PICTURES_PATH) / batch_name
+
+
 def get_roi(image):
-    # [start_row:end_row, start_col:end_col]
+    """
+    Specify which region within the source image to use.
+    reminder on how to interpret numpy array cropping:
+        [start_row:end_row, start_col:end_col]
+    """
     roi = image[60:940, 260:1140]
     return roi
 
 
 def read_labels_into_vector(batch_name):
-    labels_path = get_base_path(batch_name) / 'labels.txt'
+    """
+    Read 'labels.txt' file and puts it into a vector
+    """
+    labels_path = get_batch_source_path(batch_name) / 'labels.txt'
     labels_vector = None
     with open(labels_path) as labels_file:
         for line in labels_file:
@@ -58,43 +72,46 @@ def read_labels_into_vector(batch_name):
     return labels_vector
 
 
-def get_base_path(batch_name):
-    base_path = MAC_PICTURES_PATH if platform == "darwin" else WINDOWS_PICTURES_PATH
-    return Path(base_path) / batch_name
+def construct_training_data_frame(feature_matrix, labels_vector):
+    """
+    Stacks features and labels to form a DataFrame
+    """
+    data = np.hstack((feature_matrix, labels_vector))
+    columns = get_feature_names()
+    columns.append('Labels')
+    df = pd.DataFrame(data, columns=columns)
+    return df
 
 
-def load_data_frame_from_pickle(batch_name):
+def pickle_data_frame(batch_name, df):
+    """
+    Create pickle file of DataFrame
+    """
     pickle_file_name = batch_name + '.pickle'
-    pickle_file_name = get_base_path(batch_name) / pickle_file_name
+    pickle_file_name = get_data_frame_base_path() / pickle_file_name
+    with open(pickle_file_name, 'wb') as f:
+        pickle.dump(df, f, pickle.HIGHEST_PROTOCOL)
+
+
+def get_data_frame_base_path():
+    return Path(os.getcwd()) / 'DataFrames'
+
+
+def load_pickled_data_frame(batch_name):
+    """
+    Load DataFrame from pickle file.
+    """
+    pickle_file_name = batch_name + '.pickle'
+    pickle_file_name = get_data_frame_base_path() / pickle_file_name
     with open(pickle_file_name, 'rb') as f:
         df = pickle.load(f)
     return df
 
 
-def concatenate_data_frames(frames, batch_name):
-    df = pd.concat(frames, ignore_index=True)
-    pickle_file_name = batch_name + '.pickle'
-    pickle_file_name = get_base_path(batch_name)/ pickle_file_name
-    with open(pickle_file_name, 'wb') as f:
-        pickle.dump(df, f, pickle.HIGHEST_PROTOCOL)
-
-
-# images_to_data_frame('batch_test')
-'''
-batch_test_df = load_data_frame_from_pickle('batch_test')
-one_df = batch_test_df.loc[batch_test_df['Labels'] == '1']
-five_df = batch_test_df.loc[batch_test_df['Labels'] == '5']
-sample_size = min(len(one_df), len(five_df))
-df_s = [one_df[:sample_size], five_df[:sample_size]]
-res = pd.concat(df_s, ignore_index=True)
-print(res)
-'''
-# data, labels = batch_test_df.iloc[:, :6], batch_test_df.iloc[:, 6]
-
-# batch_9_df = load_data_frame_from_pickle('batch_9')
-# batch_10_df = load_data_frame_from_pickle('batch_10')
-# batch_11_df = load_data_frame_from_pickle('batch_11')
-
-# concatenate_data_frames([batch_9_df, batch_10_df, batch_11_df], 'batch_b')
-# batch_b_df = load_data_frame_from_pickle('batch_b')
-# print(batch_b_df['Labels'].value_counts())
+def concatenate_data_frames(component_batch_names, combined_batch_name):
+    """
+    Combine component batche DataFrames into a larger aggregate DataFrame.
+    """
+    batch_df_s = [load_pickled_data_frame(batch_name) for batch_name in component_batch_names]
+    df = pd.concat(batch_df_s, ignore_index=True)
+    pickle_data_frame(combined_batch_name, df)

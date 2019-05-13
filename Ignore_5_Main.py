@@ -16,7 +16,7 @@ from Algorithms.RBFKernelSVC import rbf_kernel_svc
 # from SpecialLabelProcessing.ignore_ws import process_data
 # from ignore_ws_all_batches import process_data
 from FetchDataSet import load_tile_data_set
-from ExtractFeaturesIntoDataFrame import load_data_frame_from_pickle
+from ExtractFeaturesIntoDataFrame import load_pickled_data_frame
 from Evaluation.crossValidation import cross_validation_report
 from sklearn.metrics import confusion_matrix
 
@@ -26,7 +26,7 @@ CLASSIFIERS = [linear_kernel_svc, poly_kernel_svc, rbf_kernel_svc,
 
 # load data set
 batch = 'batch_c'
-batch_df = load_data_frame_from_pickle(batch)
+batch_df = load_pickled_data_frame(batch)
 batch_df = batch_df.loc[batch_df['Labels'] < '3']
 batch_df = batch_df.sample(frac=1).reset_index(drop=True)
 train_data, train_labels = batch_df.iloc[:, :6], batch_df.iloc[:, 6]
