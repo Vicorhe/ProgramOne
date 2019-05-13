@@ -4,6 +4,7 @@ import pandas as pd
 import pickle
 import os
 from pathlib import Path
+from sys import platform
 from FeatureExtraction.feature_set_a import get_statistics, get_feature_names
 
 
@@ -22,6 +23,8 @@ def images_to_data_frame(batch_name):
     After processing, it saves the dataFrame to the 'DataFrames' Folder
     in this project.
     """
+    if platform == "darwin":
+        raise OSError('This function should only be called on Windows OS.')
     feature_matrix = extract_features_from_images(batch_name)
     labels_vector = read_labels_into_vector(batch_name)
     df = construct_training_data_frame(feature_matrix, labels_vector)
