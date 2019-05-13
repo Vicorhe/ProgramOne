@@ -108,7 +108,7 @@ def load_pickled_data_frame(batch_name):
 
 
 def get_data_frame_base_path():
-    return Path(os.getcwd()) / 'DataFrames'
+    return Path(os.path.dirname(os.path.abspath(__file__))) / 'DataFrames'
 
 
 def concatenate_data_frames(component_batch_names, combined_batch_name):
