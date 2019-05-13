@@ -96,10 +96,6 @@ def pickle_data_frame(batch_name, df):
         pickle.dump(df, f, pickle.HIGHEST_PROTOCOL)
 
 
-def get_data_frame_base_path():
-    return Path(os.getcwd()) / 'DataFrames'
-
-
 def load_pickled_data_frame(batch_name):
     """
     Load DataFrame from pickle file.
@@ -109,6 +105,10 @@ def load_pickled_data_frame(batch_name):
     with open(pickle_file_name, 'rb') as f:
         df = pickle.load(f)
     return df
+
+
+def get_data_frame_base_path():
+    return Path(os.getcwd()) / 'DataFrames'
 
 
 def concatenate_data_frames(component_batch_names, combined_batch_name):
