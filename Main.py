@@ -11,10 +11,12 @@ from Algorithms.RandomForest import random_forest
 from Algorithms.RandomPatches import random_patches
 from Algorithms.RandomSubspaces import random_subspaces
 from Algorithms.RBFKernelSVC import rbf_kernel_svc
+
 # from treat_as_two import process_data
 # from treat_as_two_all_batches import process_data
 # from SpecialLabelProcessing.ignore_ws import process_data
 # from ignore_ws_all_batches import process_data
+
 from FetchDataSet import load_tile_data_set
 from ExtractFeaturesIntoDataFrame import load_data_frame_from_pickle
 from Evaluation.crossValidation import cross_validation_report

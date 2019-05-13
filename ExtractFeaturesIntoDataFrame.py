@@ -5,34 +5,18 @@ import pickle
 from pathlib import Path
 from sys import platform
 from FeatureExtraction.feature_set_a import get_statistics, get_feature_names
-from Utilities.utils import unison_shuffled_copies
 
 
-MAC_PICTURES_PATH = '/Users/victorhe/Pictures'
+MAC_PICTURES_PATH = '/Users/victorhe/Pictures/'
 WINDOWS_PICTURES_PATH = 'C:\\Users\\van32\\Pictures\\TrainingBatches\\three'
 
 
 def images_to_data_frame(batch_name):
-    image_paths = sorted(get_base_path(batch_name).glob('*.BMP'))
-    labels_path = get_base_path(batch_name) / 'labels.txt'
+    feature_matrix = extract_feature_matrix(batch_name)
 
-    feature_vectors = list()
-    for path in image_paths:
-        image = cv.imread(str(path))
-        # [start_row:end_row, start_col:end_col]
-        roi = image[60:940, 260:1140]
-        converted_image = cv.cvtColor(roi, cv.COLOR_BGR2HSV)
-        feature_vectors.append(get_statistics(converted_image))
-    feature_matrix = np.vstack(feature_vectors)
+    labels_vector = read_labels_into_vector(batch_name)
 
-    labels_vector = None
-    with open(labels_path) as labels_file:
-        for line in labels_file:
-            labels_from_file = line.split()
-            # converts any label besides '1' and '2' to '5'
-            labels_from_file = list(map(lambda x: '5' if x > '2' else x, labels_from_file))
-            labels_vector = np.array(labels_from_file)
-    data = np.hstack((feature_matrix, labels_vector.reshape((-1, 1))))
+    data = np.hstack((feature_matrix, labels_vector))
 
     columns = get_feature_names()
     columns.append('Labels')
@@ -42,6 +26,36 @@ def images_to_data_frame(batch_name):
     pickle_file_name = get_base_path(batch_name) / pickle_file_name
     with open(pickle_file_name, 'wb') as f:
         pickle.dump(df, f, pickle.HIGHEST_PROTOCOL)
+
+
+def extract_feature_matrix(batch_name):
+    image_paths = sorted(get_base_path(batch_name).glob('*.BMP'))
+    feature_vectors = list()
+    for path in image_paths:
+        image = cv.imread(str(path))
+        roi = get_roi(image)
+        converted_image = cv.cvtColor(roi, cv.COLOR_BGR2HSV)
+        feature_vectors.append(get_statistics(converted_image))
+    feature_matrix = np.vstack(feature_vectors)
+    return feature_matrix
+
+
+def get_roi(image):
+    # [start_row:end_row, start_col:end_col]
+    roi = image[60:940, 260:1140]
+    return roi
+
+
+def read_labels_into_vector(batch_name):
+    labels_path = get_base_path(batch_name) / 'labels.txt'
+    labels_vector = None
+    with open(labels_path) as labels_file:
+        for line in labels_file:
+            labels_from_file = line.split()
+            # converts any label besides '1' and '2' to '5'
+            labels_from_file = list(map(lambda x: '5' if x > '2' else x, labels_from_file))
+            labels_vector = np.array(labels_from_file).reshape((-1, 1))
+    return labels_vector
 
 
 def get_base_path(batch_name):
