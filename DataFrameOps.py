@@ -7,8 +7,8 @@ from pathlib import Path
 from sys import platform
 from FeatureExtraction.feature_set_a import get_statistics, get_feature_names
 
-
-WINDOWS_PICTURES_PATH = 'C:\\Users\\van32\\Pictures\\TrainingBatches\\three'
+# todo change according to series name
+WINDOWS_PICTURES_PATH = 'C:\\Users\\van32\\Pictures\\TrainingBatches\\test_dif'
 
 
 def images_to_data_frame(batch_name):
@@ -56,7 +56,8 @@ def get_roi(image):
     reminder on how to interpret numpy array cropping:
         [start_row:end_row, start_col:end_col]
     """
-    roi = image[60:940, 260:1140]
+    # todo remember to check for ROI
+    roi = image[150:1050, 300:1200]
     return roi
 
 
@@ -118,3 +119,9 @@ def concatenate_data_frames(component_batch_names, combined_batch_name):
     batch_df_s = [load_pickled_data_frame(batch_name) for batch_name in component_batch_names]
     df = pd.concat(batch_df_s, ignore_index=True)
     pickle_data_frame(combined_batch_name, df)
+
+
+# todo call on newly acquired image batch
+# images_to_data_frame('batch_0')
+# df = load_pickled_data_frame('batch_0')
+# print(df.describe())
