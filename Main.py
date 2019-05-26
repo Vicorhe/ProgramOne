@@ -58,5 +58,5 @@ for clf_constructor in [poly_kernel_svc]:
     print(clf_constructor.__name__ + ':', clf.score(test_data, test_labels))
     print(confusion_matrix(test_labels, predictions))
     # todo change to series to port to
-    add_model_to_series('test_dif', clf)
+    add_model_to_series('test', clf)
 

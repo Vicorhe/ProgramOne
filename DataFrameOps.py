@@ -8,7 +8,7 @@ from sys import platform
 from FeatureExtraction.feature_set_a import get_statistics, get_feature_names
 
 # todo change according to series name
-WINDOWS_PICTURES_PATH = 'C:\\Users\\van32\\Pictures\\TrainingBatches\\test_dif'
+WINDOWS_PICTURES_PATH = 'C:\\Users\\van32\\Pictures\\TrainingBatches\\test'
 
 
 def images_to_data_frame(batch_name):
