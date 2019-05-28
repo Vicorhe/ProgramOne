@@ -7,20 +7,22 @@ from shutil import rmtree
 from pathlib import Path
 from FeatureExtraction.feature_set_a import get_statistics
 from DataFrameOps import get_roi
-if platform != "darwin":
+if platform != 'darwin':
     from Camera.CameraThread import CameraThread
 
 
+MAIN_APP_GEOMETRY = '%dx%d%+d%+d' % (1100, 650, 150, 50)
 PROMPT_GEOMETRY = '%dx%d%+d%+d' % (700, 400, 250, 125)
-TITLE_FONT = ("Courier", 35)
-MAIN_MENU_FONT = ("Courier", 35)
-NAV_FONT = ("Courier", 25)
-USER_ACTION_FONT = ("Courier", 20)
-PROMPT_FONT = ("Courier", 25)
-PROMPT_OPTION_FONT = ("Courier", 25)
-LIST_FONT = ("Courier", 25)
-INDICATOR_FONT = ("Courier", 30)
-FORM_FONT = ("Courier", 35)
+TITLE_FONT = ('Courier', 35)
+PROMPT_FONT = ('Courier', 25)
+MAIN_MENU_NAV_FONT = ('Courier', 35)
+BOTTOM_NAV_FONT = ('Courier', 25)
+LIST_ACTION_FONT = ('Courier', 20)
+INSTANCE_ACTION_FONT = ('Courier', 30)
+SHADE_OPTION_FONT = ('Courier', 40)
+LIST_ITEM_FONT = ('Courier', 25)
+INDICATOR_FONT = ('Courier', 30)
+FORM_FONT = ('Courier', 35)
 
 
 MAC_PICTURES_PATH = '/Users/victorhe/Pictures'
@@ -32,7 +34,7 @@ class MainApplication(tk.Tk):
 
     def __init__(self):
         super().__init__(className='颜色分拣系统')
-        self.geometry('%dx%d%+d%+d' % (1100, 650, 150, 50))
+        self.geometry(MAIN_APP_GEOMETRY)
         self._frame = None
         self.selected_series = None
         self.is_updating = False
@@ -44,22 +46,6 @@ class MainApplication(tk.Tk):
             self._frame.destroy()
         self._frame = new_frame
         self._frame.pack()
-
-
-class MainMenu(tk.Frame):
-    def __init__(self, master):
-        super().__init__(master)
-        self.build_title()
-        self.build_main_menu_option('运作区', OperatingMenu)
-        self.build_main_menu_option('训练区', TrainingMenu)
-
-    def build_title(self):
-        tk.Label(self, text='主页', font=TITLE_FONT, height=2).grid(pady=10)
-
-    def build_main_menu_option(self, text, destination):
-        option = tk.Button(self, text=text, font=MAIN_MENU_FONT, width=6, height=2, borderwidth=10,
-                           command=lambda: self.master.switch_frame(destination))
-        option.grid(pady=5)
 
 
 class BaseFrame(tk.Frame):
@@ -82,7 +68,7 @@ class BaseFrame(tk.Frame):
         prompt_text.pack(pady=15)
 
     def add_prompt_action(self, text, hook):
-        action = tk.Button(self.prompt, text=text, font=PROMPT_OPTION_FONT,
+        action = tk.Button(self.prompt, text=text, font=PROMPT_FONT,
                            height=2, width=6, borderwidth=5, command=hook)
         action.pack(pady=10)
 
@@ -92,14 +78,14 @@ class SeriesList(BaseFrame):
         super().__init__(master)
         self.master = master
         self.my_list = None
-        self.actions_frame = None
+        self.list_actions_frame = None
         self.prompt = None
 
     def build_list(self):
         list_container = tk.Frame(self)
         list_container.grid(row=1, column=0)
 
-        self.my_list = tk.Listbox(list_container, selectmode=tk.SINGLE, font=LIST_FONT)
+        self.my_list = tk.Listbox(list_container, selectmode=tk.SINGLE, font=LIST_ITEM_FONT)
         self.my_list.bind('<<ListboxSelect>>', self.selection_callback)
         self.my_list.pack(side=tk.LEFT, fill=tk.BOTH)
 
@@ -128,29 +114,33 @@ class SeriesList(BaseFrame):
             series = self.my_list.get(self.my_list.curselection())
             self.master.selected_series = series
 
-    def selection_check_wrapper(self, hook):
-        if self.master.selected_series:
-            hook()
-        else:
-            self.prompt_no_series_selected()
-
     def prompt_no_series_selected(self):
         self.build_prompt()
         self.add_prompt_text('没有选到瓷砖系列')
         self.add_prompt_action('确定', self.prompt.destroy)
 
     def build_bottom_navigation(self):
-        nav_button = tk.Button(self, text='主页', font=NAV_FONT, width=6, height=2, borderwidth=5,
+        nav_button = tk.Button(self, text='主页', font=BOTTOM_NAV_FONT, width=6, height=2, borderwidth=5,
                                command=lambda: self.master.switch_frame(MainMenu))
         nav_button.grid(row=2, column=0, columnspan=3, pady=10)
 
-    def add_action(self, text, hook):
-        action = tk.Button(self.actions_frame, text=text, font=USER_ACTION_FONT,
+    def build_list_actions_frame(self):
+        self.list_actions_frame = tk.Frame(self)
+        self.list_actions_frame.grid(row=1, column=1, padx=20)
+
+    def add_list_action(self, text, hook):
+        action = tk.Button(self.list_actions_frame, text=text, font=LIST_ACTION_FONT,
                            width=6, height=2, borderwidth=5, command=hook)
         action.pack(pady=5)
 
-    def add_selection_based_action(self, text, hook):
-        self.add_action(text, lambda: self.selection_check_wrapper(hook))
+    def add_selection_based_list_action(self, text, hook):
+        self.add_list_action(text, lambda: self.selection_check_wrapper(hook))
+
+    def selection_check_wrapper(self, hook):
+        if self.master.selected_series:
+            hook()
+        else:
+            self.prompt_no_series_selected()
 
 
 class SeriesInstance(BaseFrame):
@@ -160,7 +150,7 @@ class SeriesInstance(BaseFrame):
         self.master = master
         self.top_preview_frame = None
         self.bottom_preview_frame = None
-        self.actions_frame = None
+        self.instance_actions_frame = None
         self.shades = list()
         self.prompt = None
         self.num_shades = tk.IntVar()
@@ -175,7 +165,7 @@ class SeriesInstance(BaseFrame):
                 self.batch_number = db[selected_series]['batch_number']
                 self.model = db[selected_series]['model']
 
-        base_path = MAC_PICTURES_PATH if platform == "darwin" else WINDOWS_PICTURES_PATH
+        base_path = MAC_PICTURES_PATH if platform == 'darwin' else WINDOWS_PICTURES_PATH
         self.batch_path = Path(base_path)
         batch_extension = 'TrainingBatches/%s/batch_%d' % (self.master.selected_series, self.batch_number)
         self.batch_path = self.batch_path / batch_extension
@@ -206,17 +196,17 @@ class SeriesInstance(BaseFrame):
         option_frame = tk.Frame(parent)
         option_frame.pack(side=tk.LEFT, padx=6)
         label = tk.Label(option_frame, text=str(option), fg='white', bg='dark slate gray',
-                         width=4, height=2, font=("Courier", 40), borderwidth=20)
+                         width=4, height=2, font=SHADE_OPTION_FONT, borderwidth=20)
         label.pack()
         self.shades.append(label)
 
-    def build_user_actions_frame(self):
-        self.actions_frame = tk.Frame(self)
-        self.actions_frame.grid()
+    def build_instance_actions_frame(self):
+        self.instance_actions_frame = tk.Frame(self)
+        self.instance_actions_frame.grid()
 
-    def add_user_action(self, text, hook):
-        user_action = tk.Button(self.actions_frame, text=text, font=("Courier", 30),
-                                height=2, width=7, borderwidth=5, command=hook)
+    def add_instance_action(self, text, hook):
+        user_action = tk.Button(self.instance_actions_frame, text=text, font=INSTANCE_ACTION_FONT,
+                                width=7, height=2, borderwidth=5, command=hook)
         user_action.pack(side=tk.LEFT, padx=10)
 
     def predict(self, image):
@@ -236,18 +226,30 @@ class SeriesInstance(BaseFrame):
                 shade_option.configure(relief=tk.FLAT)
 
 
+class MainMenu(BaseFrame):
+    def __init__(self, master):
+        super().__init__(master)
+        self.build_title('主页')
+        self.build_main_menu_option(text='运作区', destination=OperatingMenu)
+        self.build_main_menu_option(text='训练区', destination=TrainingMenu)
+
+    def build_main_menu_option(self, text, destination):
+        option = tk.Button(self, text=text, font=MAIN_MENU_NAV_FONT, width=6, height=2, borderwidth=10,
+                           command=lambda: self.master.switch_frame(destination))
+        option.grid(pady=5)
+
+
 class OperatingMenu(SeriesList):
     def __init__(self, master):
         super().__init__(master)
         self.build_title('运作区')
         self.build_list()
-        self.build_user_actions()
+        self.build_page_actions()
         self.build_bottom_navigation()
 
-    def build_user_actions(self):
-        self.actions_frame = tk.Frame(self)
-        self.actions_frame.grid(row=1, column=1, padx=20)
-        self.add_selection_based_action('确认', self.operate_hook)
+    def build_page_actions(self):
+        self.build_list_actions_frame()
+        self.add_selection_based_list_action('确认', self.operate_hook)
 
     def operate_hook(self):
         self.master.switch_frame(OperatingSession)
@@ -258,16 +260,15 @@ class TrainingMenu(SeriesList):
         super().__init__(master)
         self.build_title('训练区')
         self.build_list()
-        self.build_user_actions()
+        self.build_page_actions()
         self.build_bottom_navigation()
 
-    def build_user_actions(self):
-        self.actions_frame = tk.Frame(self)
-        self.actions_frame.grid(row=1, column=1, padx=20)
-        self.add_action('新建', self.create_hook)
-        self.add_selection_based_action('更改', self.update_hook)
-        self.add_selection_based_action('删除', self.delete_hook)
-        self.add_selection_based_action('训练', self.train_hook)
+    def build_page_actions(self):
+        self.build_list_actions_frame()
+        self.add_list_action('新建', self.create_hook)
+        self.add_selection_based_list_action('更改', self.update_hook)
+        self.add_selection_based_list_action('删除', self.delete_hook)
+        self.add_selection_based_list_action('训练', self.train_hook)
 
     def create_hook(self):
         self.master.selected_series = None
@@ -303,7 +304,7 @@ class FormPage(SeriesInstance):
         self.build_form()
         self.fill_out_form()
         self.build_preview()
-        self.build_user_actions()
+        self.build_page_actions()
 
     def build_form(self):
         form_frame = tk.Frame(self)
@@ -330,11 +331,11 @@ class FormPage(SeriesInstance):
                 self.series_name.set(selected_series)
                 self.num_shades.set(db[selected_series]['num_shades'])
 
-    def build_user_actions(self):
-        self.build_user_actions_frame()
+    def build_page_actions(self):
+        self.build_instance_actions_frame()
         save_button_text = '保存' if self.master.is_updating else '创建'
-        self.add_user_action(save_button_text, self.save_series)
-        self.add_user_action('取消', self.route_to_training_menu)
+        self.add_instance_action(save_button_text, self.save_series)
+        self.add_instance_action('取消', self.route_to_training_menu)
 
     def save_series(self):
         series_name = self.series_name.get()
@@ -382,14 +383,14 @@ class OperatingSession(SeriesInstance):
         title_text = '系列名称: ' + self.master.selected_series
         self.build_title(title_text)
         self.build_preview()
-        self.build_user_actions_frame()
-        self.add_user_action('结束', self.leave_session)
+        self.build_instance_actions_frame()
+        self.add_instance_action('结束', self.leave_session)
         self.terminate_session = False
 
         if platform != 'darwin':
-            self.appInstance = CameraThread(session=self, is_training_session=False)
+            self.cameraInstance = CameraThread(session=self, is_training_session=False)
         else:
-            print('CameraThread NOT INITIATED')
+            print('CameraThread NOT SUPPORTED ON OSX')
 
         if self.model is None:
             raise Exception('YOU DID NOT PORT A MODEL TO THIS SERIES!!!')
@@ -399,7 +400,7 @@ class OperatingSession(SeriesInstance):
     def leave_session(self):
         self.terminate_session = True
         if platform != 'darwin':
-            self.appInstance.join()
+            self.cameraInstance.join()
         self.master.switch_frame(OperatingMenu)
 
 
@@ -414,14 +415,14 @@ class TrainingSession(SeriesInstance):
         self.build_preview()
         self.make_shades_into_choices()
         self.build_indicator_frame()
-        self.build_user_actions_frame()
-        self.add_user_action('结束训练', self.prompt_save_model)
+        self.build_instance_actions_frame()
+        self.add_instance_action('结束训练', self.prompt_save_model)
         self.create_batch_directory()
         self.terminate_session = False
-        if platform != "darwin":
-            self.appInstance = CameraThread(session=self, is_training_session=True)
+        if platform != 'darwin':
+            self.cameraInstance = CameraThread(session=self, is_training_session=True)
         else:
-            print('CameraThread NOT INITIATED')
+            print('CameraThread NOT SUPPORTED ON OSX')
 
     def make_shades_into_choices(self):
         for shade in self.shades:
@@ -463,7 +464,7 @@ class TrainingSession(SeriesInstance):
     def prompt_save_model(self):
         self.terminate_session = True
         if platform != 'darwin':
-            self.appInstance.join()
+            self.cameraInstance.join()
         self.build_prompt()
         text = '是否保存刚刚操作的 ' + self.master.selected_series + ' 系列版本?'
         self.add_prompt_text(text)
@@ -512,18 +513,18 @@ class TrainingSession(SeriesInstance):
         try:
             rmtree(self.batch_path)
         except OSError:
-            print("Deletion of the directory %s failed" % self.batch_path)
+            print('Deletion of the directory %s failed' % self.batch_path)
         else:
-            print("Successfully deleted the directory %s" % self.batch_path)
+            print('Successfully deleted the directory %s' % self.batch_path)
 
     def create_batch_directory(self):
         if not os.path.isdir(self.batch_path):
             try:
                 os.makedirs(self.batch_path)
             except OSError:
-                print("Creation of the directory %s failed" % self.batch_path)
+                print('Creation of the directory %s failed' % self.batch_path)
             else:
-                print("Successfully created the directory %s" % self.batch_path)
+                print('Successfully created the directory %s' % self.batch_path)
 
 
 if __name__ == '__main__':
