@@ -4,12 +4,12 @@ import Camera.mvsdk as mvsdk
 
 
 class CameraThread(Thread):
-    def __init__(self, session, is_training):
+    def __init__(self, session, is_training_session):
         Thread.__init__(self)
         self.session = session
         self.camera = None
         self.image_buffer = None
-        if is_training:
+        if is_training_session:
             self.camera_mainloop = self.training_mainloop
         else:
             self.camera_mainloop = self.operating_mainloop
@@ -74,17 +74,14 @@ class CameraThread(Thread):
             mvsdk.CameraReleaseImageBuffer(self.camera, p_raw_data)
 
             # convert image to model friendly formats
-            n = self.session.num_images_taken.get()
-
             frame_data = (mvsdk.c_ubyte * frame_head.uBytes).from_address(self.image_buffer)
             frame = np.frombuffer(frame_data, dtype=np.uint8)
             frame = frame.reshape((frame_head.iHeight, frame_head.iWidth, 3))
 
+            # make prediction
             p = self.session.predict(frame)
-            print(p)
             self.session.highlight_shade(p)
-
-            self.session.num_images_taken.set(n + 1)
+            print(p)
 
         except mvsdk.CameraException:
             pass
