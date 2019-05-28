@@ -1,5 +1,6 @@
 from sklearn.pipeline import Pipeline
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import GridSearchCV
 
 
 def random_forest():
@@ -24,3 +25,14 @@ def random_forest():
     #   max_features = 'sqrt', 'log2', None
 
     return random_forest_clf
+
+
+param_grid = [
+    {'n_estimators': [3, 10, 30, 50], 'max_features': ['sqrt', 'log2', None]}
+]
+
+
+def random_forest_grid_search():
+    random_forest_clf = RandomForestClassifier()
+    grid_search = GridSearchCV(random_forest_clf, param_grid, cv=3, scoring='balanced_accuracy')
+    return grid_search
