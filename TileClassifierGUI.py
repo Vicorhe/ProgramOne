@@ -5,9 +5,10 @@ import cv2 as cv
 import tkinter as tk
 from shutil import rmtree
 from pathlib import Path
-from Camera.CameraThread import CameraThread
 from FeatureExtraction.feature_set_a import get_statistics
 from DataFrameOps import get_roi
+if platform != "darwin":
+    from Camera.CameraThread import CameraThread
 
 
 PROMPT_GEOMETRY = '%dx%d%+d%+d' % (700, 400, 250, 125)
@@ -384,11 +385,15 @@ class OperatingSession(SeriesInstance):
         self.build_user_actions_frame()
         self.add_user_action('结束', self.leave_session)
         self.terminate_session = False
-        self.appInstance = CameraThread(self, False)
+        if platform != 'darwin':
+            self.appInstance = CameraThread(self, False)
+        else:
+            print('CameraThread NOT INITIATED')
 
     def leave_session(self):
         self.terminate_session = True
-        self.appInstance.join()
+        if platform != 'darwin':
+            self.appInstance.join()
         self.master.switch_frame(OperatingMenu)
 
 
@@ -407,7 +412,10 @@ class TrainingSession(SeriesInstance):
         self.add_user_action('结束训练', self.prompt_save_model)
         self.create_batch_directory()
         self.terminate_session = False
-        self.appInstance = CameraThread(self, True)
+        if platform != "darwin":
+            self.appInstance = CameraThread(self, True)
+        else:
+            print('CameraThread NOT INITIATED')
 
     def make_shades_into_choices(self):
         for shade in self.shades:
@@ -448,7 +456,8 @@ class TrainingSession(SeriesInstance):
 
     def prompt_save_model(self):
         self.terminate_session = True
-        self.appInstance.join()
+        if platform != 'darwin':
+            self.appInstance.join()
         self.build_prompt()
         text = '是否保存刚刚操作的 ' + self.master.selected_series + ' 系列版本?'
         self.add_prompt_text(text)
