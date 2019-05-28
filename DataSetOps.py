@@ -30,6 +30,10 @@ def shuffle_data_set(df):
     return df.sample(frac=1).reset_index(drop=True)
 
 
+def print_labels_distribution(df):
+    print('\nLabels Distribution:\n', df['Labels'].value_counts(), sep='', end='\n\n')
+
+
 def custom(df):
     label = '5'
     a = ignore_label(label, df)

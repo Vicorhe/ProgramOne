@@ -9,6 +9,7 @@ from FeatureExtraction.feature_set_a import get_statistics, get_feature_names
 
 # todo change according to series name
 WINDOWS_PICTURES_PATH = 'C:\\Users\\van32\\Pictures\\TrainingBatches\\test'
+# todo                                            change this portion ^^^^
 
 
 def images_to_data_frame(batch_name):
@@ -70,8 +71,6 @@ def read_labels_into_vector(batch_name):
     with open(labels_path) as labels_file:
         for line in labels_file:
             labels_from_file = line.split()
-            # converts any label besides '1' and '2' to '5'
-            labels_from_file = list(map(lambda x: '5' if x > '2' else x, labels_from_file))
             labels_vector = np.array(labels_from_file).reshape((-1, 1))
     return labels_vector
 
@@ -114,7 +113,7 @@ def get_data_frame_base_path():
 
 def concatenate_data_frames(component_batch_names, combined_batch_name):
     """
-    Combine component batche DataFrames into a larger aggregate DataFrame.
+    Combine component batch DataFrames into a larger aggregate DataFrame.
     """
     batch_df_s = [load_pickled_data_frame(batch_name) for batch_name in component_batch_names]
     df = pd.concat(batch_df_s, ignore_index=True)
