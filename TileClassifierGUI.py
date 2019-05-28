@@ -385,10 +385,16 @@ class OperatingSession(SeriesInstance):
         self.build_user_actions_frame()
         self.add_user_action('结束', self.leave_session)
         self.terminate_session = False
+
         if platform != 'darwin':
             self.appInstance = CameraThread(session=self, is_training_session=False)
         else:
             print('CameraThread NOT INITIATED')
+
+        if self.model is None:
+            raise Exception('YOU DID NOT PORT A MODEL TO THIS SERIES!!!')
+        else:
+            print('The model you are using is:\n', self.model)
 
     def leave_session(self):
         self.terminate_session = True
