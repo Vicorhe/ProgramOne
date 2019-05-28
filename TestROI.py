@@ -4,6 +4,7 @@ Used to trying out the ROI for used for feature extraction
 """
 import cv2 as cv
 from sys import platform
+from DataFrameOps import get_roi
 
 if platform == "darwin":
     raise OSError('This script should only be ran on Windows OS.')
@@ -15,8 +16,8 @@ WINDOWS_PICTURES_PATH = 'C:\\Users\\van32\\Pictures\\TrainingBatches\\test\\batc
 for i in range(20):
     img = cv.imread(WINDOWS_PICTURES_PATH % i)
     cv.namedWindow('win', cv.WINDOW_KEEPRATIO)
-    cv.imshow('win', img[150:1050, 300:1200])
-
+    roi = get_roi(img)
+    cv.imshow('win', roi)
     cv.waitKey(0)
 
 cv.destroyAllWindows()

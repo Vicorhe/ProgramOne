@@ -386,7 +386,7 @@ class OperatingSession(SeriesInstance):
         self.add_user_action('结束', self.leave_session)
         self.terminate_session = False
         if platform != 'darwin':
-            self.appInstance = CameraThread(self, False)
+            self.appInstance = CameraThread(session=self, is_training_session=False)
         else:
             print('CameraThread NOT INITIATED')
 
@@ -413,7 +413,7 @@ class TrainingSession(SeriesInstance):
         self.create_batch_directory()
         self.terminate_session = False
         if platform != "darwin":
-            self.appInstance = CameraThread(self, True)
+            self.appInstance = CameraThread(session=self, is_training_session=True)
         else:
             print('CameraThread NOT INITIATED')
 
