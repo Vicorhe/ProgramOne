@@ -1,5 +1,5 @@
 # coding=utf-8
-import mvsdk
+import Camera.mvsdk as mvsdk
 
 
 def camera_setup():

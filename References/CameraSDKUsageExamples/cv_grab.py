@@ -1,7 +1,7 @@
 #coding=utf-8
 import cv2
 import numpy as np
-import mvsdk
+import Camera.mvsdk as mvsdk
 
 def main_loop():
 	# 枚举相机

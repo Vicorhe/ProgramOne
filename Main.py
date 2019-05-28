@@ -6,7 +6,6 @@ from Algorithms.PolynomialKernelSVC import poly_kernel_svc
 from Algorithms.RandomForest import random_forest
 from Algorithms.RandomPatches import random_patches
 from Algorithms.RBFKernelSVC import rbf_kernel_svc
-from Algorithms.KNeighbors import k_neighbors
 
 import DataSetOps
 from DataFrameOps import load_pickled_data_frame
@@ -50,13 +49,13 @@ test_data, test_labels = testing_batch_df.iloc[:, :6], testing_batch_df.iloc[:, 
 
 print('Testing Labels Distribution:', testing_batch_df['Labels'].value_counts(), sep='\n')
 # todo see which clf performs the best then import said clf
-# for clf_constructor in CLASSIFIERS:
-for clf_constructor in [poly_kernel_svc]:
+for clf_constructor in CLASSIFIERS:
+# for clf_constructor in [poly_kernel_svc]:
     clf = clf_constructor()
     clf.fit(train_data, train_labels)
     predictions = clf.predict(test_data)
     print(clf_constructor.__name__ + ':', clf.score(test_data, test_labels))
     print(confusion_matrix(test_labels, predictions))
     # todo change to series to port to
-    add_model_to_series('test', clf)
+    # add_model_to_series('test', clf)
 
