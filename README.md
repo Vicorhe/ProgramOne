@@ -1,8 +1,20 @@
 # ProgramOne
 
-##Requirments
+![alt text](readmeImages/IMG_0451.JPG)
+
+## Requirments
 - the **sample collection and labeling GUI** must be run on a computer with **Windows Operating System**.
 - **camera used: https://item.taobao.com/item.htm?spm=a1z09.2.0.0.6fc72e8daIwtBu&id=556775402346&_u=q3q3dtnf74c2** 
+
+## Work Flow
+1. Setup workstation (with camera and sensors), connect to power, and connect to computer
+2. run `python TileClassifierGUI.py` to open label collection GUI
+3. create a new tile series
+4. start training that series
+5. as tiles pass through the sensors, a picture is taken, use cursor to select the identified label for the tile.
+6. complete process.
+7. call the appropriate functions at the bottom of `DataFrameOps.py` to convert the image set just collected to DataFrames.
+8. load the DataFrames in `Main.py` to begin the ML work.
 
 ## Core Files 
 #### DataFrameOps.py
