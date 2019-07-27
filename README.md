@@ -1,6 +1,31 @@
 # ProgramOne
 
-![alt text](readmeImages/IMG_0451.JPG)
+![](readmeImages/thirdVisitAfterSetup.jpg)
+
+Color Classification System for ceramic tiles.
+[Live Demo](https://youtu.be/wOHohzjeYyo)
+
+## Gallery
+
+#### Studio 
+![](readmeImages/initialWorkStationDesign.jpg)
+![](readmeImages/initialWorkStationPrototype.jpg)
+![](readmeImages/testedDesign.jpg)
+![](readmeImages/antiReflectionDesign.jpg)
+
+#### Second Factory Visit
+![](readmeImages/secondVisitBeforeSetup.jpg)
+![](readmeImages/secondVisitOperation2.jpg)
+![](readmeImages/secondVisitOperation3.jpg)
+
+#### Third Factory Visit
+![](readmeImages/thirdVisitBeforeSetup.jpg)
+![](readmeImages/thirdVisitAfterSetup.jpg)
+![](readmeImages/thirdVisitOperation.jpg)
+
+#### Fourth Factory Visit
+![](readmeImages/fourthVisitBeforeSetup.jpg)
+![](readmeImages/fourthVisitOperation.jpg)
 
 ## Requirments
 - the **sample collection and labeling GUI** must be run on a computer with **Windows Operating System**.
