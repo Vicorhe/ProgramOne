@@ -8,7 +8,7 @@ from sys import platform
 from FeatureExtraction.feature_set_a import get_statistics, get_feature_names
 
 # todo change according to series name
-WINDOWS_PICTURES_PATH = 'C:\\Users\\van32\\Pictures\\TrainingBatches\\test'
+WINDOWS_PICTURES_PATH = 'C:\\Users\\van32\\Pictures\\TrainingBatches\\newSeries'
 # todo                                            change this portion ^^^^
 
 
@@ -121,6 +121,6 @@ def concatenate_data_frames(component_batch_names, combined_batch_name):
 
 
 # todo call on newly acquired image batch
-# images_to_data_frame('batch_0')
-# df = load_pickled_data_frame('batch_0')
-# print(df.describe())
+#images_to_data_frame('batch_0')
+#df = load_pickled_data_frame('batch_0')
+#print(df.describe())

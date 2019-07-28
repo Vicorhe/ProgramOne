@@ -48,10 +48,10 @@ training_batch_df = DataSetOps.shuffle_data_set(training_batch_df)
 train_data, train_labels = training_batch_df.iloc[:, :6], training_batch_df.iloc[:, 6]
 
 
-grid_search_clf = svc() # random_forest_grid_search()
-grid_search_clf.fit(train_data, train_labels)
-print(grid_search_clf.best_params_)
-print(grid_search_clf.best_estimator_.score(train_data, train_labels))
+# grid_search_clf = svc() # random_forest_grid_search()
+# grid_search_clf.fit(train_data, train_labels)
+# print(grid_search_clf.best_params_)
+# print(grid_search_clf.best_estimator_.score(train_data, train_labels))
 
 
 '''
@@ -62,7 +62,6 @@ for clf_constructor in CLASSIFIERS:
     cross_validation_report(clf, train_data, train_labels)
 '''
 
-'''
 # testing set operations
 # todo mirror ignore_label operations to training_batch_df above
 # testing_batch_df = DataSetOps.ignore_label('5', testing_batch_df)
@@ -73,12 +72,12 @@ test_data, test_labels = testing_batch_df.iloc[:, :6], testing_batch_df.iloc[:, 
 
 # todo see which clf performs the best then import said clf
 # for clf_constructor in CLASSIFIERS:
-for clf_constructor in [poly_kernel_svc]:
+for clf_constructor in [linear_kernel_svc]:
     clf = clf_constructor()
     clf.fit(train_data, train_labels)
     predictions = clf.predict(test_data)
     print(clf_constructor.__name__ + ':', clf.score(test_data, test_labels))
     print(confusion_matrix(test_labels, predictions))
     # todo change series to port here
-    # add_model_to_series(series='test', model=clf)
-'''
+    add_model_to_series(series='newSeries', model=clf)
+
